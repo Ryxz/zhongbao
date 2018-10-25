@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/no_read_tv"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/bottom_tab_select"
+            android:background="@color/text_hint_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未读"/>
+
+        <TextView
+            android:id="@+id/system_news"
+            android:textSize="12sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/no_read_tv"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dray"
+            android:text="欢迎您加入众宝大家庭"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

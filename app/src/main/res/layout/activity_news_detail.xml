@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/dray_line"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bg_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/back_left"
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/arrow_left"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:text="消息详情"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/news_title"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="85dp"
+        android:text="欢迎您加入众宝大家庭"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/news_time"
+        android:textSize="13sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/news_title"
+        android:textColor="@color/text_hint_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018-09-25 11:45:20"/>
+
+    <TextView
+        android:id="@+id/news_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/news_time"
+        android:textColor="@color/text_color"
+        android:textSize="12sp"
+        android:lineSpacingExtra="8dp"
+        android:text="欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

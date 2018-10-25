@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clear"
+    android:background="#80000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/kouhong"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="香奈儿四件套高级定制"
+                    android:textColor="@color/text_color"
+                    android:textSize="13sp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品价值: ¥120"
+                    android:layout_marginTop="5dp"
+                    android:textSize="14sp"
+                    android:textColor="#FF342F2F"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="第10期"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#FF342F2F"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:layout_marginRight="20dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/bg_toolbar"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1钻/次"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总需: 20"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#FF342F2F"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:layout_marginRight="20dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_dray"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="剩余: 18"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/buy_reduce"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@mipmap/reduce"/>
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/buy_num"
+                    android:textColor="@color/bg_toolbar"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/buy_reduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/see_calc_detail"/>
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/buy_add"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/buy_num"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@mipmap/add_shop_car"/>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:text="包尾"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:background="@mipmap/yuanjiang_duan"/>
+
+            </RelativeLayout>
+            
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                
+                <TextView
+                    android:id="@+id/first_add"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="5"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:textColor="@color/bg_toolbar"
+                    android:background="@mipmap/yuanjiao_duan_no"/>
+
+
+                <TextView
+                    android:id="@+id/second_add"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:text="50"
+                    android:textColor="@color/bg_toolbar"
+                    android:background="@mipmap/yuanjiao_duan_no"/>
+
+
+                <TextView
+                    android:id="@+id/third_add"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="100"
+                    android:textColor="@color/bg_toolbar"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/yuanjiao_duan_no"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="共计:60钻石"
+                android:textColor="@color/bg_toolbar"
+                android:textSize="15sp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tijiao"
+                android:layout_marginTop="10dp"
+                android:text="提交"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@mipmap/button_bg"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

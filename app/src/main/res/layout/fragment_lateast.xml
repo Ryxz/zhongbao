@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bg_toolbar">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:text="最新揭晓"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/top_lineaer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="80dp"
+                android:scaleType="centerCrop"
+                android:layout_height="80dp"
+                android:src="@mipmap/a"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/goods_name"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:textColor="@color/text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="香奈儿四件套高级定制你值得拥有你值得拥有"
+                android:singleLine="true"
+                android:ellipsize="end"
+                />
+
+            <TextView
+                android:textSize="12sp"
+                android:id="@+id/goods_price"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/goods_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_dray"
+                android:text="商品价值: ¥ 100"/>
+
+            <LinearLayout
+                android:id="@+id/click_linear"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/click"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/imageView"
+                    android:layout_alignEnd="@+id/click_linear"
+                    android:layout_alignRight="@+id/click_linear"
+                    android:layout_gravity="center"
+                    android:text="即将揭晓:"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/click_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:19:49"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_red_dark"/>
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/arrow"
+                android:id="@+id/imageView" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+<View
+    android:layout_marginLeft="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    android:background="@color/dray_line"/>
+
+
+    <ListView
+        android:id="@+id/latest_list"
+        android:layout_width="match_parent"
+        android:divider="@color/text_hint_color"
+        android:layout_height="match_parent"/>
+</LinearLayout>

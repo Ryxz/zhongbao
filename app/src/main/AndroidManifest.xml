@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhongbao.zhongbao">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.zhongbao.my.PersonalDataActivity"/>
+        <activity android:name="com.zhongbao.my.AddAdressActivity"/>
+        <activity android:name="com.zhongbao.my.PayActivity"/>
+        <activity android:name="com.zhongbao.my.AboutActivity"
+            android:theme="@style/test"/>
+        <activity android:name="com.zhongbao.my.HelpActivity"/>
+        <activity android:name="com.zhongbao.my.ZbRecordActivity"/>
+        <activity android:name="com.zhongbao.my.MyAdressActivity"/>
+        <activity android:name="com.zhongbao.my.MyBaskActivity"/>
+        <activity android:name="com.zhongbao.my.GetGoodsActivity"/>
+        <activity android:name="com.zhongbao.login.LoginActivity"/>
+        <activity android:name="com.zhongbao.login.FindPsdActivity"/>
+        <activity android:name="com.zhongbao.login.RegisterActivity"/>
+        <activity android:name="com.zhongbao.goods.GoodsDetailActivity"/>
+        <activity android:name="com.zhongbao.my.SystemNewsActivity"/>
+        <activity android:name="com.zhongbao.my.NewsDetailActivity"/>
+        <activity android:name="com.zhongbao.goods.NoviceActivity"/>
+        <activity android:name="com.zhongbao.home.XinpinActivity"/>
+        <activity android:name="com.zhongbao.home.SearchActivity"/>
+        <activity android:name="com.zhongbao.home.HomeDialogActivity"
+            android:theme="@style/Theme.Translucent"/>
+        <activity android:name="com.zhongbao.my.ShareActivity"
+            android:theme="@style/Theme.Translucent"/>
+
+        <activity android:name="com.zhongbao.my.QrcodeActivity"
+            android:theme="@style/Theme.Translucent"/>
+        <activity android:name="com.zhongbao.home.XianGouActivity"/>
+        <activity android:name="com.zhongbao.my.MyNumberActivity" />
+        <activity android:name="com.zhongbao.my.TAcenterActivity" />
+        <activity android:name="com.zhongbao.goods.DuihuanActivity"/>
+        <activity android:name="com.zhongbao.goods.BuyGoodsActivity"
+            android:theme="@style/Theme.Translucent" />
+    </application>
+
+</manifest>

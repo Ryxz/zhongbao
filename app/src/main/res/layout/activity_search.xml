@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/dray_line">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <EditText
+            android:textColor="@color/text_color"
+            android:imeOptions="actionSearch"
+            android:id="@+id/searct_et"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="13sp"
+            android:singleLine="true"
+            android:drawableLeft="@mipmap/search_dray"
+            android:drawablePadding="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginRight="100dp"
+            android:textColorHint="@color/text_hint_color"
+            android:hint="  输入您想查询的内容"
+            android:background="@mipmap/search_bg"/>
+
+        <TextView
+            android:id="@+id/search_cancel"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/bg_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/search_history_list"
+        android:dividerHeight="0.5dp"
+        android:divider="@color/dray_line"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/bask_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="250dp"
+        android:textSize="12sp"
+        android:singleLine="true"
+        android:textColor="@color/text_color"
+        android:ellipsize="end"
+        android:layout_height="wrap_content"
+        android:text="香奈儿四件套你值得拥有香奈儿四件套你值得拥有"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/qishu"
+        android:textColor="@color/text_dray"
+        android:textSize="11sp"
+        android:layout_below="@id/bask_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="期数: 第20期"/>
+
+    <RelativeLayout
+        android:id="@+id/time_rela"
+        android:layout_below="@id/qishu"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/time"
+            android:textSize="11sp"
+            android:textColor="@color/text_dray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="昨天"/>
+
+        <TextView
+            android:layout_toRightOf="@id/time"
+            android:textSize="11sp"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/bg_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="试试手气 >>"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bask_bg"
+        android:layout_below="@id/time_rela"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_height="100dp"
+        android:background="@color/dray_line">
+
+        <TextView
+            android:textColor="#FF322D2D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="非常激动! ! !"/>
+
+        <ImageView
+            android:layout_gravity="left"
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
+            android:layout_height="60dp"
+            android:src="@mipmap/mine_head"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/bask_bg"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/white"/>
+
+
+
+
+</RelativeLayout>

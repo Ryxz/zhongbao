@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@android:color/white"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+    android:orientation="vertical">
+  <RelativeLayout
+      android:id="@+id/goods_title"
+      android:layout_width="match_parent"
+      android:layout_height="45dp"
+      android:background="@color/bg_toolbar">
+
+    <RelativeLayout
+        android:id="@+id/back_left"
+        android:layout_width="100dp"
+        android:layout_height="match_parent">
+      <ImageView
+          android:id="@+id/search"
+          android:layout_marginLeft="10dp"
+          android:layout_centerVertical="true"
+          android:layout_width="20dp"
+          android:layout_height="20dp"
+          android:scaleType="fitXY"
+          android:src="@mipmap/goods_search"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:text="所有商品"/>
+  </RelativeLayout>
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_nav"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+      <TextView
+          android:visibility="invisible"
+          android:id="@+id/tv_all"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:textSize="12sp"
+          android:textColor="@drawable/item_nav_text_selector"
+          android:text="全部"
+          />
+      <TextView
+          android:id="@+id/tv_announce"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:textSize="12sp"
+          android:textColor="@drawable/item_nav_text_selector"
+          android:text="即将揭晓"/>
+      <TextView
+          android:id="@+id/tv_popularity"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:textSize="12sp"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:textColor="@drawable/item_nav_text_selector"
+          android:text="人气"/>
+      <TextView
+          android:id="@+id/tv_new"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:textSize="12sp"
+          android:textColor="@drawable/item_nav_text_selector"
+          android:text="最新"/>
+      <TextView
+          android:id="@+id/tv_price"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:textSize="12sp"
+          android:textColor="@drawable/item_nav_text_selector"
+          android:text="价格"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_category"
+        android:layout_width="0dp"
+        android:paddingBottom="50dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_nav"/>
+
+    <com.zhongbao.custom.ProductRecycleView
+        android:id="@+id/rv_product"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="50dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/ll_nav"/>
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"/>
+  </android.support.constraint.ConstraintLayout>
+
+
+
+
+</LinearLayout>

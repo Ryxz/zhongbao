@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_hint_color">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bg_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/back_left"
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/arrow_left"/>
+        </RelativeLayout>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:text="系统消息"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_marginTop="55dp"
+        android:id="@+id/system_news_list"
+        android:layout_width="match_parent"
+        android:dividerHeight="0.5dp"
+        android:divider="@color/text_hint_color"
+        android:layout_height="match_parent"
+        android:background="@color/dray_line"
+        android:layout_marginBottom="41dp" />
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/dray_line"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:id="@+id/clear_rela"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/clear_iv"
+                android:layout_centerVertical="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/news_clear"/>
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/clear_iv"
+                android:layout_marginLeft="5dp"
+                android:textSize="10sp"
+                android:textColor="@color/text_dray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清空消息"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/text_hint_color"/>
+
+        <RelativeLayout
+            android:id="@+id/read_rela"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/read_iv"
+                android:layout_centerVertical="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/news_read"/>
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/read_iv"
+                android:layout_marginLeft="5dp"
+                android:textSize="10sp"
+                android:textColor="@color/text_dray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部阅读"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

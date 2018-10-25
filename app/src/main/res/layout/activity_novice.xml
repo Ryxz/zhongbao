@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/dray_line"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bg_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/back_left"
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/arrow_left"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:text="新手指南"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第一步"/>
+
+        <TextView
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_dray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第二步"/>
+
+        <TextView
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_dray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!"/>
+    </LinearLayout>
+
+</LinearLayout>

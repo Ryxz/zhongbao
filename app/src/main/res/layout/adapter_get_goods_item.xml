@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="18dp"
+                android:layout_height="27dp"
+                android:src="@mipmap/locarion"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三  19263688772"/>
+                <TextView
+                    android:id="@+id/change_state"
+                    android:textSize="12sp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/adress"
+                android:layout_marginTop="3dp"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:text="收货地址:江苏省南京市江苏省南京市江苏省南京市江苏省南京市"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dray_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:src="@mipmap/b"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingTop="12dp"
+            android:layout_width="0dp"
+            android:layout_weight="2.2"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/name_goods"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:text="香奈儿四件套高级定制你值得拥有一套带回家"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_marginTop="4dp"
+                android:textSize="13sp"
+                android:layout_below="@id/name_goods"
+                android:textColor="@color/text_dray"
+                android:text="商品价格:  ¥58"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+
+            <TextView
+                android:id="@+id/luck_num"
+                android:layout_marginTop="2dp"
+                android:textSize="12sp"
+                android:layout_below="@id/price"
+                android:textColor="@color/text_hint_color"
+                android:text="幸运码:  1020103"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_marginTop="2dp"
+                android:textSize="12sp"
+                android:layout_below="@id/luck_num"
+                android:textColor="@color/text_hint_color"
+                android:text="即将揭晓:  2018-9-27 00:29:11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/fahuo_type"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:layout_below="@id/time"
+                android:gravity="center"
+                android:textColor="@color/text_hint_color"
+                android:background="@mipmap/fahuo"
+                android:text="已发货"
+                android:layout_width="80dp"
+                android:layout_height="28dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+
+                android:id="@+id/shouhuo_type"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp"
+                android:layout_below="@id/time"
+                android:layout_toRightOf="@id/fahuo_type"
+                android:gravity="center"
+                android:textColor="@color/text_hint_color"
+                android:background="@mipmap/shouhuo"
+                android:text="确认收货"
+                android:layout_width="80dp"
+                android:layout_height="28dp" />
+            
+            <LinearLayout
+                android:id="@+id/share_linear"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@mipmap/share"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="13sp"
+                    android:text="分享"/>
+                
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+</LinearLayout>

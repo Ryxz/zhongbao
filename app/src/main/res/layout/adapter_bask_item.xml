@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="match_parent">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:riv_oval="true"
+                android:src="@mipmap/mine_head"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="3.2"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="东海小仙女"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:textSize="13sp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/bg_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="试试手气 >>"/>
+
+            <TextView
+                android:layout_below="@id/name"
+                android:id="@+id/introduce"
+                android:textSize="13sp"
+                android:textColor="@color/text_hint_color"
+                android:text="6带纸巾很不错哦，家里正好用到，这次希望可以中一次手机6带纸巾很不错哦家里正好用到，这次希望可以中一次手机6带纸巾很不错哦，家里正好用到，这次希望可以中一次手机6带纸巾很不错哦"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/image"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_below="@id/introduce"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <ImageView
+                    android:src="@mipmap/b"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:src="@mipmap/mine_head"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:src="@mipmap/mine_head"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="刚刚"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/share"
+                    android:text="分享"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_hint_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/share_img"
+                    android:layout_marginRight="3dp"
+                    android:layout_toLeftOf="@id/share"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:src="@mipmap/share"/>
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/zan"
+                    android:layout_toLeftOf="@id/share_img"
+                    android:textColor="@color/text_hint_color"
+                    android:textSize="13sp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点赞"/>
+                <CheckBox
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/zan"
+                    android:layout_marginRight="3dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@mipmap/dianzan"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+</LinearLayout>

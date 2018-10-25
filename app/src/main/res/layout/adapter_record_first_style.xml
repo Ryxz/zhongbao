@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:src="@mipmap/b"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="2.2"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="香奈儿四件套高级定制你值得拥有一套带回家"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginTop="4dp"
+                android:text="商品价格:  ¥58"
+                android:textColor="@color/text_dray"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price"
+                android:layout_marginTop="3dp"
+                android:text="期数:  第20期"
+                android:textColor="@color/text_hint_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/gold_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/number"
+                android:layout_marginTop="2dp"
+                android:text="获奖者:  小霸王"
+                android:textColor="@color/text_hint_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/luck_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gold_name"
+                android:layout_marginTop="2dp"
+                android:text="幸运号码:  1020103"
+                android:textColor="@color/text_hint_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/luck_num"
+                android:layout_marginTop="2dp"
+                android:text="揭晓时间:  2018-9-27 00:29:11"
+                android:textColor="@color/text_hint_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/person_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time"
+                android:layout_marginTop="2dp"
+                android:text="本期参与:  20"
+                android:textColor="@color/text_hint_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/phone_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/person_num"
+                android:layout_marginTop="15dp"
+                android:text="查看我的号码"
+                android:textColor="#AB82FF"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="74dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/phone_num"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="1dp"
+                android:background="#AB82FF" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@color/bg_toolbar"
+                android:gravity="center"
+                android:text="购买"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+
+</LinearLayout>

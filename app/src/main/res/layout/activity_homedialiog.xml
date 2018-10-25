@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp"
+    android:background="#80000000">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/gold_zhongjiang"/>
+
+
+    <TextView
+        android:id="@+id/gold_share"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:background="@mipmap/home_xuanyao"
+        android:text="炫耀一下"
+        android:layout_width="140dp"
+        android:layout_height="37dp" />
+
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:background="@mipmap/home_skip"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:text="跳过"/>
+</RelativeLayout>

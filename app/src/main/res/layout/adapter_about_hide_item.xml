@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/about_hide_linear"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/adapter_hide_tv"
+        android:background="@color/dray_line"
+        android:textSize="12sp"
+        android:gravity="center_vertical"
+        android:text="众宝相关答疑众宝相关答疑众宝相关答疑众宝相关答疑众宝相关答疑众宝相关答疑众宝相关答疑众宝相关答疑"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:textColor="@color/text_dray"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
