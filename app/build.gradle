@@ -31,4 +31,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.bigkoo:convenientbanner:2.0.5'
+
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
+
 }

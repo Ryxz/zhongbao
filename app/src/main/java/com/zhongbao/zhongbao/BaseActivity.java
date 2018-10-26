@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.zhongbao.zhongbao.utils.StatusBarUtil;
+
 /**
  * Used for
  * Created by tuyz on 2018/10/9.
@@ -53,4 +55,14 @@ public abstract class BaseActivity extends FragmentActivity{
         return (E)findViewById(id);
     }
 
+    /**
+     * 设置不需要设置状态栏的颜色
+     *
+     * 是否设置StatusBar的颜色，绝大部分是要设置的，特殊的不需要设置，例如一个Activity中有多个Fragment的
+     * Activity，多个Fragment的状态栏颜色可能不相同，那就只好交给Fragment自己去设置。遇到这样的Activity
+     * 需要返回false
+     */
+    protected void notSetStatusBarColor() {
+        StatusBarUtil.setStatusBarTranslucent(this);
+    }
 }

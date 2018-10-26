@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  android:id="@+id/ll_category_item"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="horizontal"
-  android:background="@drawable/item_category_selector"
-  android:layout_width="match_parent"
-  android:layout_height="50dp">
-  <View
-      android:id="@+id/huakuai"
-      android:layout_width="2dp"
-      android:background="@color/bg_toolbar"
-      android:layout_marginTop="10dp"
-      android:layout_marginBottom="10dp"
-      android:layout_height="match_parent"
-      />
-  <TextView
-    android:gravity="center"
-    android:id="@+id/tv_category_name"
-    android:textColor="#000000"
-    android:textSize="12sp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_category_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
-</LinearLayout>
+    android:layout_height="50dp"
+    android:background="@drawable/item_category_selector"
+    android:orientation="horizontal">
+
+    <View
+        android:id="@+id/huakuai"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/bg_toolbar" />
+
+    <TextView
+        android:id="@+id/tv_category_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+</RelativeLayout>

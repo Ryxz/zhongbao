@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/dray_line">
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/bg_toolbar"
+        android:layout_height="20dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"

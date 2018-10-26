@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/dray_line">
-
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/bg_toolbar"
+        android:layout_height="20dp"/>
     <RelativeLayout
         android:id="@+id/title_rela"
         android:layout_width="match_parent"
@@ -41,64 +45,69 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:layout_below="@id/title_rela"
-        android:id="@+id/car_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="62dp"
-        android:dividerHeight="1dp"/>
-
     <RelativeLayout
-        android:layout_alignParentBottom="true"
-        android:background="#FFDFDFD5"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/car_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="62dp"
+            android:dividerHeight="1dp"/>
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:background="#FFDFDFD5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
 
-        <CheckBox
-            android:id="@+id/total_check"
-            android:layout_centerVertical="true"
-            android:layout_width="20dp"
-            android:button="@null"
-            android:layout_height="20dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/shopcar_btn_bg"/>
+            <CheckBox
+                android:id="@+id/total_check"
+                android:layout_centerVertical="true"
+                android:layout_width="20dp"
+                android:button="@null"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/shopcar_btn_bg"/>
 
-        <TextView
-            android:id="@+id/total_num"
-            android:layout_marginLeft="10dp"
-            android:textSize="12sp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/total_check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="共5个商品"
-            android:textColor="@color/text_dray"/>
+            <TextView
+                android:id="@+id/total_num"
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/total_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="共5个商品"
+                android:textColor="@color/text_dray"/>
 
-        <TextView
-            android:id="@+id/buy_btn"
-            android:textSize="15sp"
-            android:textColor="@android:color/white"
-            android:gravity="center"
-            android:text="立即购买"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
-            android:background="@mipmap/buy_bg"/>
+            <TextView
+                android:id="@+id/buy_btn"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:text="立即购买"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/buy_bg"/>
 
-        <TextView
-            android:id="@+id/total_price"
-            android:textSize="12sp"
-            android:textColor="@color/text_dray"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@id/buy_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="合计: 12钻石"/>
+            <TextView
+                android:id="@+id/total_price"
+                android:textSize="12sp"
+                android:textColor="@color/text_dray"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/buy_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合计: 12钻石"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
+
+
+</LinearLayout>
