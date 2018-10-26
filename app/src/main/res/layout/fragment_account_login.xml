@@ -51,7 +51,6 @@
             android:maxLength="11"
             android:textSize="13sp"
             android:paddingLeft="10dp"
-            android:textColorHint="@color/text_hint_color"
             android:hint="请输入登录密码"
             android:textColor="@color/text_color"
             android:background="@android:color/white"
@@ -60,11 +59,11 @@
 
         <ImageView
             android:id="@+id/eye"
+            android:padding="13dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
-            android:layout_width="20dp"
-            android:layout_height="10dp"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
             android:src="@mipmap/eye"/>
 
     </RelativeLayout>
@@ -81,11 +80,9 @@
     <TextView
         android:id="@+id/forget_psd"
         android:textSize="11sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:padding="10dp"
         android:textColor="@color/text_hint_color"
         android:layout_below="@id/second_line"
-        android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
         android:text="忘记密码"
         android:layout_width="wrap_content"
@@ -98,7 +95,7 @@
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="确定"
+        android:text="登录"
         android:textColor="@android:color/white"
         android:gravity="center"
         android:textSize="14sp"

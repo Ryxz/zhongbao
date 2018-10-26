@@ -29,8 +29,8 @@ import com.zhongbao.zhongbao.login.FindPsdActivity;
 public class AccountLoginFragment extends Fragment implements View.OnClickListener {
 
     private View rootView;
-    private EditText mPhone,mPsd;
-    private TextView mService,mYinsi,mLogin;
+    private EditText mPhone, mPsd;
+    private TextView mService, mYinsi, mLogin;
     private ImageView mEye;
     private boolean isShow = false;
     private TextView mForget;
@@ -43,8 +43,7 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
         return rootView;
     }
 
-    private void initView(View view)
-    {
+    private void initView(View view) {
         mPhone = view.findViewById(R.id.account_phone_et);
         mPsd = view.findViewById(R.id.psd_et);
         mEye = view.findViewById(R.id.eye);
@@ -56,8 +55,7 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
         mPsd.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
 
-    private void initListener()
-    {
+    private void initListener() {
         mForget.setOnClickListener(this);
         mEye.setOnClickListener(this);
         mService.setOnClickListener(this);
@@ -67,19 +65,17 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
 
             case R.id.forget_psd:
                 startActivity(new Intent(getActivity(), FindPsdActivity.class));
                 break;
             case R.id.eye:
-                if(!isShow)
-                {
+                if (!isShow) {
                     mPsd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());//显示
                     mEye.setImageResource(R.mipmap.hide_eye);
                     isShow = true;
-                }else{
+                } else {
                     isShow = false;
                     mEye.setImageResource(R.mipmap.eye);
                     mPsd.setTransformationMethod(PasswordTransformationMethod.getInstance());//隐藏
@@ -92,18 +88,15 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
 
                 break;
             case R.id.login_btn:
-                if(mPhone.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getActivity(),"请输入手机号",Toast.LENGTH_LONG).show();
-                }else if(mPsd.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getActivity(),"请输入密码",Toast.LENGTH_LONG).show();
-                }else
-                {
+                if (mPhone.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "请输入手机号", Toast.LENGTH_LONG).show();
+                } else if (mPsd.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "请输入密码", Toast.LENGTH_LONG).show();
+                } else {
                     SharedPreferences sp = getActivity().getSharedPreferences("com/zhongbao/zhongbao/login", Activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
-                    editor.putBoolean("isLogin",true);
-                    Log.e("woyaokk","sp:"+sp.getBoolean("isLogin",false));
+                    editor.putBoolean("isLogin", true);
+                    Log.e("woyaokk", "sp:" + sp.getBoolean("isLogin", false));
                     editor.commit();
                     getActivity().finish();
                 }

@@ -28,7 +28,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private RelativeLayout mBack;
     private TextView mGetCode;
 
-    private EditText mPhone,mYanzheng,mPsd,mPsdTrue;
+    private EditText mPhone, mYanzheng, mPsd, mPsdTrue;
     private ImageView mEye;
     private ImageView mHideEye;
     private boolean isShow = false;
@@ -77,27 +77,24 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.hide_eye:
-                if(!isTrueShow)
-                {
+                if (!isTrueShow) {
                     mPsdTrue.setTransformationMethod(HideReturnsTransformationMethod.getInstance());//显示
                     mHideEye.setImageResource(R.mipmap.hide_eye);
                     isTrueShow = true;
-                }else{
+                } else {
                     isTrueShow = false;
                     mHideEye.setImageResource(R.mipmap.eye);
                     mPsdTrue.setTransformationMethod(PasswordTransformationMethod.getInstance());//隐藏
                 }
                 break;
             case R.id.eye:
-                if(!isShow)
-                {
+                if (!isShow) {
                     mPsd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());//显示
                     mEye.setImageResource(R.mipmap.hide_eye);
                     isShow = true;
-                }else{
+                } else {
                     isShow = false;
                     mPsd.setTransformationMethod(PasswordTransformationMethod.getInstance());//隐藏
                     mEye.setImageResource(R.mipmap.eye);
@@ -108,26 +105,21 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
                 break;
             case R.id.register_btn:
-                if(mPhone.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请输入手机号码",Toast.LENGTH_LONG).show();
-                }else if(mYanzheng.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请输入验证码",Toast.LENGTH_LONG).show();
-                }else if(mPsd.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请输入密码",Toast.LENGTH_LONG).show();
-                }else if(mPsdTrue.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请再次输入密码",Toast.LENGTH_LONG).show();
-                }else
-                {
-                    Toast.makeText(this,"注册成功",Toast.LENGTH_LONG).show();
+                if (mPhone.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入手机号码", Toast.LENGTH_LONG).show();
+                } else if (mYanzheng.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入验证码", Toast.LENGTH_LONG).show();
+                } else if (mPsd.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入密码", Toast.LENGTH_LONG).show();
+                } else if (mPsdTrue.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请再次输入密码", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "注册成功", Toast.LENGTH_LONG).show();
                     finish();
                 }
                 break;
             case R.id.register_login:
-                startActivity(new Intent(this,LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
                 break;
             case R.id.back_left:

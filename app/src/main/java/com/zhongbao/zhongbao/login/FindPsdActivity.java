@@ -19,12 +19,13 @@ import com.zhongbao.zhongbao.R;
 
 public class FindPsdActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mBack;
-    private EditText mPhone,mYanzheng,mPsd,mTruePsd;
+    private EditText mPhone, mYanzheng, mPsd, mTruePsd;
     private TextView mTrue;
     private ImageView mEye;
     private ImageView mHideEye;
     private boolean isShow = false;
     private boolean isTrueShow = false;
+
     @Override
     protected int getLayoutID() {
         return R.layout.activity_find_psd;
@@ -59,27 +60,24 @@ public class FindPsdActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.hide_eye:
-                if(!isTrueShow)
-                {
+                if (!isTrueShow) {
                     mTruePsd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());//显示
                     mHideEye.setImageResource(R.mipmap.hide_eye);
                     isTrueShow = true;
-                }else{
+                } else {
                     isTrueShow = false;
                     mHideEye.setImageResource(R.mipmap.eye);
                     mTruePsd.setTransformationMethod(PasswordTransformationMethod.getInstance());//隐藏
                 }
                 break;
             case R.id.eye:
-                if(!isShow)
-                {
+                if (!isShow) {
                     mPsd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());//显示
                     mEye.setImageResource(R.mipmap.hide_eye);
                     isShow = true;
-                }else{
+                } else {
                     isShow = false;
                     mPsd.setTransformationMethod(PasswordTransformationMethod.getInstance());//隐藏
                     mEye.setImageResource(R.mipmap.eye);
@@ -89,18 +87,15 @@ public class FindPsdActivity extends BaseActivity implements View.OnClickListene
                 finish();
                 break;
             case R.id.find_psd_btn:
-                if(mPhone.getText().toString().isEmpty()){
-                    Toast.makeText(this,"请输入手机号码",Toast.LENGTH_LONG).show();
-                }else if(mYanzheng.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请输入验证码",Toast.LENGTH_LONG).show();
-                }else if(mPsd.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请输入密码",Toast.LENGTH_LONG).show();
-                }else if(mTruePsd.getText().toString().isEmpty())
-                {
-                    Toast.makeText(this,"请输入确认密码",Toast.LENGTH_LONG).show();
-                }else{
+                if (mPhone.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入手机号码", Toast.LENGTH_LONG).show();
+                } else if (mYanzheng.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入验证码", Toast.LENGTH_LONG).show();
+                } else if (mPsd.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入密码", Toast.LENGTH_LONG).show();
+                } else if (mTruePsd.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "请输入确认密码", Toast.LENGTH_LONG).show();
+                } else {
                     finish();
                 }
                 break;

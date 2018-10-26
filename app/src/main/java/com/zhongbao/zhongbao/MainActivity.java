@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLateastTv = f(R.id.lateast_tv);
         mShopTv = f(R.id.shop_tv);
         mMineTv = f(R.id.mine_tv);
-//        startActivity(new Intent(this, HomeDialogActivity.class));
         initFirstFragment();
     }
 

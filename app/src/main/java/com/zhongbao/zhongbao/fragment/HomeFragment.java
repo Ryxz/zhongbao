@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mFragments.add(one);
         mFragments.add(two);
         mFragments.add(three);
-        initFirstFragment();
+//        initFirstFragment();
 
         madapter = new HomeGridAdapter(getList(), getActivity());
         mGridView.setAdapter(madapter);
@@ -352,7 +352,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 }
             }
         });
-
     }
 
     private void initFirstFragment() {

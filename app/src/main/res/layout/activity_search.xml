@@ -5,39 +5,47 @@
     android:layout_height="match_parent"
     android:background="@color/dray_line">
     
-    <RelativeLayout
+    <LinearLayout
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="55dp">
 
-        <EditText
-            android:textColor="@color/text_color"
-            android:imeOptions="actionSearch"
-            android:id="@+id/searct_et"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="13sp"
-            android:singleLine="true"
-            android:drawableLeft="@mipmap/search_dray"
-            android:drawablePadding="10dp"
-            android:paddingLeft="10dp"
-            android:layout_marginRight="100dp"
-            android:textColorHint="@color/text_hint_color"
-            android:hint="  输入您想查询的内容"
-            android:background="@mipmap/search_bg"/>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@mipmap/search_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/search_dray"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <EditText
+                android:background="@null"
+                android:textColor="@color/text_color"
+                android:imeOptions="actionSearch"
+                android:id="@+id/searct_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:hint="输入您想查询的内容" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/search_cancel"
             android:textSize="15sp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:gravity="center"
             android:textColor="@color/bg_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:text="取消"/>
-    </RelativeLayout>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/search_history_list"

@@ -13,12 +13,10 @@
 
         <EditText
             android:id="@+id/phone_et"
-            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:maxLength="11"
             android:textSize="13sp"
             android:paddingLeft="10dp"
-            android:textColorHint="@color/text_hint_color"
             android:textColor="@color/text_color"
             android:background="@android:color/white"
             android:singleLine="true"
@@ -27,15 +25,15 @@
             android:layout_height="match_parent" />
 
         <TextView
+            android:gravity="center"
             android:id="@+id/login_get_code"
-            android:paddingRight="10dp"
+            android:padding="10dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:textSize="14sp"
-            android:textColor="#FFA41727"
+            android:textColor="@color/red"
             android:text="获取验证码"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </RelativeLayout>
 
     <View
@@ -44,7 +42,7 @@
         android:layout_marginRight="10dp"
         android:layout_below="@id/phone_rela"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="1px"
         android:background="@color/text_hint_color"/>
 
     <RelativeLayout
@@ -55,11 +53,9 @@
 
         <EditText
             android:id="@+id/yanzheng_et"
-            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:maxLength="11"
             android:textSize="13sp"
-            android:textColor="@color/text_color"
             android:paddingLeft="10dp"
             android:textColorHint="@color/text_hint_color"
             android:inputType="number"
@@ -76,7 +72,7 @@
         android:layout_marginRight="10dp"
         android:layout_below="@id/yanzheng_rela"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="1px"
         android:background="@color/text_hint_color"/>
 
     <TextView
@@ -113,27 +109,16 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp">
 
-        <TextView
-            android:layout_alignParentLeft="true"
-            android:layout_width="80dp"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
-            android:background="@mipmap/line"/>
 
         <TextView
+            android:drawableLeft="@mipmap/line"
+            android:drawableRight="@mipmap/line"
             android:textColor="@color/text_hint_color"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="快速登录"/>
+            android:text="    快速登录    "/>
 
-        <TextView
-            android:textSize="14sp"
-            android:layout_alignParentRight="true"
-            android:layout_width="80dp"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
-            android:background="@mipmap/line"/>
     </RelativeLayout>
 
     <ImageView
@@ -146,10 +131,9 @@
         android:src="@mipmap/wechat_login"/>
 
     <TextView
-        android:textSize="14sp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/wechat_iv"
-        android:textColor="@color/text_color"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"

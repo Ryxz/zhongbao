@@ -42,8 +42,7 @@ public class HomeProgressFragment extends Fragment {
     }
 
 
-    private void initView(View view)
-    {
+    private void initView(View view) {
         mGridView = view.findViewById(R.id.gridview);
         initData();
     }
@@ -64,28 +63,24 @@ public class HomeProgressFragment extends Fragment {
 //        }
     }
 
-    private void initData()
-    {
-        adapter = new HomeGridAdapter(getList(),getActivity());
+    private void initData() {
+        adapter = new HomeGridAdapter(getList(), getActivity());
         mGridView.setAdapter(adapter);
 
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(ButtonUtils.isFastClick())
-                {
-                    Intent intent = new Intent(getActivity(),GoodsDetailActivity.class);
-                    intent.putExtra("STATE",list.get(position).getState());
+                if (ButtonUtils.isFastClick()) {
+                    Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
+                    intent.putExtra("STATE", list.get(position).getState());
                     startActivity(intent);
                 }
             }
         });
     }
 
-    private List<HomePrograssBean> getList()
-    {
-        if(list!=null)
-        {
+    private List<HomePrograssBean> getList() {
+        if (list != null) {
             list.clear();
         }
         HomePrograssBean bean = new HomePrograssBean();
@@ -104,7 +99,8 @@ public class HomeProgressFragment extends Fragment {
 
         list.add(bean);
         list.add(bean1);
-
+        list.add(bean1);
+        list.add(bean1);
         return list;
     }
 }
