@@ -23,8 +23,8 @@ import com.zhongbao.zhongbao.R;
 public class PhoneLoginFragment extends Fragment implements View.OnClickListener {
 
     private View rootView;
-    private EditText mPhone,mYanzheng;
-    private TextView mLogin,mServiceTv,mYinsi;
+    private EditText mPhone, mYanzheng;
+    private TextView mLogin, mServiceTv, mYinsi;
     private TextView mGetCode;
 
     @Nullable
@@ -35,8 +35,7 @@ public class PhoneLoginFragment extends Fragment implements View.OnClickListener
         return rootView;
     }
 
-    private void initView(View view)
-    {
+    private void initView(View view) {
         mPhone = view.findViewById(R.id.phone_et);
         mYanzheng = view.findViewById(R.id.yanzheng_et);
         mLogin = view.findViewById(R.id.login_btn);
@@ -46,8 +45,7 @@ public class PhoneLoginFragment extends Fragment implements View.OnClickListener
         initListener();
     }
 
-    private void initListener()
-    {
+    private void initListener() {
         mLogin.setOnClickListener(this);
         mYinsi.setOnClickListener(this);
         mServiceTv.setOnClickListener(this);
@@ -56,21 +54,17 @@ public class PhoneLoginFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.login_btn:
-                if(mPhone.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getActivity(),"请输入手机号",Toast.LENGTH_LONG).show();
-                }else if(mYanzheng.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getActivity(),"请输入验证码",Toast.LENGTH_LONG).show();
-                }else
-                {
+                if (mPhone.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "请输入手机号", Toast.LENGTH_LONG).show();
+                } else if (mYanzheng.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "请输入验证码", Toast.LENGTH_LONG).show();
+                } else {
                     SharedPreferences sp = getActivity().getSharedPreferences("com/zhongbao/zhongbao/login", Activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
-                    editor.putBoolean("isLogin",true);
-                    Log.e("woyaokk","sp:"+sp.getBoolean("isLogin",false));
+                    editor.putBoolean("isLogin", true);
+                    Log.e("woyaokk", "sp:" + sp.getBoolean("isLogin", false));
                     editor.commit();
                     getActivity().finish();
                 }

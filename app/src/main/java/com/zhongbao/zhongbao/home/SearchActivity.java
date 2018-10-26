@@ -1,7 +1,10 @@
 package com.zhongbao.zhongbao.home;
 
 import android.content.Intent;
+import android.os.Build;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -29,8 +32,17 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private TextView mCancel;
     private List<SearchBean> list = new ArrayList<>();
     private SearchHistoryAdapter adapter;
+
     @Override
     protected int getLayoutID() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            //设置修改状态栏
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            //设置状态栏的颜色，和你的app主题或者标题栏颜色设置一致就ok了
+            window.setStatusBarColor(getResources().getColor(R.color.dray_line));
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         return R.layout.activity_search;
     }
 
@@ -48,20 +60,19 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void initData() {
-        adapter = new SearchHistoryAdapter(getList(),this);
+        adapter = new SearchHistoryAdapter(getList(), this);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(SearchActivity.this, GoodsDetailActivity.class);
-                intent.putExtra("STATE","3");
+                intent.putExtra("STATE", "3");
                 startActivity(intent);
             }
         });
     }
 
-    private List<SearchBean> getList()
-    {
+    private List<SearchBean> getList() {
         SearchBean bean = new SearchBean();
         bean.setName("");
         bean.setType(0);
@@ -88,8 +99,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.search_cancel:
                 finish();
                 break;

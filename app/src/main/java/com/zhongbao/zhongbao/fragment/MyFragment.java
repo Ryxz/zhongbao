@@ -35,29 +35,26 @@ import com.zhongbao.zhongbao.view.HomePopwindow;
  * Created by tuyz on 2018/10/8.
  */
 
-public class MyFrament extends Fragment implements View.OnClickListener {
+public class MyFragment extends Fragment implements View.OnClickListener {
     private View rootView;
-    private RelativeLayout mRecord,mGoods,mCamaro,mHelp,mQrcode,mCenter;
-    private ImageView mNews,mType;
-    private TextView mPay,register,login;
+    private RelativeLayout mRecord, mGoods, mCamaro, mHelp, mQrcode, mCenter;
+    private ImageView mNews, mType;
+    private TextView mPay, register, login;
     private RelativeLayout mGuest;
     private boolean isLogin;
     private LinearLayout mLoginDetail;
     private TextView mShow;
 
-    private Handler mHandler = new Handler()
-    {
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             SharedPreferences sp = getActivity().getSharedPreferences("com.zhongbao.zhongbao.login", Activity.MODE_PRIVATE);
-            isLogin = sp.getBoolean("isLogin",false);
-            if(isLogin)
-            {
+            isLogin = sp.getBoolean("isLogin", false);
+            if (isLogin) {
                 mCenter.setVisibility(View.VISIBLE);
                 mLoginDetail.setVisibility(View.VISIBLE);
                 mGuest.setVisibility(View.GONE);
-            }else
-            {
+            } else {
                 mCenter.setVisibility(View.GONE);
                 mLoginDetail.setVisibility(View.GONE);
                 mGuest.setVisibility(View.VISIBLE);
@@ -75,8 +72,7 @@ public class MyFrament extends Fragment implements View.OnClickListener {
         return rootView;
     }
 
-    private void initView(View rootView)
-    {
+    private void initView(View rootView) {
         mRecord = rootView.findViewById(R.id.record_linear);
         mGoods = rootView.findViewById(R.id.goods_linear);
         mCamaro = rootView.findViewById(R.id.camaro_linear);
@@ -94,14 +90,12 @@ public class MyFrament extends Fragment implements View.OnClickListener {
         mShow = rootView.findViewById(R.id.show_p);
         login = rootView.findViewById(R.id.login);
         SharedPreferences sp = getActivity().getSharedPreferences("com.zhongbao.zhongbao.login", Activity.MODE_PRIVATE);
-        isLogin = sp.getBoolean("isLogin",false);
-        if(isLogin)
-        {
+        isLogin = sp.getBoolean("isLogin", false);
+        if (isLogin) {
             mCenter.setVisibility(View.VISIBLE);
             mLoginDetail.setVisibility(View.VISIBLE);
             mGuest.setVisibility(View.GONE);
-        }else
-        {
+        } else {
             mCenter.setVisibility(View.GONE);
             mLoginDetail.setVisibility(View.GONE);
             mGuest.setVisibility(View.VISIBLE);
@@ -109,14 +103,12 @@ public class MyFrament extends Fragment implements View.OnClickListener {
         initLintener();
     }
 
-    private void initData()
-    {
+    private void initData() {
         //此处判断是否首次进入和未登录，如果是首次进入和未登录的时候显示游客状态布局。
     }
 
 
-    private void initLintener()
-    {
+    private void initLintener() {
         mRecord.setOnClickListener(this);
         mGoods.setOnClickListener(this);
         mCamaro.setOnClickListener(this);
@@ -133,8 +125,7 @@ public class MyFrament extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.mine_center:
                 startActivity(new Intent(getActivity(), PersonalDataActivity.class));
                 break;

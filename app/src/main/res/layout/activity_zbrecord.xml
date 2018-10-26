@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_centerInParent="true"
@@ -45,7 +45,7 @@
         <RadioButton
             android:id="@+id/rb_all"
             android:gravity="center_vertical"
-            android:paddingLeft="10dp"
+            android:paddingLeft="20dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="@null"
@@ -70,7 +70,7 @@
 
         <RadioButton
             android:id="@+id/rb_ed"
-            android:paddingRight="10dp"
+            android:paddingRight="20dp"
             android:gravity="right|center_vertical"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -93,6 +93,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
+                android:layout_marginLeft="10dp"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/lab"/>
@@ -107,7 +108,7 @@
             android:orientation="vertical"
             android:layout_gravity="center">
             <ImageView
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/lab"/>
@@ -122,6 +123,7 @@
             android:orientation="vertical">
             <ImageView
                 android:layout_width="50dp"
+                android:layout_marginRight="10dp"
                 android:layout_gravity="right"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/lab"/>
@@ -130,7 +132,7 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
-        android:layout_marginTop="0.8dp"
+        android:layout_marginTop="1px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

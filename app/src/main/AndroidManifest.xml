@@ -39,8 +39,6 @@
         <activity android:name=".goods.NoviceActivity"/>
         <activity android:name=".home.XinpinActivity"/>
         <activity android:name=".home.SearchActivity"/>
-        <activity android:name=".home.HomeDialogActivity"
-            android:theme="@style/Theme.Translucent"/>
         <activity android:name=".my.ShareActivity"
             android:theme="@style/Theme.Translucent"/>
 

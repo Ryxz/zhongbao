@@ -29,8 +29,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private RadioGroup rg;
     private int[] rbs = {R.id.rb_all, R.id.rb_ing};
     private List<Fragment> mFragments;
-    private RadioButton mAll,mIng;
-    private RelativeLayout mLabone,mLabtwo;
+    private RadioButton mAll, mIng;
+    private RelativeLayout mLabone, mLabtwo;
     private RelativeLayout mBack;
     private RelativeLayout mRegister;
 
@@ -45,8 +45,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                for (int i = 0; i < rbs.length; i++)
-                {
+                for (int i = 0; i < rbs.length; i++) {
                     if (rbs[i] != checkedId) continue;
                     //加载滑动
                     vp.setCurrentItem(i);
@@ -55,8 +54,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
 
-        vp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener()
-        {
+        vp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 rg.check(rbs[position]);
@@ -85,22 +83,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mBack.setOnClickListener(this);
     }
 
-    private void setLabState(int id)
-    {
-        if(id == R.id.rb_all)
-        {
+    private void setLabState(int id) {
+        if (id == R.id.rb_all) {
             mAll.setTextColor(getResources().getColor(R.color.bottom_tab_select));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.VISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
-        }else if(id == R.id.rb_ing)
-        {
+        } else if (id == R.id.rb_ing) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
             mIng.setTextColor(getResources().getColor(R.color.bottom_tab_select));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.VISIBLE);
-        }else if(id == R.id.rb_ed)
-        {
+        } else if (id == R.id.rb_ed) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.INVISIBLE);
@@ -110,27 +104,26 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void initData() {
-        mFragments=new ArrayList<>();
-        AccountLoginFragment one=new AccountLoginFragment();
-        PhoneLoginFragment two=new PhoneLoginFragment();
+        mFragments = new ArrayList<>();
+        AccountLoginFragment one = new AccountLoginFragment();
+        PhoneLoginFragment two = new PhoneLoginFragment();
         mFragments.add(one);
         mFragments.add(two);
 
         // 设置填充器
-        vp.setAdapter(new PagerMainAdapter(getSupportFragmentManager(),mFragments));
+        vp.setAdapter(new PagerMainAdapter(getSupportFragmentManager(), mFragments));
         // 设置缓存页面数
         vp.setOffscreenPageLimit(2);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.back_left:
                 finish();
                 break;
             case R.id.to_register:
-                startActivity(new Intent(this,RegisterActivity.class));
+                startActivity(new Intent(this, RegisterActivity.class));
                 finish();
                 break;
         }

@@ -10,6 +10,9 @@
         <item name="colorPrimaryDark">@color/bg_toolbar</item>
         <!--一般控件的选种效果默认采用该颜色-->
         <item name="colorAccent">@color/bg_toolbar</item>
+
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/bg_toolbar</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
     </style>
 
     <style name="StyleProgressBar" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
