@@ -1,6 +1,8 @@
 package com.zhongbao.zhongbao.home;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -11,6 +13,8 @@ import java.util.ArrayList;
 
 import com.zhongbao.zhongbao.adapter.RecordAdapter;
 import com.zhongbao.zhongbao.bean.ListViewItem;
+import com.zhongbao.zhongbao.goods.GoodsDetailActivity;
+import com.zhongbao.zhongbao.utils.ButtonUtils;
 
 /**
  * Used for
@@ -33,7 +37,16 @@ public class XinpinActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (ButtonUtils.isFastClick()) {
+                    Intent intent = new Intent(XinpinActivity.this, GoodsDetailActivity.class);
+                    intent.putExtra("STATE", "1");
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

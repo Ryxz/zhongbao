@@ -25,7 +25,7 @@ public class ShopCarAdapter extends BaseAdapter {
 
     private Context context;
 
-    private List<ShopCarBean> list ;
+    private List<ShopCarBean> list;
 
     private LayoutInflater mLayoutInflater;
     private Handler mHandler;
@@ -57,10 +57,9 @@ public class ShopCarAdapter extends BaseAdapter {
         final ShopCarBean bean = list.get(position);
         ShopCarViewHolder viewHolder = null;
 
-        if(convertView == null)
-        {
-            viewHolder  = new ShopCarViewHolder();
-            convertView = mLayoutInflater.inflate(R.layout.adapter_shop_car_item,null);
+        if (convertView == null) {
+            viewHolder = new ShopCarViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.adapter_shop_car_item, null);
             viewHolder.name = convertView.findViewById(R.id.shopcar_name);
             viewHolder.shopClick = convertView.findViewById(R.id.shop_click);
             viewHolder.pic = convertView.findViewById(R.id.pic_iv);
@@ -70,8 +69,7 @@ public class ShopCarAdapter extends BaseAdapter {
             viewHolder.goodsNum = convertView.findViewById(R.id.goods_num);
             viewHolder.mCheck = convertView.findViewById(R.id.check_rela);
             convertView.setTag(viewHolder);
-        }else
-        {
+        } else {
             viewHolder = (ShopCarViewHolder) convertView.getTag();
         }
         viewHolder.name.setText(bean.getName());
@@ -87,25 +85,21 @@ public class ShopCarAdapter extends BaseAdapter {
 //            viewHolder.mCheck.setVisibility(View.GONE);
 //        }
 
-        if(bean.getChecked() == 1)
-        {
+        if (bean.getChecked() == 1) {
             viewHolder.shopClick.setImageResource(R.mipmap.login_true);
-        }else
-        {
+        } else {
             viewHolder.shopClick.setImageResource(R.mipmap.shopcar_noselect);
         }
 
         viewHolder.reduce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bean.getNum().equals("1"))
-                {
+                if (bean.getNum().equals("1")) {
                     mHandler.sendEmptyMessage(1);
                     list.remove(list.get(position));
-                }else
-                {
+                } else {
                     mHandler.sendEmptyMessage(1);
-                    bean.setNum(""+(Integer.parseInt(bean.getNum())-1));
+                    bean.setNum("" + (Integer.parseInt(bean.getNum()) - 1));
                 }
                 notifyDataSetChanged();
             }
@@ -115,7 +109,7 @@ public class ShopCarAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 mHandler.sendEmptyMessage(1);
-                bean.setNum(""+(Integer.parseInt(bean.getNum())+1));
+                bean.setNum("" + (Integer.parseInt(bean.getNum()) + 1));
                 notifyDataSetChanged();
             }
         });
@@ -123,15 +117,15 @@ public class ShopCarAdapter extends BaseAdapter {
         viewHolder.mCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(bean.getChecked() == 1)
-                {
+                if (bean.getChecked() == 1) {
                     bean.setChecked(0);
-                    mHandler.sendEmptyMessage(1);
+//                    if (isNotCheckedAll())
+                        mHandler.sendEmptyMessage(3);
 
-                }else
-                {
+                } else {
                     bean.setChecked(1);
-                    mHandler.sendEmptyMessage(1);
+                    if (isCheckedAll())
+                        mHandler.sendEmptyMessage(2);
                 }
                 notifyDataSetChanged();
             }
@@ -141,8 +135,25 @@ public class ShopCarAdapter extends BaseAdapter {
 
     }
 
-    class ShopCarViewHolder
-    {
+    boolean isCheckedAll() {
+        for (ShopCarBean bean : list) {
+            if (bean.getChecked() == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    boolean isNotCheckedAll() {
+        for (ShopCarBean bean : list) {
+            if (bean.getChecked() == 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    class ShopCarViewHolder {
         TextView name;
         ImageView shopClick;
         ImageView pic;

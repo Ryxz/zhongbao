@@ -29,12 +29,12 @@ import com.zhongbao.zhongbao.view.HomePopwindow;
 
 public class GoodsDetailActivity extends BaseActivity implements View.OnClickListener {
 
-//    private ViewPagerForScrollView vp;
+    //    private ViewPagerForScrollView vp;
 //    private RadioGroup rg;
     private int[] rbs = {R.id.rb_all, R.id.rb_ing};
     private List<Fragment> mFragments;
-    private TextView mAll,mIng;
-    private LinearLayout mLabone,mLabtwo;
+    private TextView mAll, mIng;
+    private LinearLayout mLabone, mLabtwo;
     private RelativeLayout mBack;
     private RelativeLayout mShaidan;
     private ImageView backHome;
@@ -45,13 +45,12 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     private RelativeLayout daojishiTime;
     private ImageView goodType;
     private ScrollView mScrollView;
-    private TextView shi,fen,miao;
+    private TextView shi, fen, miao;
     private LinearLayout mTop;
-    private   long  time=400;
+    private long time = 400;
 
     private JoinRecordFragment one;
     private HistoryPersonFragment two;
-
 
 
     @Override
@@ -73,7 +72,6 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     public void onPause() {
         super.onPause();
     }
-
 
 
     @Override
@@ -153,29 +151,25 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         daojishiTime = f(R.id.daojiashi_time);
         goodType = f(R.id.goods_type_iv);
 
-         shi = f(R.id.shi);
-         fen = f(R.id.fen);
-         miao = f(R.id.miao);
+        shi = f(R.id.shi);
+        fen = f(R.id.fen);
+        miao = f(R.id.miao);
         handler.postDelayed(runnable, 1000);
     }
 
-    private void  initFirstFragment()
-    {
+    private void initFirstFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if(one == null)
-        {
+        if (one == null) {
             one = new JoinRecordFragment();
         }
         transaction.replace(R.id.goods_frame_layout, one);
         transaction.commit();
     }
 
-    private void  initSecondFragment()
-    {
+    private void initSecondFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        if(two == null)
-        {
+        if (two == null) {
             two = new HistoryPersonFragment();
         }
         transaction.replace(R.id.goods_frame_layout, two);
@@ -191,48 +185,42 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
             String formatLongToTimeStr = formatLongToTimeStr(time);
             String[] split = formatLongToTimeStr.split("：");
             for (int i = 0; i < split.length; i++) {
-                if(i==0){
-                    if(split[0].length()<2)
-                    {
-                        shi.setText("0"+split[0]);
-                    }else
-                    {
+                if (i == 0) {
+                    if (split[0].length() < 2) {
+                        shi.setText("0" + split[0]);
+                    } else {
                         shi.setText(split[0]);
                     }
 
                 }
-                if(i==1){
+                if (i == 1) {
 
-                    if(split[1].length()<2)
-                    {
-                        fen.setText("0"+split[1]);
-                    }else
-                    {
+                    if (split[1].length() < 2) {
+                        fen.setText("0" + split[1]);
+                    } else {
                         fen.setText(split[1]);
                     }
                 }
-                if(i==2){
-                    if(split[2].length()<2)
-                    {
-                        miao.setText("0"+split[2]);
-                    }else
-                    {
+                if (i == 2) {
+                    if (split[2].length() < 2) {
+                        miao.setText("0" + split[2]);
+                    } else {
                         miao.setText(split[2]);
                     }
                 }
 
             }
-            if(time>0){
+            if (time > 0) {
                 handler.postDelayed(this, 1000);
             }
         }
     };
 
-    public  String formatLongToTimeStr(Long l) {
+    public String formatLongToTimeStr(Long l) {
         int hour = 0;
         int minute = 0;
         int second = 0;
-        second = l.intValue() ;
+        second = l.intValue();
         if (second > 60) {
             minute = second / 60;         //取整
             second = second % 60;         //取余
@@ -242,7 +230,7 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
             hour = minute / 60;
             minute = minute % 60;
         }
-        String strtime = hour+"："+minute+"："+second;
+        String strtime = hour + "：" + minute + "：" + second;
         return strtime;
 
     }
@@ -252,22 +240,20 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     protected void initData() {
 
 
-        if(state.equals("1"))
-        {
+        if (state==null)state="";
+        if (state.equals("1")) {
             kaijiang.setVisibility(View.VISIBLE);
             bukaijiang.setVisibility(View.GONE);
             goodstate.setText("倒计时");
             daojishiTime.setVisibility(View.VISIBLE);
             goodstate.setBackgroundResource(R.mipmap.good_state_daojishi);
-        }else if(state.equals("2"))
-        {
+        } else if (state.equals("2")) {
             kaijiang.setVisibility(View.GONE);
             bukaijiang.setVisibility(View.VISIBLE);
             goodstate.setText("进行中");
             daojishiTime.setVisibility(View.GONE);
             goodstate.setBackgroundResource(R.mipmap.good_state_ing);
-        }else
-        {
+        } else {
             daojishiTime.setVisibility(View.GONE);
             kaijiang.setVisibility(View.VISIBLE);
             bukaijiang.setVisibility(View.GONE);
@@ -276,9 +262,9 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         }
 
 
-        mFragments=new ArrayList<>();
-        JoinRecordFragment one=new JoinRecordFragment();
-        HistoryPersonFragment two=new HistoryPersonFragment();
+        mFragments = new ArrayList<>();
+        JoinRecordFragment one = new JoinRecordFragment();
+        HistoryPersonFragment two = new HistoryPersonFragment();
         mFragments.add(one);
         mFragments.add(two);
         initFirstFragment();
@@ -289,29 +275,23 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     }
 
     /**
-     *
      * 提供子fragment调用方法，解决listview高度不自适应出现多余空白
      */
 //    public  void setChildObjectForPosition(View com.zhongbao.zhongbao.view,int poistion){
 //        vp.setObjectForPosition(com.zhongbao.zhongbao.view,poistion);
 //    }
-
-    private void setLabState(int id)
-    {
-        if(id == R.id.rb_all)
-        {
+    private void setLabState(int id) {
+        if (id == R.id.rb_all) {
             mAll.setTextColor(getResources().getColor(R.color.bottom_tab_select));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.VISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
-        }else if(id == R.id.rb_ing)
-        {
+        } else if (id == R.id.rb_ing) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
             mIng.setTextColor(getResources().getColor(R.color.bottom_tab_select));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.VISIBLE);
-        }else if(id == R.id.rb_ed)
-        {
+        } else if (id == R.id.rb_ed) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.INVISIBLE);
@@ -321,15 +301,14 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.back_left:
                 finish();
                 break;
             case R.id.goods_home_rela:
 //                if(ButtonUtils.isFastClick())
 //                {
-                    startActivity(new Intent(this, MyBaskActivity.class));
+                startActivity(new Intent(this, MyBaskActivity.class));
 //                }
 
                 break;

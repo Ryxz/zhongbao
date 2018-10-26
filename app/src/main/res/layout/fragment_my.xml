@@ -17,27 +17,46 @@
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <LinearLayout
+                
+        <RelativeLayout
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginRight="10dp"
+            android:layout_height="48dp"
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/mine_news_iv"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:src="@mipmap/mine_news" />
-            <ImageView
                 android:id="@+id/mine_type_iv"
-                android:layout_marginLeft="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"
                 android:src="@mipmap/mine_type"/>
-        </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/mine_news_iv"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/mine_type_iv"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@mipmap/mine_news"/>
+            <TextView
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/back"
+                android:textSize="8sp"
+                android:layout_toLeftOf="@id/mine_type_iv"
+                android:textColorHint="@color/bg_toolbar"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:text="1"/>
+        </RelativeLayout>
 
 
         <LinearLayout

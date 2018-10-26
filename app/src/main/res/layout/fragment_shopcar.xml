@@ -52,6 +52,7 @@
     <RelativeLayout
         android:layout_alignParentBottom="true"
         android:background="#FFDFDFD5"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
@@ -84,8 +85,8 @@
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@mipmap/buy_bg"/>
 
         <TextView
