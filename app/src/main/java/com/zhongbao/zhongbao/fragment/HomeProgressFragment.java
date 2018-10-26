@@ -80,9 +80,7 @@ public class HomeProgressFragment extends Fragment {
     }
 
     private List<HomePrograssBean> getList() {
-        if (list != null) {
-            list.clear();
-        }
+        list.clear();
         HomePrograssBean bean = new HomePrograssBean();
         bean.setName("香奈儿四件套高级定制");
         bean.setJindu("60");

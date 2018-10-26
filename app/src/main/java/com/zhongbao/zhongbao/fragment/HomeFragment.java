@@ -165,7 +165,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         list.add(bean);
         list.add(bean1);
-
+        list.add(bean1);
+        list.add(bean);
         return list;
     }
 
