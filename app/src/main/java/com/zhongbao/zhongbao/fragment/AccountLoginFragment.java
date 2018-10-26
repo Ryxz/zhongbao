@@ -93,7 +93,7 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
                 } else if (mPsd.getText().toString().isEmpty()) {
                     Toast.makeText(getActivity(), "请输入密码", Toast.LENGTH_LONG).show();
                 } else {
-                    SharedPreferences sp = getActivity().getSharedPreferences("com/zhongbao/zhongbao/login", Activity.MODE_PRIVATE);
+                    SharedPreferences sp = getActivity().getSharedPreferences("com.zhongbao.zhongbao.login", Activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("isLogin", true);
                     Log.e("woyaokk", "sp:" + sp.getBoolean("isLogin", false));

@@ -35,24 +35,22 @@ public class AllRecordFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_allrecord,container,false);
+        View view = inflater.inflate(R.layout.fragment_allrecord, container, false);
         initView(view);
         return view;
     }
 
-    private void initView(View view)
-    {
+    private void initView(View view) {
         listView = view.findViewById(R.id.allrecord_listview);
-        recordAdapter = new RecordAdapter(getActivity(),getDatas());
+        recordAdapter = new RecordAdapter(getActivity(), getDatas());
         listView.setAdapter(recordAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(ButtonUtils.isFastClick())
-                {
+                if (ButtonUtils.isFastClick()) {
                     Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
-                    intent.putExtra("STATE","2");
+                    intent.putExtra("STATE", "2");
                     startActivity(intent);
                 }
             }
@@ -62,19 +60,19 @@ public class AllRecordFragment extends Fragment {
     /**
      * 这里我们用三种不同的样式进行测试
      **/
-     private ArrayList<ListViewItem> getDatas() {
+    private ArrayList<ListViewItem> getDatas() {
 
-         viewItemsArraylists = new ArrayList<ListViewItem>();
-         viewItemsArraylists.add(new ListViewItem(0, null));
-         viewItemsArraylists.add(new ListViewItem(1, null));
-         viewItemsArraylists.add(new ListViewItem(2, null));
-         viewItemsArraylists.add(new ListViewItem(2, null));
-         viewItemsArraylists.add(new ListViewItem(2, null));
-         viewItemsArraylists.add(new ListViewItem(0, null));
-         viewItemsArraylists.add(new ListViewItem(2, null));
-         viewItemsArraylists.add(new ListViewItem(1, null));
-         viewItemsArraylists.add(new ListViewItem(1, null));
-         return viewItemsArraylists;
-     }
+        viewItemsArraylists = new ArrayList<ListViewItem>();
+        viewItemsArraylists.add(new ListViewItem(0, null));
+        viewItemsArraylists.add(new ListViewItem(1, null));
+        viewItemsArraylists.add(new ListViewItem(2, null));
+        viewItemsArraylists.add(new ListViewItem(2, null));
+        viewItemsArraylists.add(new ListViewItem(2, null));
+        viewItemsArraylists.add(new ListViewItem(0, null));
+        viewItemsArraylists.add(new ListViewItem(2, null));
+        viewItemsArraylists.add(new ListViewItem(1, null));
+        viewItemsArraylists.add(new ListViewItem(1, null));
+        return viewItemsArraylists;
+    }
 
 }

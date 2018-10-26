@@ -66,40 +66,38 @@ public class RecordAdapter extends BaseAdapter {
         ViewHolderThirdType viewHolderThreeType = null;
 //        if(convertView == null)
 //        {
-            switch (type)
-            {
-                case 0:
-                    viewHolderfirstType = new ViewHolderFirstType();
-                    convertView = mLayoutInflater.inflate(R.layout.adapter_record_first_style,null);
+        switch (type) {
+            case 0:
+                viewHolderfirstType = new ViewHolderFirstType();
+                convertView = mLayoutInflater.inflate(R.layout.adapter_record_first_style, null);
 
 //                    convertView.setTag(1, viewHolderfirstType);
-                    break;
+                break;
 
-                case 1:
-                    viewHoldersecondType = new ViewHolderSecondType();
-                    convertView = mLayoutInflater.inflate(R.layout.adapter_record_second_style,null);
+            case 1:
+                viewHoldersecondType = new ViewHolderSecondType();
+                convertView = mLayoutInflater.inflate(R.layout.adapter_record_second_style, null);
 //                    convertView.setTag(2,viewHoldersecondType);
-                    break;
+                break;
 
-                case 2:
-                    viewHolderThreeType = new ViewHolderThirdType();
-                    convertView = mLayoutInflater.inflate(R.layout.adapter_record_third_style,null);
+            case 2:
+                viewHolderThreeType = new ViewHolderThirdType();
+                convertView = mLayoutInflater.inflate(R.layout.adapter_record_third_style, null);
 //                    convertView.setTag(3,viewHolderThreeType);
-                    break;
-            }
+                break;
+        }
 //        }else
 //        {
-            switch (type)
-            {
-                case 0:
+        switch (type) {
+            case 0:
 //                    viewHolderfirstType = (ViewHolderFirstType) convertView.getTag(1);
-                    break;
-                case 1:
+                break;
+            case 1:
 //                    viewHoldersecondType = (ViewHolderSecondType) convertView.getTag(2);
-                    break;
-                case 2:
+                break;
+            case 2:
 //                    viewHolderThreeType = (ViewHolderThirdType) convertView.getTag(3);
-                    break;
+                break;
 //            }
         }
         TextView mPhone = convertView.findViewById(R.id.phone_num);
@@ -112,19 +110,16 @@ public class RecordAdapter extends BaseAdapter {
         return convertView;
     }
 
-    class ViewHolderFirstType
-    {
+    class ViewHolderFirstType {
         TextView first_style_tv;
     }
 
-    class ViewHolderSecondType
-    {
+    class ViewHolderSecondType {
         TextView second_style_tv;
         TextView second_style_price;
     }
 
-    class ViewHolderThirdType
-    {
+    class ViewHolderThirdType {
         TextView third_style_tv;
         TextView third_style_price;
         TextView third_style_name;

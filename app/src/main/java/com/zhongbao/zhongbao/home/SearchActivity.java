@@ -41,6 +41,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             //设置状态栏的颜色，和你的app主题或者标题栏颜色设置一致就ok了
             window.setStatusBarColor(getResources().getColor(R.color.dray_line));
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         return R.layout.activity_search;
     }

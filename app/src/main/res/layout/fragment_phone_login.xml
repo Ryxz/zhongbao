@@ -7,7 +7,6 @@
 
     <RelativeLayout
         android:id="@+id/phone_rela"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="45dp">
 
@@ -57,7 +56,6 @@
             android:maxLength="11"
             android:textSize="13sp"
             android:paddingLeft="10dp"
-            android:textColorHint="@color/text_hint_color"
             android:inputType="number"
             android:hint="请输入验证码"
             android:background="@android:color/white"

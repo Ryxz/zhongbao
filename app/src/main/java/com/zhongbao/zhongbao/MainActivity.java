@@ -13,7 +13,7 @@ import java.util.List;
 
 import com.zhongbao.zhongbao.fragment.HomeFragment;
 import com.zhongbao.zhongbao.fragment.LatestFragment;
-import com.zhongbao.zhongbao.fragment.MyFrament;
+import com.zhongbao.zhongbao.fragment.MyFragment;
 import com.zhongbao.zhongbao.fragment.ProductFragment;
 import com.zhongbao.zhongbao.fragment.ShopCarFragment;
 import com.zhongbao.zhongbao.view.WinningInfoDialog;
@@ -28,9 +28,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ProductFragment productFragment;
     private LatestFragment latestFragment;
     private ShopCarFragment shopCarFragment;
-    private MyFrament myFrament;
+    private MyFragment myFragment;
 
-    private WinningInfoDialog winningInfoDialog;
 
     @Override
     protected int getLayoutID() {
@@ -147,14 +146,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if (myFrament == null) {
-            myFrament = new MyFrament();
-            transaction.add(R.id.main_frame_layout, myFrament);
+        if (myFragment == null) {
+            myFragment = new MyFragment();
+            transaction.add(R.id.main_frame_layout, myFragment);
         }
         //隐藏所有fragment
         hideFragment(transaction);
         //显示需要显示的fragment
-        transaction.show(myFrament);
+        transaction.show(myFragment);
         //提交事务
         transaction.commit();
     }
@@ -212,8 +211,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (shopCarFragment != null) {
             transaction.hide(shopCarFragment);
         }
-        if (myFrament != null) {
-            transaction.hide(myFrament);
+        if (myFragment != null) {
+            transaction.hide(myFragment);
         }
     }
 
