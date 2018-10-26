@@ -44,33 +44,51 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
     private TextView mPrice;
     private int a = 0;
     private int b = 0;
+    public boolean isItem = false;
 
-    private Handler mHandler = new Handler() {
+
+    private Handler mHandler = new Handler(new Handler.Callback() {
         @Override
-        public void handleMessage(Message msg) {
-            if (a != 0 || b != 0) {
-                a = 0;
-                b = 0;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i).getChecked() == 1) {
-                    a = a + 1;
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1://点击全选框
+                    if (a != 0 || b != 0) {
+                        a = 0;
+                        b = 0;
+                    }
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i).getChecked() == 1) {
+                            a = a + 1;
 
-                    int total = Integer.parseInt(list.get(i).getNum());
-                    b = total + b;
-                }
-            }
+                            int total = Integer.parseInt(list.get(i).getNum());
+                            b = total + b;
+                        }
+                    }
 
-            if (isShowTotal()) {
-                mTotalCheck.setChecked(true);
+                    if (isShowTotal()) {
+                        mTotalCheck.setChecked(true);
+//                        curIsAll = true;
+                    }
+
+                    mPrice.setText("合计: " + b + "钻石");
+                    mNum.setText("共" + a + "个商品");
+                    break;
+                case 2:
+                    mTotalCheck.setChecked(true);
+                    break;
+                case 3:
+                    isItem = true;
+                    mTotalCheck.setChecked(false);
+                    break;
+
             }
-            mPrice.setText("合计: " + b + "钻石");
-            mNum.setText("共" + a + "个商品");
+            return false;
         }
-    };
+    });
 
     private boolean isShowTotal() {
         int a = 0;
+        if (list.size()==0)return false;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getChecked() == 1) {
                 a = a + 1;
@@ -178,13 +196,11 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
                     mHandler.sendEmptyMessage(1);
                     if (!list.isEmpty()) {
 
-                        if (list.get(0).getChecked() == 1 && list.get(1).getChecked() == 1 && list.get(2).getChecked() == 1 && list.get(3).getChecked() == 1) {
-                            list.removeAll(list);
-                        } else {
-                            for (int i = 0; i < list.size(); i++) {
-                                if (list.get(i).getChecked() == 1) {
-                                    list.remove(i);
-                                }
+//                        int size=list.size();
+                        for (int i = 0; i < list.size(); i++) {
+                            if (list.get(i).getChecked() == 1) {
+                                list.remove(i);
+                                i--;
                             }
                         }
                     }
@@ -211,20 +227,26 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            if (!list.isEmpty()) {
-                for (int i = 0; i < list.size(); i++) {
-                    list.get(i).setChecked(1);
+        if (!isItem) {
+            if (isChecked) {
+                if (!list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i).setChecked(1);
+                    }
+                }
+            } else {
+
+                if (!list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        list.get(i).setChecked(0);
+                    }
                 }
             }
-        } else {
-            if (!list.isEmpty()) {
-                for (int i = 0; i < list.size(); i++) {
-                    list.get(i).setChecked(0);
-                }
-            }
+
+
+            mHandler.sendEmptyMessage(1);
+            adapter.notifyDataSetChanged();
         }
-        mHandler.sendEmptyMessage(1);
-        adapter.notifyDataSetChanged();
+        isItem = false;
     }
 }

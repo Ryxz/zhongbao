@@ -136,6 +136,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
+                    android:button="@null"
                     android:background="@mipmap/dianzan"/>
 
             </RelativeLayout>

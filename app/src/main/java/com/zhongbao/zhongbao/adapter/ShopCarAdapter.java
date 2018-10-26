@@ -119,11 +119,13 @@ public class ShopCarAdapter extends BaseAdapter {
             public void onClick(View v) {
                 if (bean.getChecked() == 1) {
                     bean.setChecked(0);
-                    mHandler.sendEmptyMessage(1);
+//                    if (isNotCheckedAll())
+                        mHandler.sendEmptyMessage(3);
 
                 } else {
                     bean.setChecked(1);
-                    mHandler.sendEmptyMessage(1);
+                    if (isCheckedAll())
+                        mHandler.sendEmptyMessage(2);
                 }
                 notifyDataSetChanged();
             }
@@ -131,6 +133,24 @@ public class ShopCarAdapter extends BaseAdapter {
 
         return convertView;
 
+    }
+
+    boolean isCheckedAll() {
+        for (ShopCarBean bean : list) {
+            if (bean.getChecked() == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    boolean isNotCheckedAll() {
+        for (ShopCarBean bean : list) {
+            if (bean.getChecked() == 1) {
+                return false;
+            }
+        }
+        return true;
     }
 
     class ShopCarViewHolder {
