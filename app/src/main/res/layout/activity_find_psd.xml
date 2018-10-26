@@ -169,7 +169,6 @@
         android:background="@color/text_hint_color"/>
 
     <TextView
-        android:layout_below="@id/miaoshu"
         android:id="@+id/find_psd_btn"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
