@@ -125,6 +125,7 @@
 
 
             <TextView
+                android:id="@+id/tv_goods_number"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/back"
                 android:textSize="11sp"

@@ -1,5 +1,9 @@
 package com.zhongbao.zhongbao;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.Fragment;
@@ -25,13 +29,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mShopCar;
     private LinearLayout mHome, mGoods, mLateast, mMine;
     private ImageView mHomeIv, mGoodsIv, mLateastIv, mShopIv, mMineIv;
-    private TextView mHomeTv, mGoodsTv, mLateastTv, mShopTv, mMineTv;
+    private TextView mHomeTv, mGoodsTv, mLateastTv, mShopTv, mMineTv,tv_goods_number;
     private HomeFragment homeFragment;
     private ProductFragment productFragment;
     private LatestFragment latestFragment;
     private ShopCarFragment shopCarFragment;
     private MyFragment myFragment;
 
+    public static final String GOODS_NUMBER_ACTION="main.tv_goods_number";
 
     @Override
     protected int getLayoutID() {
@@ -75,8 +80,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLateastTv = f(R.id.lateast_tv);
         mShopTv = f(R.id.shop_tv);
         mMineTv = f(R.id.mine_tv);
+
+        tv_goods_number=f(R.id.tv_goods_number);
+        IntentFilter filter=new IntentFilter();
+        filter.addAction(GOODS_NUMBER_ACTION);
+        registerReceiver(receiver,filter);
         initFirstFragment();
     }
+
+    private BroadcastReceiver receiver=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent!=null){
+                String action=intent.getAction();
+                if (GOODS_NUMBER_ACTION.equals(action)){
+                    tv_goods_number.setText(intent.getStringExtra("tv_goods_number"));
+                }
+            }
+        }
+    };
 
     private void initFirstFragment() {
         initIVTVData(1);
