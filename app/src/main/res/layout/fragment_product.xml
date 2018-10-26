@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_nav"/>
 
-    <com.zhongbao.custom.ProductRecycleView
+    <com.zhongbao.zhongbao.custom.ProductRecycleView
         android:id="@+id/rv_product"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

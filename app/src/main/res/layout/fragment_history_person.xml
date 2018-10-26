@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/dray_line">
 
-    <com.zhongbao.view.MyListView
+    <com.zhongbao.zhongbao.view.MyListView
         android:id="@+id/his_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

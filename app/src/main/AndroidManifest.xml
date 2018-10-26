@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,37 +20,37 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.zhongbao.my.PersonalDataActivity"/>
-        <activity android:name="com.zhongbao.my.AddAdressActivity"/>
-        <activity android:name="com.zhongbao.my.PayActivity"/>
-        <activity android:name="com.zhongbao.my.AboutActivity"
-            android:theme="@style/test"/>
-        <activity android:name="com.zhongbao.my.HelpActivity"/>
-        <activity android:name="com.zhongbao.my.ZbRecordActivity"/>
-        <activity android:name="com.zhongbao.my.MyAdressActivity"/>
-        <activity android:name="com.zhongbao.my.MyBaskActivity"/>
-        <activity android:name="com.zhongbao.my.GetGoodsActivity"/>
-        <activity android:name="com.zhongbao.login.LoginActivity"/>
-        <activity android:name="com.zhongbao.login.FindPsdActivity"/>
-        <activity android:name="com.zhongbao.login.RegisterActivity"/>
-        <activity android:name="com.zhongbao.goods.GoodsDetailActivity"/>
-        <activity android:name="com.zhongbao.my.SystemNewsActivity"/>
-        <activity android:name="com.zhongbao.my.NewsDetailActivity"/>
-        <activity android:name="com.zhongbao.goods.NoviceActivity"/>
-        <activity android:name="com.zhongbao.home.XinpinActivity"/>
-        <activity android:name="com.zhongbao.home.SearchActivity"/>
-        <activity android:name="com.zhongbao.home.HomeDialogActivity"
+        <activity android:name=".my.PersonalDataActivity"/>
+        <activity android:name=".my.AddAdressActivity"/>
+        <activity android:name=".my.PayActivity"/>
+        <activity android:name=".my.AboutActivity"
+           />
+        <activity android:name=".my.HelpActivity"/>
+        <activity android:name=".my.ZbRecordActivity"/>
+        <activity android:name=".my.MyAdressActivity"/>
+        <activity android:name=".my.MyBaskActivity"/>
+        <activity android:name=".my.GetGoodsActivity"/>
+        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".login.FindPsdActivity"/>
+        <activity android:name=".login.RegisterActivity"/>
+        <activity android:name=".goods.GoodsDetailActivity"/>
+        <activity android:name=".my.SystemNewsActivity"/>
+        <activity android:name=".my.NewsDetailActivity"/>
+        <activity android:name=".goods.NoviceActivity"/>
+        <activity android:name=".home.XinpinActivity"/>
+        <activity android:name=".home.SearchActivity"/>
+        <activity android:name=".home.HomeDialogActivity"
             android:theme="@style/Theme.Translucent"/>
-        <activity android:name="com.zhongbao.my.ShareActivity"
+        <activity android:name=".my.ShareActivity"
             android:theme="@style/Theme.Translucent"/>
 
-        <activity android:name="com.zhongbao.my.QrcodeActivity"
+        <activity android:name=".my.QrcodeActivity"
             android:theme="@style/Theme.Translucent"/>
-        <activity android:name="com.zhongbao.home.XianGouActivity"/>
-        <activity android:name="com.zhongbao.my.MyNumberActivity" />
-        <activity android:name="com.zhongbao.my.TAcenterActivity" />
-        <activity android:name="com.zhongbao.goods.DuihuanActivity"/>
-        <activity android:name="com.zhongbao.goods.BuyGoodsActivity"
+        <activity android:name=".home.XianGouActivity"/>
+        <activity android:name=".my.MyNumberActivity" />
+        <activity android:name=".my.TAcenterActivity" />
+        <activity android:name=".goods.DuihuanActivity"/>
+        <activity android:name=".goods.BuyGoodsActivity"
             android:theme="@style/Theme.Translucent" />
     </application>
 

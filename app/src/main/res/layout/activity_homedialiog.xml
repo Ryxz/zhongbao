@@ -1,44 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="0dp"
-    android:background="#80000000">
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/skip"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:background="@mipmap/home_skip"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:text="跳过"/>
+
+    </LinearLayout>
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/gold_zhongjiang"/>
+        android:layout_height="300dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:src="@mipmap/gold_zhongjiang" />
+    <TextView
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:text="恭喜获得第200期的奖品********"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@mipmap/kouhong"
+            android:layout_width="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="60dp" />
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:background="@color/orange"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+    </LinearLayout>
 
     <TextView
+        android:layout_marginBottom="40dp"
         android:id="@+id/gold_share"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
         android:gravity="center"
         android:background="@mipmap/home_xuanyao"
         android:text="炫耀一下"
+        android:textColor="@color/white"
         android:layout_width="140dp"
         android:layout_height="37dp" />
 
 
-    <TextView
-        android:id="@+id/skip"
-        android:layout_marginRight="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="70dp"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        android:background="@mipmap/home_skip"
-        android:layout_width="50dp"
-        android:layout_height="25dp"
-        android:text="跳过"/>
-</RelativeLayout>
+</LinearLayout>

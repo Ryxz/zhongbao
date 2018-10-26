@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/dray_line">
 
-    <com.zhongbao.view.MyGridView
+    <com.zhongbao.zhongbao.view.MyGridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numColumns="2"

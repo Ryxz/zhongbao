@@ -1,45 +1,36 @@
 package com.zhongbao.zhongbao;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.hjm.bottomtabbar.BottomTabBar;
-
 import java.util.List;
 
-import com.zhongbao.fragment.GoodsFragment;
-import com.zhongbao.fragment.HomeFragment;
-import com.zhongbao.fragment.LatestFragment;
-import com.zhongbao.fragment.MyFrament;
-import com.zhongbao.fragment.ProductFragment;
-import com.zhongbao.fragment.ShopCarFragment;
-import com.zhongbao.home.HomeDialogActivity;
+import com.zhongbao.zhongbao.fragment.HomeFragment;
+import com.zhongbao.zhongbao.fragment.LatestFragment;
+import com.zhongbao.zhongbao.fragment.MyFrament;
+import com.zhongbao.zhongbao.fragment.ProductFragment;
+import com.zhongbao.zhongbao.fragment.ShopCarFragment;
+import com.zhongbao.zhongbao.view.WinningInfoDialog;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private RelativeLayout mShopCar;
-    private LinearLayout mHome,mGoods,mLateast,mMine;
-    private ImageView mHomeIv,mGoodsIv,mLateastIv,mShopIv,mMineIv;
-    private  TextView mHomeTv,mGoodsTv,mLateastTv,mShopTv,mMineTv;
+    private LinearLayout mHome, mGoods, mLateast, mMine;
+    private ImageView mHomeIv, mGoodsIv, mLateastIv, mShopIv, mMineIv;
+    private TextView mHomeTv, mGoodsTv, mLateastTv, mShopTv, mMineTv;
     private HomeFragment homeFragment;
     private ProductFragment productFragment;
     private LatestFragment latestFragment;
     private ShopCarFragment shopCarFragment;
     private MyFrament myFrament;
 
+    private WinningInfoDialog winningInfoDialog;
 
     @Override
     protected int getLayoutID() {
@@ -74,18 +65,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLateastTv = f(R.id.lateast_tv);
         mShopTv = f(R.id.shop_tv);
         mMineTv = f(R.id.mine_tv);
-        startActivity(new Intent(this,HomeDialogActivity.class));
+//        startActivity(new Intent(this, HomeDialogActivity.class));
         initFirstFragment();
     }
 
-    private void  initFirstFragment()
-    {
+    private void initFirstFragment() {
         initIVTVData(1);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //隐藏所有fragment
         hideFragment(transaction);
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if(homeFragment == null){
+        if (homeFragment == null) {
             homeFragment = new HomeFragment();
             transaction.add(R.id.main_frame_layout, homeFragment);
         }
@@ -100,13 +90,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onResume();
     }
 
-    private void  initSecondFragment()
-    {
+    private void initSecondFragment() {
         initIVTVData(2);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if(productFragment == null){
+        if (productFragment == null) {
             productFragment = new ProductFragment();
             transaction.add(R.id.main_frame_layout, productFragment);
         }
@@ -119,13 +108,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-    private void  initThirdFragment()
-    {
+    private void initThirdFragment() {
         initIVTVData(3);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if(latestFragment == null){
+        if (latestFragment == null) {
             latestFragment = new LatestFragment();
             transaction.add(R.id.main_frame_layout, latestFragment);
         }
@@ -138,13 +126,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-    private void  initFourFragment()
-    {
+    private void initFourFragment() {
         initIVTVData(4);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if(shopCarFragment == null){
+        if (shopCarFragment == null) {
             shopCarFragment = new ShopCarFragment();
             transaction.add(R.id.main_frame_layout, shopCarFragment);
         }
@@ -156,13 +143,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         transaction.commit();
     }
 
-    private void  initFiveFragment()
-    {
+    private void initFiveFragment() {
         initIVTVData(5);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if(myFrament == null){
+        if (myFrament == null) {
             myFrament = new MyFrament();
             transaction.add(R.id.main_frame_layout, myFrament);
         }
@@ -174,100 +160,60 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         transaction.commit();
     }
 
-    private void initIVTVData(int position)
-    {
-        switch (position)
-        {
-            case 1:
-                mHomeIv.setImageResource(R.mipmap.zb_home_select);
-                mHomeTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
-                mGoodsIv.setImageResource(R.mipmap.zb_goods);
-                mGoodsTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mLateastIv.setImageResource(R.mipmap.zb_latest);
-                mLateastTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mShopIv.setImageResource(R.mipmap.zb_shopcar);
-                mShopTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mMineIv.setImageResource(R.mipmap.zb_my);
-                mMineTv.setTextColor(getResources().getColor(R.color.text_dray));
-                break;
-            case 2:
-                mHomeIv.setImageResource(R.mipmap.zb_home);
-                mHomeTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mGoodsIv.setImageResource(R.mipmap.zb_goods_select);
-                mGoodsTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
-                mLateastIv.setImageResource(R.mipmap.zb_latest);
-                mLateastTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mShopIv.setImageResource(R.mipmap.zb_shopcar);
-                mShopTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mMineIv.setImageResource(R.mipmap.zb_my);
-                mMineTv.setTextColor(getResources().getColor(R.color.text_dray));
-                break;
-            case 3:
-                mHomeIv.setImageResource(R.mipmap.zb_home);
-                mHomeTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mGoodsIv.setImageResource(R.mipmap.zb_goods);
-                mGoodsTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mLateastIv.setImageResource(R.mipmap.zb_lateast_select);
-                mLateastTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
-                mShopIv.setImageResource(R.mipmap.zb_shopcar);
-                mShopTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mMineIv.setImageResource(R.mipmap.zb_my);
-                mMineTv.setTextColor(getResources().getColor(R.color.text_dray));
-                break;
-
-            case 4:
-                mHomeIv.setImageResource(R.mipmap.zb_home);
-                mHomeTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mGoodsIv.setImageResource(R.mipmap.zb_goods);
-                mGoodsTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mLateastIv.setImageResource(R.mipmap.zb_latest);
-                mLateastTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mShopIv.setImageResource(R.mipmap.zb_shopcar_select);
-                mShopTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
-                mMineIv.setImageResource(R.mipmap.zb_my);
-                mMineTv.setTextColor(getResources().getColor(R.color.text_dray));
-                break;
-            case 5:
-                mHomeIv.setImageResource(R.mipmap.zb_home);
-                mHomeTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mGoodsIv.setImageResource(R.mipmap.zb_goods);
-                mGoodsTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mLateastIv.setImageResource(R.mipmap.zb_latest);
-                mLateastTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mShopIv.setImageResource(R.mipmap.zb_shopcar);
-                mShopTv.setTextColor(getResources().getColor(R.color.text_dray));
-                mMineIv.setImageResource(R.mipmap.zb_my_selcet);
-                mMineTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
-                break;
+    private void initIVTVData(int position) {
+        if (position == 1){
+            mHomeIv.setImageResource(R.mipmap.zb_home_select);
+            mHomeTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        }else {
+            mHomeIv.setImageResource(R.mipmap.zb_home);
+            mHomeTv.setTextColor(getResources().getColor(R.color.text_dray));
         }
-
-
+        if (position == 2){
+            mGoodsIv.setImageResource(R.mipmap.zb_goods_select);
+            mGoodsTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        }else {
+            mGoodsIv.setImageResource(R.mipmap.zb_goods);
+            mGoodsTv.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+        if (position == 3){
+            mLateastIv.setImageResource(R.mipmap.zb_lateast_select);
+            mLateastTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        }else {
+            mLateastIv.setImageResource(R.mipmap.zb_latest);
+            mLateastTv.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+        if (position == 4){
+            mShopIv.setImageResource(R.mipmap.zb_shopcar_select);
+            mShopTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        }else {
+            mShopIv.setImageResource(R.mipmap.zb_shopcar);
+            mShopTv.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+        if (position == 5){
+            mMineIv.setImageResource(R.mipmap.zb_my_selcet);
+            mMineTv.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        }else {
+            mMineIv.setImageResource(R.mipmap.zb_my);
+            mMineTv.setTextColor(getResources().getColor(R.color.text_dray));
+        }
 
     }
 
 
-
-
-    private void hideFragment(FragmentTransaction transaction )
-    {
-        if(homeFragment !=null)
-        {
+    private void hideFragment(FragmentTransaction transaction) {
+        if (homeFragment != null) {
             transaction.hide(homeFragment);
         }
-        if(productFragment !=null)
-        {
+        if (productFragment != null) {
             transaction.hide(productFragment);
         }
-        if(latestFragment !=null)
-        {
+        if (latestFragment != null) {
             transaction.hide(latestFragment);
         }
-        if(shopCarFragment !=null)
-        {
+        if (shopCarFragment != null) {
             transaction.hide(shopCarFragment);
         }
-        if(myFrament !=null)
-        {
+        if (myFrament != null) {
             transaction.hide(myFrament);
         }
     }
@@ -277,11 +223,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    public Fragment getVisibleFragment(){
+    public Fragment getVisibleFragment() {
         FragmentManager fragmentManager = MainActivity.this.getSupportFragmentManager();
         List<Fragment> fragments = fragmentManager.getFragments();
-        for(Fragment fragment : fragments){
-            if(fragment != null && fragment.isVisible())
+        for (Fragment fragment : fragments) {
+            if (fragment != null && fragment.isVisible())
                 return fragment;
         }
         return null;
@@ -289,11 +235,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.home_linear:
-                if(!getVisibleFragment().equals(homeFragment))
-                {
+                if (!getVisibleFragment().equals(homeFragment)) {
                     initFirstFragment();
                 }
 
