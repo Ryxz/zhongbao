@@ -19,15 +19,15 @@
             android:id="@+id/back_left"
             android:layout_width="100dp"
             android:layout_height="match_parent">
-
             <ImageView
-                android:id="@+id/search"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
+                android:id="@+id/search"
+                android:layout_centerVertical="true"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:scaleType="fitXY"
-                android:src="@mipmap/goods_search" />
+                android:src="@mipmap/search"/>
+
         </RelativeLayout>
 
         <TextView
