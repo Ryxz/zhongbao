@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.zhongbao.zhongbao.view.WinningInfoDialog;
+import com.zhongbao.zhongbao.dialog.WinningInfoDialog;
 import com.zhongbao.zhongbao.R;
 
 import java.util.ArrayList;

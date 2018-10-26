@@ -84,7 +84,7 @@ public class ZbRecordActivity extends BaseActivity implements View.OnClickListen
 
     private void setLabState(int id) {
         if (id == R.id.rb_all) {
-            mAll.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mAll.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mEd.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.VISIBLE);
@@ -92,7 +92,7 @@ public class ZbRecordActivity extends BaseActivity implements View.OnClickListen
             mLabThree.setVisibility(View.INVISIBLE);
         } else if (id == R.id.rb_ing) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
-            mIng.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mIng.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mEd.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.VISIBLE);
@@ -100,7 +100,7 @@ public class ZbRecordActivity extends BaseActivity implements View.OnClickListen
         } else if (id == R.id.rb_ed) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
-            mEd.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mEd.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
             mLabThree.setVisibility(View.VISIBLE);

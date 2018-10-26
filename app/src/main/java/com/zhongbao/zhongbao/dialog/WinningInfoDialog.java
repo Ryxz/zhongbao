@@ -1,4 +1,4 @@
-package com.zhongbao.zhongbao.view;
+package com.zhongbao.zhongbao.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;

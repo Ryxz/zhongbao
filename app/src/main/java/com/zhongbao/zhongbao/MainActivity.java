@@ -19,7 +19,6 @@ import com.zhongbao.zhongbao.fragment.LatestFragment;
 import com.zhongbao.zhongbao.fragment.MyFragment;
 import com.zhongbao.zhongbao.fragment.ProductFragment;
 import com.zhongbao.zhongbao.fragment.ShopCarFragment;
-import com.zhongbao.zhongbao.view.WinningInfoDialog;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

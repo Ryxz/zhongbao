@@ -21,7 +21,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@mipmap/b"/>
+                android:src="@mipmap/channelkouh"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_color"
-                android:text="香奈儿四件套高级定制你值得拥有一套带回家"/>
+                android:text="香奈儿高级定制"/>
 
             <TextView
                 android:id="@+id/price"
@@ -83,11 +83,12 @@
                 android:layout_marginTop="5dp"
                 android:textSize="12sp"
                 android:layout_below="@id/jiexiao_time"
-                android:textColor="#AB82FF"
-                android:text="查看我的号码"
+                android:textColor="@color/deepskyblue"
+                android:text="查看参与号码"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <View
+                android:visibility="gone"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_below="@id/phone_num"

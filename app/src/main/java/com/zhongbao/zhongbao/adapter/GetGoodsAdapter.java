@@ -14,6 +14,7 @@ import com.zhongbao.zhongbao.R;
 import java.util.List;
 
 import com.zhongbao.zhongbao.bean.GetGoodsBean;
+import com.zhongbao.zhongbao.dialog.ShareDialog;
 import com.zhongbao.zhongbao.my.GetGoodsActivity;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
 import com.zhongbao.zhongbao.my.ShareActivity;
@@ -105,12 +106,15 @@ public class GetGoodsAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 //分享
-               context.startActivity(new Intent(context, ShareActivity.class));
 
+//               context.startActivity(new Intent(context, ShareActivity.class));
+                shareDialog.show();
             }
         });
-
+        shareDialog = new ShareDialog(context);
         return convertView;
     }
 
+
+    ShareDialog shareDialog;
 }

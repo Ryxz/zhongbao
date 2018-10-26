@@ -13,6 +13,7 @@ import com.zhongbao.zhongbao.R;
 import java.util.List;
 
 import com.zhongbao.zhongbao.bean.MyBaskBean;
+import com.zhongbao.zhongbao.dialog.ShareDialog;
 import com.zhongbao.zhongbao.my.ShareActivity;
 
 /**
@@ -25,10 +26,12 @@ public class BaskAdapter extends BaseAdapter {
     private List<MyBaskBean> list;
     private Context context;
     private LayoutInflater mLayoutInflater;
+    private ShareDialog shareDialog;
 
     public BaskAdapter(List<MyBaskBean> list, Context context) {
         this.list = list;
         this.context = context;
+        shareDialog = new ShareDialog(context);
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -59,7 +62,8 @@ public class BaskAdapter extends BaseAdapter {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, ShareActivity.class));
+                shareDialog.show();
+//                context.startActivity(new Intent(context, ShareActivity.class));
             }
         });
 

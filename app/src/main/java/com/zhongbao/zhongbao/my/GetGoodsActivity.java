@@ -80,35 +80,35 @@ public class GetGoodsActivity extends BaseActivity implements View.OnClickListen
     private List<GetGoodsBean> getList()
     {
         GetGoodsBean bean = new GetGoodsBean();
-        bean.setName("张三");
-        bean.setAdress("江苏省南京市江苏省南京市江苏省南京市江苏省南京市江苏省南京市");
+        bean.setName("张三  189765655");
+        bean.setAdress("江苏省南京市");
         bean.setChangeType(1);
 
         GetGoodsBean bean1 = new GetGoodsBean();
-        bean1.setName("李四");
+        bean1.setName("李四  189765652");
         bean1.setAdress("黑龙江省哈尔滨市黑龙江省哈尔滨市");
         bean1.setChangeType(2);
 
         GetGoodsBean bean2 = new GetGoodsBean();
-        bean2.setName("王二麻子");
+        bean2.setName("王二麻子 1897656522");
         bean2.setAdress("安徽省安庆市");
         bean2.setChangeType(3);
 
 
         GetGoodsBean bean3 = new GetGoodsBean();
-        bean3.setName("赵武");
-        bean3.setAdress("江苏省南京市江苏省南京市江苏省南京市江苏省南京市江苏省南京市");
+        bean3.setName("赵武  189765234");
+        bean3.setAdress("江苏省南京市");
         bean3.setChangeType(2);
 
 
         GetGoodsBean bean4 = new GetGoodsBean();
-        bean4.setName("刘流");
-        bean4.setAdress("江苏省南京市江苏省南京市江苏省南京市江苏省南京市江苏省南京市");
+        bean4.setName("刘流  1897656566");
+        bean4.setAdress("江苏省南京市");
         bean4.setChangeType(2);
 
         GetGoodsBean bean5 = new GetGoodsBean();
-        bean5.setName("秦始皇");
-        bean5.setAdress("江苏省南京市江苏省南京市江苏省南京市江苏省南京市江苏省南京市");
+        bean5.setName("秦始皇  1897656512");
+        bean5.setAdress("江苏省南京市");
         bean5.setChangeType(3);
 
         list.add(bean);
