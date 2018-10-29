@@ -73,14 +73,13 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/price_shop"
-                    android:textSize="13sp"
-                    android:textColor="@color/bg_toolbar"
+                    android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="商品价格: ¥58"/>
 
                 <TextView
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:layout_marginRight="10dp"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
@@ -112,7 +111,7 @@
                         android:id="@+id/goods_num"
                         android:textSize="16sp"
                         android:gravity="center"
-                        android:textColor="@color/bottom_tab_select"
+                        android:textColor="#ff8d2a"
                         android:text="1"
                         android:layout_marginLeft="8dp"
                         android:layout_gravity="center_vertical"
