@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/dray_line">
+    android:background="@color/dray_line"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,85 +14,89 @@
             android:id="@+id/back_left"
             android:layout_width="100dp"
             android:layout_height="match_parent">
+
             <ImageView
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/arrow_left"/>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/arrow_left" />
         </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
-            android:text="充值"/>
+            android:text="充值"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@android:color/white">
+        android:background=" @color/white"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="充值金额"
-            android:textSize="15sp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
-            android:textColor="#757575"/>
+            android:layout_marginTop="15dp"
+            android:text="充值金额"
+            android:textColor="#757575"
+            android:textSize="15sp" />
 
         <LinearLayout
-            android:layout_marginTop="35dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="25dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="¥"
                 android:layout_marginLeft="10dp"
-                android:textSize="25sp"
-                android:textColor="@android:color/black"/>
+                android:text="¥"
+                android:textColor="@android:color/black"
+                android:textSize="28sp" />
 
             <EditText
-                android:textColor="@color/text_color"
                 android:id="@+id/pay_money_et"
+                android:padding="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
-                android:background="@android:color/white"
+                android:inputType="number"
+                android:textSize="20sp"
+                android:background=" @color/white"
                 android:singleLine="true"
-                />
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <TextView
-            android:layout_marginLeft="10dp"
-            android:textSize="12sp"
-            android:text="提示: 1元起冲, ¥1=1(钻石)"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#CD4F39"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="3dp"
+            android:text="提示: 1元起冲, ¥1=1(钻石)"
+            android:textColor="@color/red"
+            android:textSize="12sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:background="@color/dray_line"/>
+            android:background="@color/dray_line" />
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:text="选择金额"
             android:textColor="#757575"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,174 +111,178 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:orientation="horizontal">
+
                     <RadioButton
                         android:id="@+id/radio_one"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="100"
-                        android:gravity="center"
+                        android:background="@drawable/mine_noselect"
                         android:button="@null"
-                        android:textColor="@color/text_dray"
-                        android:background="@drawable/mine_noselect"/>
+                        android:gravity="center"
+                        android:text="100"
+                        android:textColor="@color/text_dray" />
 
                     <RadioButton
                         android:id="@+id/radio_two"
-                        android:layout_marginLeft="10dp"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:text="200"
-                        android:gravity="center"
+                        android:background="@drawable/mine_noselect"
                         android:button="@null"
-                        android:textColor="@color/text_dray"
-                        android:background="@drawable/mine_noselect"/>
+                        android:gravity="center"
+                        android:text="200"
+                        android:textColor="@color/text_dray" />
 
                     <RadioButton
                         android:id="@+id/radio_three"
-                        android:layout_marginLeft="10dp"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:text="500"
-                        android:gravity="center"
+                        android:background="@drawable/mine_noselect"
                         android:button="@null"
-                        android:textColor="@color/text_dray"
-                        android:background="@drawable/mine_noselect"/>
+                        android:gravity="center"
+                        android:text="500"
+                        android:textColor="@color/text_dray" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal">
+
                     <RadioButton
                         android:id="@+id/radio_four"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="1000"
+                        android:background="@drawable/mine_noselect"
                         android:button="@null"
                         android:gravity="center"
-                        android:textColor="@color/text_dray"
-                        android:background="@drawable/mine_noselect"/>
+                        android:text="1000"
+                        android:textColor="@color/text_dray" />
 
                     <RadioButton
                         android:id="@+id/radio_five"
-                        android:layout_marginLeft="10dp"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:text="2000"
-                        android:gravity="center"
+                        android:background="@drawable/mine_noselect"
                         android:button="@null"
-                        android:textColor="@color/text_dray"
-                        android:background="@drawable/mine_noselect"/>
+                        android:gravity="center"
+                        android:text="2000"
+                        android:textColor="@color/text_dray" />
 
                     <RadioButton
-                        android:button="@null"
-                        android:layout_marginLeft="10dp"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
                         android:layout_weight="1"
+                        android:background="@drawable/mine_noselect"
+                        android:button="@null"
                         android:gravity="center"
-                        android:visibility="invisible"
                         android:text="500"
                         android:textColor="@color/text_dray"
-                        android:background="@drawable/mine_noselect"/>
+                        android:visibility="invisible" />
                 </LinearLayout>
 
             </RadioGroup>
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.8"/>
+                android:layout_weight="0.8" />
 
         </LinearLayout>
-        
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/dray_line"/>
+            android:background="@color/dray_line" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:text="请选择充值方式"
             android:textColor="#757575"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:paddingLeft="10dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
 
             <ImageView
                 android:id="@+id/ali_pay_iv"
-                android:checked="true"
-                android:layout_gravity="center_vertical"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@mipmap/yuan"/>
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/yuan"
+                android:checked="true" />
 
             <ImageView
-                android:layout_marginLeft="23dp"
-                android:layout_gravity="center_vertical"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@mipmap/ali_pay"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="23dp"
+                android:src="@mipmap/ali_pay" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="8dp"
+                android:text="支付宝充值"
                 android:textColor="#757575"
-                android:text="支付宝充值"/>
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:paddingLeft="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
 
             <ImageView
                 android:id="@+id/wechat_pay_iv"
-                android:layout_gravity="center_vertical"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@mipmap/yuan"/>
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/yuan" />
 
             <ImageView
-                android:layout_marginLeft="23dp"
-                android:layout_gravity="center_vertical"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@mipmap/wechat_pay"/>
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="23dp"
+                android:src="@mipmap/wechat_pay" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="8dp"
+                android:text="微信充值"
                 android:textColor="#757575"
-                android:text="微信充值"/>
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -282,17 +290,16 @@
 
     <TextView
         android:id="@+id/pay_btn"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="确定"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
-        android:background="@mipmap/button_bg"/>
-
+        android:background="@mipmap/button_bg"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor=" @color/white"
+        android:textSize="15sp" />
 
 
 </LinearLayout>

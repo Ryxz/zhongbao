@@ -3,8 +3,9 @@
     android:id="@+id/ll_category_item"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@drawable/item_category_selector"
     android:orientation="horizontal">
+
+    <!--android:background="@drawable/item_category_selector"-->
 
     <View
         android:id="@+id/huakuai"
@@ -19,6 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textColor="#000000"
-        android:textSize="12sp" />
+        android:textColor="@color/black" />
+    <View
+        android:background="@color/lightgrey"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
 </RelativeLayout>

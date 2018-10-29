@@ -2,33 +2,29 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <View
         android:layout_width="match_parent"
         android:background="@color/bg_toolbar"
         android:layout_height="20dp"/>
-    <RelativeLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/bg_toolbar">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"
-            android:text="最新揭晓"/>
-    </RelativeLayout>
+        android:textSize="16sp"
+        android:gravity="center"
+        android:background="@color/bg_toolbar"
+        android:textColor="@color/white"
+        android:layout_centerInParent="true"
+        android:text="最新揭晓"/>
 
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/top_lineaer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -41,7 +37,7 @@
                 android:layout_width="80dp"
                 android:scaleType="centerCrop"
                 android:layout_height="80dp"
-                android:src="@mipmap/a"/>
+                android:src="@mipmap/channelkouh"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -93,7 +89,7 @@
                     android:layout_alignBottom="@+id/imageView"
                     android:layout_alignEnd="@+id/click_linear"
                     android:layout_alignRight="@+id/click_linear"
-                    android:layout_gravity="center"
+                    android:layout_gravity="bottom"
                     android:text="即将揭晓:"
                     android:textColor="@color/text_hint_color"
                     android:textSize="12sp" />

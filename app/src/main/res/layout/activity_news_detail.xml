@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/dray_line"
+    android:background="@color/gainsboro"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,9 +25,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
             android:text="消息详情"/>
     </RelativeLayout>
@@ -37,7 +36,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="15sp"
         android:textColor="@android:color/black"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="65dp"
         android:text="欢迎您加入众宝大家庭"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -59,7 +58,6 @@
         android:layout_marginRight="10dp"
         android:layout_below="@id/news_time"
         android:textColor="@color/text_color"
-        android:textSize="12sp"
         android:lineSpacingExtra="8dp"
         android:text="欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭欢迎您加入众宝大家庭"
         android:layout_width="wrap_content"

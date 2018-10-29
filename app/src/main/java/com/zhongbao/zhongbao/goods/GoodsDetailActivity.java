@@ -1,11 +1,18 @@
 package com.zhongbao.zhongbao.goods;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -14,15 +21,19 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.youth.banner.Banner;
 import com.zhongbao.zhongbao.BaseActivity;
 import com.zhongbao.zhongbao.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import com.zhongbao.zhongbao.base.GlideImageLoader;
 import com.zhongbao.zhongbao.fragment.HistoryPersonFragment;
 import com.zhongbao.zhongbao.fragment.JoinRecordFragment;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
+import com.zhongbao.zhongbao.utils.GlideUtils;
 import com.zhongbao.zhongbao.view.HomePopwindow;
 
 /**
@@ -39,7 +50,7 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     private TextView mAll, mIng;
     private LinearLayout mLabone, mLabtwo;
     private RelativeLayout mBack;
-    private RelativeLayout mShaidan;
+    private LinearLayout mShaidan;
     private ImageView backHome;
     private String state = "3";
     private TextView goodstate;
@@ -54,6 +65,15 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
 
     private JoinRecordFragment one;
     private HistoryPersonFragment two;
+    private Banner banner;
+
+    private List<String> list = new ArrayList<>();
+
+    private int fadingHeight = 600; // 当ScrollView滑动到什么位置时渐变消失（根据需要进行调整）
+    private Drawable drawable; // 顶部渐变布局需设置的Drawable
+    private RelativeLayout layout_top_search;//导航栏
+    private static final int START_ALPHA = 0;//scrollview滑动开始位置
+    private static final int END_ALPHA = 255;//scrollview滑动结束位置
 
 
     @Override
@@ -62,12 +82,6 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         mTop.setFocusable(true);
         mTop.setFocusableInTouchMode(true);
         mTop.requestFocus();
-//        mScrollView.post(new Runnable() {
-//            @Override
-//            public void run() {
-//             mScrollView.scrollTo(0,0);
-//            }
-//        });
     }
 
 
@@ -79,6 +93,7 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected int getLayoutID() {
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             //设置修改状态栏
@@ -103,35 +118,6 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
                 finish();
             }
         });
-//        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                for (int i = 0; i < rbs.length; i++)
-//                {
-//                    if (rbs[i] != checkedId) continue;
-//                    //加载滑动
-//                    vp.setCurrentItem(i);
-//                    setLabState(checkedId);
-//                }
-//            }
-//        });
-
-//        vp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener()
-//        {
-//            @Override
-//            public void onPageSelected(int position) {
-//                vp.resetHeight(position);
-//                rg.check(rbs[position]);
-//                setLabState(rbs[position]);
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//                mScrollView.smoothScrollTo(0, 0);
-//            }
-//        });
-
-//        rg.check(rbs[0]);
     }
 
     @Override
@@ -141,9 +127,7 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         state = intent.getStringExtra("STATE");
 
         mScrollView = f(R.id.scrollView_goods);
-//        vp = f(R.id.vp);
-//        rg = f(R.id.rg);
-
+        banner = f(R.id.banner);
 
         mAll = f(R.id.rb_all);
         mIng = f(R.id.rb_ing);
@@ -165,8 +149,41 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         shi = f(R.id.shi);
         fen = f(R.id.fen);
         miao = f(R.id.miao);
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540804165171&di=78ff2a5841113f0bf7d3752f425640fd&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F011f4b57eb26bfa84a0e282bc61d8a.jpg%401280w_1l_2o_100sh.jpg");
+        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541399307&di=896baa14d64884f26d9955376ff084f6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01139a59b0a09fa801211d25eaa714.jpg%402o.jpg");
+        banner.setImages(list)
+                .setImageLoader(new GlideImageLoader())
+                .start();
+        banner.start();
         handler.postDelayed(runnable, 1000);
+
+
+        layout_top_search = findViewById(R.id.good_title);
+        drawable = getResources().getDrawable(R.color.scrollwhite);
+        drawable.setAlpha(START_ALPHA);
+        layout_top_search.setBackgroundDrawable(drawable);
+        layout_top_search.getBackground().mutate().setAlpha(0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (scrollY > fadingHeight) {
+                        scrollY = fadingHeight; // 当滑动到指定位置之后设置颜色为纯色，之前的话要渐变---实现下面的公式即可
+
+                    } else if (scrollY < 0) {
+                        scrollY = 0;
+                    } else {
+                    }
+
+                    drawable.setAlpha(scrollY * (END_ALPHA - START_ALPHA) / fadingHeight
+                            + START_ALPHA);
+
+                }
+            });
+        }
     }
+
+
 
     private void initFirstFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -251,7 +268,7 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     protected void initData() {
 
 
-        if (state==null)state="";
+        if (state == null) state = "";
         if (state.equals("1")) {
             kaijiang.setVisibility(View.VISIBLE);
             bukaijiang.setVisibility(View.GONE);
@@ -293,13 +310,13 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
 //    }
     private void setLabState(int id) {
         if (id == R.id.rb_all) {
-            mAll.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mAll.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.VISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
         } else if (id == R.id.rb_ing) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
-            mIng.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mIng.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.VISIBLE);
         } else if (id == R.id.rb_ed) {

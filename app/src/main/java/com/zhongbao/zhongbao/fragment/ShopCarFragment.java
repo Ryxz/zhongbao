@@ -149,34 +149,34 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
 
     private void getList() {
         ShopCarBean bean = new ShopCarBean();
-        bean.setName("香奈儿四件套高级定制你值得拥有的");
+        bean.setName("香奈儿四件套1");
         bean.setPrice("商品价格:  ¥58");
         bean.setNum("1");
-        bean.setResId(R.mipmap.a);
+        bean.setResId(R.mipmap.ad1);
         bean.setShow(false);
         bean.setChecked(0);
 
         ShopCarBean bean1 = new ShopCarBean();
-        bean1.setName("香奈儿四件套高级定制你值得拥有的");
+        bean1.setName("香奈儿四件套2");
         bean1.setPrice("商品价格:  ¥58");
         bean1.setNum("12");
-        bean1.setResId(R.mipmap.mine_head);
+        bean1.setResId(R.mipmap.ad2);
         bean1.setShow(false);
         bean1.setChecked(0);
 
         ShopCarBean bean2 = new ShopCarBean();
-        bean2.setName("香奈儿四件套高级定制你值得拥有的");
+        bean2.setName("香奈儿3的");
         bean2.setPrice("商品价格:  ¥18");
         bean2.setNum("20");
-        bean2.setResId(R.mipmap.mine_head);
+        bean2.setResId(R.mipmap.ad3);
         bean2.setShow(false);
         bean2.setChecked(0);
 
         ShopCarBean bean3 = new ShopCarBean();
-        bean3.setName("香奈儿四件套高级定制你值得拥有的");
+        bean3.setName("香奈儿4");
         bean3.setPrice("商品价格:  ¥58");
         bean3.setNum("26");
-        bean3.setResId(R.mipmap.a);
+        bean3.setResId(R.mipmap.ad1);
         bean3.setShow(false);
         bean3.setChecked(0);
 

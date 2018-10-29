@@ -25,15 +25,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
             android:layout_centerInParent="true"
             android:text="关于众宝"/>
     </RelativeLayout>
 
     <ListView
-        android:background="@android:color/white"
+        android:background="@color/white"
         android:id="@+id/about_list"
         android:divider="@color/dray_line"
         android:dividerHeight="1px"

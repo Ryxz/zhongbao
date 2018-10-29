@@ -1,6 +1,7 @@
 package com.zhongbao.zhongbao.my;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.zhongbao.zhongbao.BaseActivity;
@@ -13,7 +14,7 @@ import com.zhongbao.zhongbao.R;
 
 public class QrcodeActivity extends BaseActivity implements View.OnClickListener {
 
-    private RelativeLayout shut;
+    private ImageView shut;
     @Override
     protected int getLayoutID() {
         return R.layout.activity_qrcode;

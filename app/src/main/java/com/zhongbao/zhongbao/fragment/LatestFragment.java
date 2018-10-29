@@ -41,16 +41,14 @@ public class LatestFragment extends Fragment {
     }
 
 
-    private void initView(View view)
-    {
+    private void initView(View view) {
         top = view.findViewById(R.id.top_lineaer);
         top.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ButtonUtils.isFastClick())
-                {
-                    Intent intent = new Intent(getActivity(),GoodsDetailActivity.class);
-                    intent.putExtra("STATE","2");
+                if (ButtonUtils.isFastClick()) {
+                    Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
+                    intent.putExtra("STATE", "2");
                     startActivity(intent);
                 }
             }
@@ -62,34 +60,31 @@ public class LatestFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if(ButtonUtils.isFastClick())
-                {
-                    Intent intent = new Intent(getActivity(),GoodsDetailActivity.class);
-                    intent.putExtra("STATE",list.get(i).getState());
+                if (ButtonUtils.isFastClick()) {
+                    Intent intent = new Intent(getActivity(), GoodsDetailActivity.class);
+                    intent.putExtra("STATE", list.get(i).getState());
                     startActivity(intent);
                 }
             }
         });
     }
 
-    private void initData()
-    {
-        LatestAdapter adapter = new LatestAdapter(getActivity(),getList());
+    private void initData() {
+        LatestAdapter adapter = new LatestAdapter(getActivity(), getList());
         mListView.setAdapter(adapter);
     }
 
 
-    private List<LatestBean> getList()
-    {
+    private List<LatestBean> getList() {
         LatestBean bean = new LatestBean();
-        bean.setName("香奈儿四件套你值得拥有");
+        bean.setName("香奈儿四件套0");
         bean.setPrice("商品价格:  ¥100");
         bean.setPerson("50人次");
         bean.setState("1");
         bean.setTime("揭晓时间: 2018-09-29 18:02:28");
 
         LatestBean bean1 = new LatestBean();
-        bean1.setName("香奈儿四件套你值得拥有香奈儿四件套你值得拥有香奈儿四件套你值得拥有香奈儿四件套你值得拥有");
+        bean1.setName("香奈儿四件套1");
         bean1.setPrice("商品价格:  ¥80");
         bean1.setPerson("30人次");
         bean1.setState("2");
@@ -97,7 +92,7 @@ public class LatestFragment extends Fragment {
 
 
         LatestBean bean2 = new LatestBean();
-        bean2.setName("香奈儿四件套你值得拥有香奈儿四件套你值得拥有");
+        bean2.setName("香奈儿四件套2");
         bean2.setPrice("商品价格:  ¥70");
         bean2.setPerson("100人次");
         bean2.setState("3");
@@ -113,7 +108,7 @@ public class LatestFragment extends Fragment {
 
 
         LatestBean bean4 = new LatestBean();
-        bean4.setName("香奈儿四件套你值得拥有香奈儿四件套你值得拥有香奈儿四件套你值得拥有香奈儿四件套你值得拥有香奈儿四件套你值得拥有香奈儿四件套你值得拥有");
+        bean4.setName("香奈儿四件套你值得拥有");
         bean4.setPrice("商品价格:  ¥100");
         bean4.setState("1");
         bean4.setPerson("50人次");
@@ -121,7 +116,7 @@ public class LatestFragment extends Fragment {
 
 
         LatestBean bean5 = new LatestBean();
-        bean5.setName("香奈儿四件套你值得拥有香奈儿四件套你值得拥有");
+        bean5.setName("香奈儿四件套6");
         bean5.setPrice("商品价格:  ¥70");
         bean5.setPerson("23人次");
         bean5.setState("1");

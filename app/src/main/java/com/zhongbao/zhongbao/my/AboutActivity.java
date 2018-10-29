@@ -28,7 +28,7 @@ import java.util.List;
 public class AboutActivity extends Activity implements View.OnClickListener {
 
     private List<String> titleList = new ArrayList<>();
-    private  ListView mAboutListView;
+    private ListView mAboutListView;
 
     private AbouthideAdapter adapter;
     public int clickPosition = -1;
@@ -51,8 +51,7 @@ public class AboutActivity extends Activity implements View.OnClickListener {
         initView();
     }
 
-    private void initView()
-    {
+    private void initView() {
         initData();
         mAboutListView = findViewById(R.id.about_list);
         mBack = findViewById(R.id.back_left);
@@ -61,31 +60,27 @@ public class AboutActivity extends Activity implements View.OnClickListener {
         mAboutListView.setAdapter(adapter);
     }
 
-    private void initData()
-    {
+    private void initData() {
         titleList.add("什么是云购?");
         titleList.add("什么是云购?云购是如何产生的?");
         titleList.add("幸运云购和商品获得者是如何计算出来的?");
         titleList.add("如何参入云购");
         titleList.add("三分钟倒计时是什么意思");
-        for(int i = 0;i<5;i++)
-        {
+        for (int i = 0; i < 5; i++) {
             titleList.add("什么是云购?");
         }
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.back_left:
                 finish();
                 break;
         }
     }
 
-    class AbouthideAdapter extends BaseAdapter
-    {
+    class AbouthideAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -128,7 +123,7 @@ public class AboutActivity extends Activity implements View.OnClickListener {
                     vh.mArrowRight.setVisibility(View.VISIBLE);
                     vh.mArrowBottom.setVisibility(View.GONE);
                     vh.aboutHideView.setVisibility(View.GONE);
-                    clickPosition=-1;//隐藏布局后需要把标记的position去除掉，否则，滑动listview让该条目划出屏幕范围，
+                    clickPosition = -1;//隐藏布局后需要把标记的position去除掉，否则，滑动listview让该条目划出屏幕范围，
                     // 当该条目重新进入屏幕后，会重新恢复原来的显示状态。经过打log可知每次else都执行一次 （条目第二次进入屏幕时会在getview中寻找他自己的状态，相当于重新执行一次getview）
                     //因为每次滑动的时候没标记得position填充会执行click
                 } else {//当状态条目处于未选中时，说明条目处于未展开状态，此时让他展开。同时切换状态图标的状态。
@@ -141,8 +136,7 @@ public class AboutActivity extends Activity implements View.OnClickListener {
 //                        .setDuration(500)//
 //                        .start();
                 // vh.selectorImg.setSelected(true);
-            }
-            else {//当填充的条目position不是刚才点击所标记的position时，让其隐藏，状态图标为false。
+            } else {//当填充的条目position不是刚才点击所标记的position时，让其隐藏，状态图标为false。
                 //每次滑动的时候没标记得position填充会执行此处，把状态改变。所以如果在以上的if (vh.selectorImg.isSelected()) {}中不设置clickPosition=-1；则条目再次进入屏幕后，还是会进入clickposition==position的逻辑中
                 //而之前的滑动（未标记条目的填充）时，执行此处逻辑，已经把状态图片的selected置为false。所以上面的else中的逻辑会在标记过的条目第二次进入屏幕时执行，如果之前的状态是显示，是没什么影响的，再显示一次而已，用户看不出来，但是如果是隐藏状态，就会被重新显示出来
                 vh.aboutHideView.setVisibility(View.GONE);
@@ -165,10 +159,10 @@ public class AboutActivity extends Activity implements View.OnClickListener {
 
         class MyViewHolder {
             View itemView;
-            TextView textTV,hideTextTv;
+            TextView textTV, hideTextTv;
             RelativeLayout arrow;
             LinearLayout aboutHideView;
-            ImageView mArrowRight,mArrowBottom;
+            ImageView mArrowRight, mArrowBottom;
 
             /*public MyViewHolder(View itemView) {
                 this.itemView = itemView;

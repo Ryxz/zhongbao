@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,17 +20,17 @@ import com.zhongbao.zhongbao.R;
  * Created by tuyz on 2018/10/8.
  */
 
-public class PayActivity extends Activity implements View.OnClickListener{
+public class PayActivity extends Activity implements View.OnClickListener {
 
     private RelativeLayout mBack;
 
     private RadioGroup mGroup;
 
-    private RadioButton mOne,mTwo,mThree,mFour,mFive;
+    private RadioButton mOne, mTwo, mThree, mFour, mFive;
 
     private ImageView aliPayIv;
     private ImageView wechatIv;
-
+    private EditText pay_money_et;
 
 
     @Override
@@ -48,14 +49,13 @@ public class PayActivity extends Activity implements View.OnClickListener{
         initView();
     }
 
-    private void initView()
-    {
-        mOne =  findViewById(R.id.radio_one);
-        mTwo =  findViewById(R.id.radio_two);
-        mThree =  findViewById(R.id.radio_three);
-        mFour =  findViewById(R.id.radio_four);
-        mFive =  findViewById(R.id.radio_five);
-
+    private void initView() {
+        mOne = findViewById(R.id.radio_one);
+        mTwo = findViewById(R.id.radio_two);
+        mThree = findViewById(R.id.radio_three);
+        mFour = findViewById(R.id.radio_four);
+        mFive = findViewById(R.id.radio_five);
+        pay_money_et  = findViewById(R.id.pay_money_et);
         aliPayIv = findViewById(R.id.ali_pay_iv);
         wechatIv = findViewById(R.id.wechat_pay_iv);
 
@@ -68,7 +68,6 @@ public class PayActivity extends Activity implements View.OnClickListener{
         mFive.setOnClickListener(this);
 
 
-
         mBack = findViewById(R.id.back_left);
         mBack.setOnClickListener(this);
         mGroup = findViewById(R.id.radio_group);
@@ -77,13 +76,11 @@ public class PayActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.ali_pay_iv:
                 aliPayIv.setImageResource(R.mipmap.yuan_ok);
                 wechatIv.setImageResource(R.mipmap.yuan);
                 break;
-
             case R.id.wechat_pay_iv:
                 aliPayIv.setImageResource(R.mipmap.yuan);
                 wechatIv.setImageResource(R.mipmap.yuan_ok);
@@ -92,72 +89,66 @@ public class PayActivity extends Activity implements View.OnClickListener{
                 finish();
                 break;
             case R.id.radio_one:
-                mOne.setBackgroundResource(R.drawable.mine_pay);
-                mTwo.setBackgroundResource(R.drawable.mine_noselect);
-                mThree.setBackgroundResource(R.drawable.mine_noselect);
-                mFour.setBackgroundResource(R.drawable.mine_noselect);
-                mFive.setBackgroundResource(R.drawable.mine_noselect);
-
-                mOne.setTextColor(getResources().getColor(R.color.bottom_tab_select));
-                mTwo.setTextColor(getResources().getColor(R.color.text_dray));
-                mThree.setTextColor(getResources().getColor(R.color.text_dray));
-                mFour.setTextColor(getResources().getColor(R.color.text_dray));
-                mFive.setTextColor(getResources().getColor(R.color.text_dray));
+                select(1);
+                pay_money_et.setText("100");
                 break;
             case R.id.radio_two:
-                mTwo.setBackgroundResource(R.drawable.mine_pay);
-                mOne.setBackgroundResource(R.drawable.mine_noselect);
-                mThree.setBackgroundResource(R.drawable.mine_noselect);
-                mFour.setBackgroundResource(R.drawable.mine_noselect);
-                mFive.setBackgroundResource(R.drawable.mine_noselect);
-
-                mTwo.setTextColor(getResources().getColor(R.color.bottom_tab_select));
-                mOne.setTextColor(getResources().getColor(R.color.text_dray));
-                mThree.setTextColor(getResources().getColor(R.color.text_dray));
-                mFour.setTextColor(getResources().getColor(R.color.text_dray));
-                mFive.setTextColor(getResources().getColor(R.color.text_dray));
+                select(2);
+                pay_money_et.setText("200");
                 break;
             case R.id.radio_three:
-                mThree.setBackgroundResource(R.drawable.mine_pay);
-                mTwo.setBackgroundResource(R.drawable.mine_noselect);
-                mOne.setBackgroundResource(R.drawable.mine_noselect);
-                mFour.setBackgroundResource(R.drawable.mine_noselect);
-                mFive.setBackgroundResource(R.drawable.mine_noselect);
-
-                mThree.setTextColor(getResources().getColor(R.color.bottom_tab_select));
-                mTwo.setTextColor(getResources().getColor(R.color.text_dray));
-                mOne.setTextColor(getResources().getColor(R.color.text_dray));
-                mFour.setTextColor(getResources().getColor(R.color.text_dray));
-                mFive.setTextColor(getResources().getColor(R.color.text_dray));
+                select(3);
+                pay_money_et.setText("300");
                 break;
             case R.id.radio_four:
-                mFour.setBackgroundResource(R.drawable.mine_pay);
-                mTwo.setBackgroundResource(R.drawable.mine_noselect);
-                mThree.setBackgroundResource(R.drawable.mine_noselect);
-                mOne.setBackgroundResource(R.drawable.mine_noselect);
-                mFive.setBackgroundResource(R.drawable.mine_noselect);
-
-                mFour.setTextColor(getResources().getColor(R.color.bottom_tab_select));
-                mOne.setTextColor(getResources().getColor(R.color.text_dray));
-                mThree.setTextColor(getResources().getColor(R.color.text_dray));
-                mTwo.setTextColor(getResources().getColor(R.color.text_dray));
-                mFive.setTextColor(getResources().getColor(R.color.text_dray));
+                select(4);
+                pay_money_et.setText("1000");
                 break;
             case R.id.radio_five:
-                mFive.setBackgroundResource(R.drawable.mine_pay);
-                mTwo.setBackgroundResource(R.drawable.mine_noselect);
-                mThree.setBackgroundResource(R.drawable.mine_noselect);
-                mFour.setBackgroundResource(R.drawable.mine_noselect);
-                mOne.setBackgroundResource(R.drawable.mine_noselect);
-
-                mFive.setTextColor(getResources().getColor(R.color.bottom_tab_select));
-                mOne.setTextColor(getResources().getColor(R.color.text_dray));
-                mThree.setTextColor(getResources().getColor(R.color.text_dray));
-                mFour.setTextColor(getResources().getColor(R.color.text_dray));
-                mTwo.setTextColor(getResources().getColor(R.color.text_dray));
+                select(5);
+                pay_money_et.setText("200");
                 break;
         }
     }
 
+
+    public void select(int position) {
+        if (position == 1) {
+            mOne.setBackgroundResource(R.drawable.mine_pay);
+            mOne.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        } else {
+            mOne.setBackgroundResource(R.drawable.mine_noselect);
+            mOne.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+
+        if (position == 2) {
+            mTwo.setBackgroundResource(R.drawable.mine_pay);
+            mTwo.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        } else {
+            mTwo.setBackgroundResource(R.drawable.mine_noselect);
+            mTwo.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+        if (position == 3) {
+            mThree.setBackgroundResource(R.drawable.mine_pay);
+            mThree.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        } else {
+            mThree.setBackgroundResource(R.drawable.mine_noselect);
+            mThree.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+        if (position == 4) {
+            mFour.setBackgroundResource(R.drawable.mine_pay);
+            mFour.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        } else {
+            mFour.setBackgroundResource(R.drawable.mine_noselect);
+            mFour.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+        if (position == 5) {
+            mFive.setBackgroundResource(R.drawable.mine_pay);
+            mFive.setTextColor(getResources().getColor(R.color.bg_toolbar));
+        } else {
+            mFive.setBackgroundResource(R.drawable.mine_noselect);
+            mFive.setTextColor(getResources().getColor(R.color.text_dray));
+        }
+    }
 
 }

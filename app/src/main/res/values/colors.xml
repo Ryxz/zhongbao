@@ -106,6 +106,9 @@
     <!--2 % 	FA-->
     <!--1 % 	FC-->
     <!--0 % 	FF-->
+
+    <color name="scrollwhite">#fffcfc</color><!--白色-->
+
     <color name="black">#000000</color><!--黑色 -->
     <color name="white">#FFFFFF</color><!--白色-->
     <color name="snow">#fffafa</color><!--雪白色 -->
@@ -258,4 +261,6 @@
     <color name="text_dray">#757575</color>
     <color name="item_decoration">#b7b7b7</color>
     <color name="bkl">#000000</color>
+
+    <color name="popbk">#0D000000</color>
 </resources>

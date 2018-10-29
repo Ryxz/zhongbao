@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private MyFragment myFragment;
 
     public static final String GOODS_NUMBER_ACTION="main.tv_goods_number";
+    public static int width;
 
     @Override
     protected int getLayoutID() {
@@ -63,6 +65,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initView() {
+        width = getScreenWidth();
+
         mHome = f(R.id.home_linear);
         mGoods = f(R.id.goods_linear);
         mLateast = f(R.id.lateast_linear);
@@ -86,6 +90,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         filter.addAction(GOODS_NUMBER_ACTION);
         registerReceiver(receiver,filter);
         initFirstFragment();
+    }
+
+    //    //获取屏幕的宽度
+    public int getScreenWidth() {
+        Point point = new Point();
+        getWindowManager().getDefaultDisplay().getSize(point);
+        return point.x;
     }
 
     private BroadcastReceiver receiver=new BroadcastReceiver() {

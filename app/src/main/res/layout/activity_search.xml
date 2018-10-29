@@ -6,6 +6,7 @@
     android:background="@color/dray_line">
     
     <LinearLayout
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="55dp">
@@ -46,12 +47,15 @@
             android:layout_height="match_parent"
             android:text="取消"/>
     </LinearLayout>
+    <View
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
 
     <ListView
         android:id="@+id/search_history_list"
         android:dividerHeight="0.5dp"
         android:divider="@color/dray_line"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

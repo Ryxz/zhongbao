@@ -1,152 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white"
+    android:background="@color/white"
     android:orientation="vertical">
-    <RelativeLayout
-        android:fitsSystemWindows="true"
-        android:layout_width="match_parent"
-        android:layout_height="198dp"
-        android:background="@mipmap/mine_bg">
 
-        <TextView
-            android:id="@+id/show_p"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/mine_bg"
+        android:fitsSystemWindows="true">
+
         <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/show_p"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp" />
+
+            <ImageView
+                android:id="@+id/mine_news_iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:padding="16.5dp"
+                android:src="@mipmap/mine_news" />
 
             <ImageView
                 android:id="@+id/mine_type_iv"
-                android:padding="15dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/mine_type"/>
+                android:padding="15dp"
+                android:src="@mipmap/mine_type" />
         </LinearLayout>
 
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/login_type"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:layout_marginTop="90dp"
             android:layout_marginLeft="20dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="90dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="65dp"
                 android:layout_height="65dp"
-                app:riv_oval="true"
-                android:src="@mipmap/mine_head"/>
+                android:src="@mipmap/mine_head"
+                app:riv_oval="true" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginLeft="15dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="东海小仙女(101081)"/>
+                    android:text="东海小仙女(101081)"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal">
+
                     <ImageView
-                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/mine_vz"/>
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/mine_vz" />
+
                     <TextView
-                        android:layout_marginLeft="5dp"
-                        android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="众宝少将"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="众宝少将" />
                 </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
 
         <RelativeLayout
-            android:visibility="gone"
             android:id="@+id/mine_center"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginTop="90dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="18dp">
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="90dp"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:src="@mipmap/mine_goright"/>
+                android:layout_centerVertical="true"
+                android:src="@mipmap/mine_goright" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/guest_rela"
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
             <TextView
-                android:layout_centerHorizontal="true"
                 android:id="@+id/welcome"
-                android:textSize="15sp"
-                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="欢迎来到众宝~"/>
+                android:layout_centerHorizontal="true"
+                android:text="欢迎来到众宝~"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/welcome"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/register"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:text="注册"
-                    android:textSize="12sp"
+                    android:background="@drawable/mine_noselect"
                     android:gravity="center"
+                    android:text="注册"
                     android:textColor="@color/bottom_tab_select"
-                    android:background="@drawable/mine_noselect"/>
+                    android:textSize="12sp" />
 
                 <TextView
-                    android:visibility="invisible"
-                    android:textSize="8sp"
-                    android:textColor="@android:color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="来到"/>
+                    android:text="来到"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:visibility="invisible" />
+
                 <TextView
                     android:id="@+id/login"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:text="登录"
-                    android:textSize="12sp"
+                    android:background="@drawable/mine_noselect"
                     android:gravity="center"
+                    android:text="登录"
                     android:textColor="@color/bottom_tab_select"
-                    android:background="@drawable/mine_noselect"/>
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -154,7 +171,6 @@
         </RelativeLayout>
 
 
-        
     </RelativeLayout>
 
 
@@ -162,24 +178,27 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
-                android:textSize="13sp"
                 android:layout_height="wrap_content"
+                android:text="账户总额"
                 android:textColor="@android:color/darker_gray"
-                android:text="账户总额"/>
+                android:textSize="13sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="60钻石"
                 android:layout_gravity="center_horizontal"
-                android:textSize="13sp"
-                android:textColor="@color/bg_toolbar"/>
+                android:text="60钻石"
+                android:textColor="@color/bg_toolbar"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -187,206 +206,205 @@
             android:id="@+id/mine_go_pay"
             android:layout_width="60dp"
             android:layout_height="24dp"
-            android:background="@mipmap/mine_pay"
-            android:text="去充值"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:gravity="center"
             android:layout_alignParentRight="true"
-            android:textColor="@color/bg_toolbar"/>
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/mine_pay"
+            android:gravity="center"
+            android:text="去充值"
+            android:textSize="12sp"
+            android:textColor="@color/bg_toolbar" />
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="#EDEDED"/>
+        android:background="@color/gainsboro" />
+
     <LinearLayout
-        android:background="#EDEDED"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/gainsboro"
         android:orientation="vertical">
+
         <RelativeLayout
             android:id="@+id/record_linear"
             android:layout_width="match_parent"
-            android:background="@android:color/white"
             android:layout_height="50dp"
-            >
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/mine_one_line"
-                android:layout_marginLeft="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/mine_record"/>
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/mine_record" />
+
             <TextView
-                android:layout_toRightOf="@id/mine_one_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:layout_marginLeft="18dp"
                 android:layout_centerVertical="true"
-                android:textColor="@android:color/black"
-                android:text="众宝记录"/>
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@id/mine_one_line"
+                android:text="众宝记录"
+                android:textColor="@android:color/black" />
+
             <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/arrow"/>
+                android:src="@mipmap/arrow" />
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:background="#EDEDED"/>
+            android:layout_height="1px" />
 
         <RelativeLayout
             android:id="@+id/goods_linear"
             android:layout_width="match_parent"
-            android:background="@android:color/white"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/mine_two_line"
-                android:layout_marginLeft="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/mine_goods"/>
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/mine_goods" />
+
             <TextView
-                android:layout_toRightOf="@id/mine_two_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:layout_marginLeft="18dp"
                 android:layout_centerVertical="true"
-                android:textColor="@android:color/black"
-                android:text="获得的商品"/>
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@id/mine_two_line"
+                android:text="获得的商品"
+                android:textColor="@android:color/black" />
+
             <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/arrow"/>
+                android:src="@mipmap/arrow" />
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:background="#EDEDED"/>
+            android:layout_height="1px" />
 
         <RelativeLayout
             android:id="@+id/camaro_linear"
             android:layout_width="match_parent"
-            android:background="@android:color/white"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/mine_three_line"
-                android:layout_marginLeft="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/mine_camero"/>
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/mine_camero" />
+
             <TextView
-                android:layout_toRightOf="@id/mine_three_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:layout_marginLeft="18dp"
                 android:layout_centerVertical="true"
-                android:textColor="@android:color/black"
-                android:text="我的晒单"/>
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@id/mine_three_line"
+                android:text="我的晒单"
+                android:textColor="@android:color/black" />
+
             <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/arrow"/>
+                android:src="@mipmap/arrow" />
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:background="#EDEDED"/>
+            android:layout_height="1px" />
 
         <RelativeLayout
             android:id="@+id/help_linear"
             android:layout_width="match_parent"
-            android:background="@android:color/white"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/mine_four_line"
-                android:layout_marginLeft="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/mine_help"/>
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/mine_help" />
+
             <TextView
-                android:layout_toRightOf="@id/mine_four_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:layout_marginLeft="18dp"
                 android:layout_centerVertical="true"
-                android:textColor="@android:color/black"
-                android:text="帮助与反馈"/>
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@id/mine_four_line"
+                android:text="帮助与反馈"
+                android:textColor="@android:color/black" />
+
             <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/arrow"/>
+                android:src="@mipmap/arrow" />
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.8dp"
-            android:background="#EDEDED"/>
+            android:layout_height="1px"
+            android:background="#EDEDED" />
 
         <RelativeLayout
             android:id="@+id/qrcode_linear"
             android:layout_width="match_parent"
-            android:background="@android:color/white"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="@color/white">
+
             <ImageView
                 android:id="@+id/mine_five_line"
-                android:layout_marginLeft="20dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/mine_qrcode"/>
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/mine_qrcode" />
+
             <TextView
-                android:layout_toRightOf="@id/mine_five_line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:layout_marginLeft="18dp"
                 android:layout_centerVertical="true"
-                android:textColor="@android:color/black"
-                android:text="二维码分享"/>
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@id/mine_five_line"
+                android:text="二维码分享"
+                android:textColor="@android:color/black" />
+
             <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/arrow"/>
+                android:src="@mipmap/arrow" />
 
-            <ImageView
-                android:id="@+id/mine_news_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="center_vertical"
-                android:padding="16dp"
-                android:src="@mipmap/mine_news" />
         </RelativeLayout>
     </LinearLayout>
-
 
 
 </LinearLayout>

@@ -17,23 +17,21 @@
             <ImageView
                 android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/arrow_left"/>
         </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
             android:text="新手指南"/>
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_marginTop="5dp"
         android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,8 +48,8 @@
             android:text="第一步"/>
 
         <TextView
-            android:paddingLeft="20dp"
-            android:paddingTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
             android:lineSpacingExtra="5dp"
             android:textSize="12sp"
             android:textColor="@color/text_dray"
@@ -63,6 +61,7 @@
 
     <LinearLayout
         android:layout_marginTop="5dp"
+        android:paddingBottom="10dp"
         android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,8 +76,8 @@
             android:text="第二步"/>
 
         <TextView
-            android:paddingLeft="20dp"
-            android:paddingTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
             android:lineSpacingExtra="5dp"
             android:textSize="12sp"
             android:textColor="@color/text_dray"

@@ -1,58 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white"
     android:orientation="vertical"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/good_title"
-        android:layout_width="match_parent"
-        android:layout_height="45dp">
-
-        <RelativeLayout
-            android:id="@+id/back_left"
-            android:layout_width="100dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@mipmap/goods_arrow_right"/>
-        </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/goods_type_iv"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@mipmap/goods_type"/>
-
-        <ImageView
-            android:id="@+id/goods_home_iv"
-            android:layout_toLeftOf="@id/goods_type_iv"
-            android:layout_marginRight="13dp"
-            android:layout_centerVertical="true"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@mipmap/goods_home"/>
-    </RelativeLayout>
-
-
-
     <ScrollView
         android:id="@+id/scrollView_goods"
-        android:layout_below="@id/good_title"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="45dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-
             android:id="@+id/top_pic"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -61,21 +21,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="170dp">
 
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    app:delay_time="4000"
+                    app:image_scale_type="center_crop"/>
+                    <!--app:indicator_drawable_selected="@drawable/banner_indicator_sel"-->
+                    <!--app:indicator_drawable_unselected="@drawable/banner_indicator"-->
+                    <!--app:indicator_height="@dimen/dp_4"-->
+                    <!--app:indicator_width="@dimen/dp_4"-->
+                    <!--tools:background="@color/colorAccent" -->
                 <TextView
+                    android:layout_marginTop="45dp"
                     android:gravity="center"
                     android:id="@+id/goods_state_tv"
                     android:background="@mipmap/good_state_end"
                     android:layout_width="60dp"
                     android:textSize="14sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/white"
                     android:layout_height="30dp"
                     android:text="已开奖"/>
-
-                <ImageView
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_centerInParent="true"
-                    android:src="@mipmap/kouhong"/>
 
                 <TextView
                     android:id="@+id/good_pictv"
@@ -135,7 +101,7 @@
                     <TextView
                         android:layout_alignParentRight="true"
                         android:text="1钻/次"
-                        android:textColor="@color/bottom_tab_select"
+                        android:textColor="@color/bg_toolbar"
                         android:textSize="12sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -163,7 +129,7 @@
                     <TextView
                         android:layout_marginLeft="10dp"
                         android:textSize="14sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="开奖倒计时:"/>
@@ -172,7 +138,7 @@
                         android:id="@+id/shi"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/white"
                         android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -180,7 +146,7 @@
                     <TextView
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=":"/>
@@ -188,14 +154,14 @@
                         android:id="@+id/fen"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="00"/>
                     <TextView
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=":"/>
@@ -203,7 +169,7 @@
                         android:id="@+id/miao"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/white"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="00"/>
@@ -266,7 +232,7 @@
                             android:id="@+id/ta_num_iv"
                             android:layout_marginLeft="10dp"
                             android:textSize="12sp"
-                            android:textColor="#FF6274E5"
+                            android:textColor="@color/skyblue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="参与TA的号码"/>
@@ -311,13 +277,13 @@
                             android:orientation="vertical">
                             <TextView
                                 android:textSize="13sp"
-                                android:textColor="@color/bottom_tab_select"
+                                android:textColor="@color/bg_toolbar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="30"/>
                             <TextView
                                 android:textSize="13sp"
-                                android:textColor="@color/bottom_tab_select"
+                                android:textColor="@color/bg_toolbar"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="已参与"/>
@@ -368,13 +334,13 @@
                             <TextView
                                 android:layout_gravity="right"
                                 android:textSize="13sp"
-                                android:textColor="#FF95A5FA"
+                                android:textColor="@color/skyblue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="50"/>
                             <TextView
                                 android:textSize="13sp"
-                                android:textColor="#FF95A5FA"
+                                android:textColor="@color/skyblue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="剩余"/>
@@ -479,12 +445,13 @@
 
 
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/goods_home_rela"
+                android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="55dp">
                 <TextView
-                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/text_color"
                     android:layout_width="wrap_content"
@@ -492,36 +459,30 @@
                     android:text="商品晒单"/>
 
                 <ImageView
-                    android:layout_marginRight="10dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@mipmap/arrow"/>
-            </RelativeLayout>
+            </LinearLayout>
             <View
                 android:background="@color/dray_line"
                 android:layout_width="match_parent"
                 android:layout_height="3dp"/>
 
             <LinearLayout
-                android:layout_marginTop="5dp"
                 android:id="@+id/rg"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:background="@android:color/white">
+                android:background="@color/white">
 
                 <TextView
                     android:id="@+id/rb_all"
                     android:gravity="center"
-                    android:paddingLeft="10dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:background="@null"
-                    android:button="@null"
                     android:textSize="16sp"
-                    android:textColor="@color/bottom_tab_select"
+                    android:textColor="@color/bg_toolbar"
                     android:layout_height="match_parent"
                     android:text="参与记录"/>
                 <TextView
@@ -531,8 +492,6 @@
                     android:layout_height="match_parent"
                     android:textSize="16sp"
                     android:gravity="center"
-                    android:background="@null"
-                    android:button="@null"
                     android:textColor="@color/text_dray"
                     android:text="历史获得者"/>
             </LinearLayout>
@@ -579,12 +538,47 @@
         </LinearLayout>
     </ScrollView>
 
+    <RelativeLayout
+        android:id="@+id/good_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <RelativeLayout
+            android:id="@+id/back_left"
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/goods_arrow_right"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/goods_type_iv"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/goods_type"/>
+
+        <ImageView
+            android:id="@+id/goods_home_iv"
+            android:layout_toLeftOf="@id/goods_type_iv"
+            android:layout_marginRight="13dp"
+            android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/goods_home"/>
+    </RelativeLayout>
 
     <View
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50.2dp"
+        android:layout_marginBottom="45dp"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="1px"
         android:background="@color/item_decoration"/>
     <LinearLayout
         android:id="@+id/bukaijiang_linear"
@@ -599,7 +593,7 @@
             android:layout_height="match_parent"
             android:background="#FFEE7316"
             android:textSize="15sp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
             android:gravity="center"
             android:text="立即结算"/>
 
@@ -610,7 +604,7 @@
             android:background="@color/bg_toolbar"
             android:textSize="15sp"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
             android:text="加入购物车"/>
         <RelativeLayout
             android:layout_width="0dp"
@@ -648,7 +642,7 @@
             android:background="@color/bg_toolbar"
             android:textSize="15sp"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
             android:text="立即前往"/>
     </LinearLayout>
 

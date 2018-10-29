@@ -31,8 +31,7 @@
             android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
             android:layout_centerInParent="true"
             android:text="众宝"/>
@@ -42,9 +41,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="59dp"
+            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@+id/home_news_iv"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="5dp"
             android:gravity="bottom" />
 
         <ImageView
@@ -59,7 +58,7 @@
         <ImageView
             android:id="@+id/home_news_iv"
             android:layout_centerVertical="true"
-            android:padding="15dp"
+            android:padding="14dp"
             android:layout_toLeftOf="@id/home_type"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -312,7 +311,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal"
-                    android:background="@android:color/white">
+                    android:background="@color/white">
 
                     <TextView
                         android:id="@+id/rb_all"
