@@ -16,9 +16,10 @@ import com.zhongbao.zhongbao.R;
 
 public class BuyGoodsActivity extends BaseActivity implements View.OnClickListener {
 
-    private ImageView reduce,add;
+    private ImageView reduce, add;
     private RelativeLayout clear;
-    private TextView mFirstAdd,mSecondAdd,mThirdAdd,mNum,tijiao;
+    private TextView mFirstAdd, mSecondAdd, mThirdAdd, mNum, tijiao;
+
     @Override
     protected int getLayoutID() {
         return R.layout.activity_buy_goods;
@@ -55,19 +56,16 @@ public class BuyGoodsActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.buy_reduce:
-                if(Integer.parseInt(mNum.getText().toString())>0)
-                {
-                    mNum.setText(Integer.parseInt(mNum.getText().toString())-1+"");
-                }else
-                {
+                if (Integer.parseInt(mNum.getText().toString()) > 0) {
+                    mNum.setText(Integer.parseInt(mNum.getText().toString()) - 1 + "");
+                } else {
                     mNum.setText("0");
                 }
                 break;
             case R.id.buy_add:
-                mNum.setText(Integer.parseInt(mNum.getText().toString())+1+"");
+                mNum.setText(Integer.parseInt(mNum.getText().toString()) + 1 + "");
                 break;
             case R.id.first_add:
                 mNum.setText("5");
@@ -79,8 +77,8 @@ public class BuyGoodsActivity extends BaseActivity implements View.OnClickListen
                 mNum.setText("100");
                 break;
             case R.id.tijiao:
-                Intent intent = new Intent(this,DuihuanActivity.class);
-                intent.putExtra("num",mNum.getText().toString());
+                Intent intent = new Intent(this, DuihuanActivity.class);
+                intent.putExtra("num", mNum.getText().toString());
                 startActivity(intent);
                 break;
             case R.id.clear:

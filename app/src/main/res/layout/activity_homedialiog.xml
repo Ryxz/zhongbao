@@ -15,11 +15,10 @@
             android:layout_marginRight="30dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="13sp"
-            android:textStyle="bold"
+            android:textSize="14sp"
             android:background="@mipmap/home_skip"
-            android:layout_width="50dp"
-            android:layout_height="25dp"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:text="跳过"/>
 
     </LinearLayout>

@@ -26,7 +26,7 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
     private List<SystemNewsBean> list = new ArrayList<>();
     private SystemNewsAdapter adapter;
     private RelativeLayout mBack;
-    private RelativeLayout mClear,mRead;
+    private RelativeLayout mClear, mRead;
 
     @Override
     protected int getLayoutID() {
@@ -50,14 +50,13 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
         mSystemNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(list.get(position).isShow())
-                {
+                if (list.get(position).isShow()) {
                     list.get(position).setShow(false);
                 }
-                Intent intent = new Intent(SystemNewsActivity.this,NewsDetailActivity.class);
-                intent.putExtra("time",list.get(position).getTime());
-                intent.putExtra("content",list.get(position).getNewsContent());
-                intent.putExtra("title",list.get(position).getName());
+                Intent intent = new Intent(SystemNewsActivity.this, NewsDetailActivity.class);
+                intent.putExtra("time", list.get(position).getTime());
+                intent.putExtra("content", list.get(position).getNewsContent());
+                intent.putExtra("title", list.get(position).getName());
                 startActivity(intent);
             }
         });
@@ -65,8 +64,7 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void onResume() {
-        if(adapter !=null)
-        {
+        if (adapter != null) {
             adapter.notifyDataSetInvalidated();
         }
         super.onResume();
@@ -74,12 +72,11 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void initData() {
-        adapter = new SystemNewsAdapter(getList(),this);
+        adapter = new SystemNewsAdapter(getList(), this);
         mSystemNews.setAdapter(adapter);
     }
 
-    private List<SystemNewsBean> getList()
-    {
+    private List<SystemNewsBean> getList() {
         SystemNewsBean bean = new SystemNewsBean();
         bean.setShow(true);
         bean.setTime("2018-09-23 11:20:32");
@@ -141,23 +138,19 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.back_left:
                 finish();
                 break;
             case R.id.clear_rela:
-                if(list.size()>0)
-                {
+                if (list.size() > 0) {
                     list.removeAll(list);
                 }
                 adapter.notifyDataSetInvalidated();
                 break;
             case R.id.read_rela:
-                if(list.size()>0)
-                {
-                    for(int i = 0;i<list.size();i++)
-                    {
+                if (list.size() > 0) {
+                    for (int i = 0; i < list.size(); i++) {
                         list.get(i).setShow(false);
                     }
                     adapter.notifyDataSetInvalidated();

@@ -51,16 +51,14 @@ public class SystemNewsAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         SystemNewsBean bean = list.get(position);
-        convertView = mLayoutInflater.inflate(R.layout.adapter_system_news,null);
+        convertView = mLayoutInflater.inflate(R.layout.adapter_system_news, null);
 
 
         TextView mNoread = convertView.findViewById(R.id.no_read_tv);
         TextView mSystemNews = convertView.findViewById(R.id.system_news);
-        if(bean.isShow())
-        {
+        if (bean.isShow()) {
             mNoread.setVisibility(View.VISIBLE);
-        }else
-        {
+        } else {
             mNoread.setVisibility(View.GONE);
         }
 

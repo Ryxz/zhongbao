@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.zhongbao.zhongbao.R;
@@ -43,7 +45,7 @@ public class ProductFragment extends Fragment implements OnClickListener {
             + "\t\t\"categoryName\": \"全部\",\n"
             + "\t\t\"product\": [{\n"
             + "\t\t\t\t\"productID\": \"1\",\n"
-            + "\t\t\t\t\"productName\": \"香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿香奈儿\",\n"
+            + "\t\t\t\t\"productName\": \"香奈儿\",\n"
             + "\t\t\t\t\"productPrice\": \"1.00\",\n"
             + "\t\t\t\t\"surplusNumber\": \"30\",\n"
             + "\t\t\t\t\"totalNumber\": \"100\"\n"
@@ -206,7 +208,7 @@ public class ProductFragment extends Fragment implements OnClickListener {
             + "\t\t\t},\n"
             + "\t\t\t{\n"
             + "\t\t\t\t\"productID\": \"3\",\n"
-            + "\t\t\t\t\"productName\": \"汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3\",\n"
+            + "\t\t\t\t\"productName\": \"汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3\",\n"
             + "\t\t\t\t\"productPrice\": \"1.00\",\n"
             + "\t\t\t\t\"surplusNumber\": \"50\",\n"
             + "\t\t\t\t\"totalNumber\": \"100\"\n"
@@ -260,6 +262,9 @@ public class ProductFragment extends Fragment implements OnClickListener {
 
     private List<WeakReference<View>> mAllNavViews = new ArrayList<>();
 
+    private LinearLayout llProduct;
+    private LinearLayout ll_nav;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -287,7 +292,9 @@ public class ProductFragment extends Fragment implements OnClickListener {
         mRecycleViewCategory = view.findViewById(R.id.rv_category);
         mRecycleViewProduct = view.findViewById(R.id.rv_product);
         search = view.findViewById(R.id.search);
-        mRecycleViewCategory.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        llProduct = view.findViewById(R.id.ll_product);
+        ll_nav = view.findViewById(R.id.ll_nav);
+        mRecycleViewCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleViewProduct.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mRecycleViewProduct.addItemDecoration(new RecycleViewDecoration(view.getContext()));
         search.setOnClickListener(new OnClickListener() {
@@ -319,23 +326,23 @@ public class ProductFragment extends Fragment implements OnClickListener {
             }
         });
 
-//        //选项卡固定个数
-//        String[] titles = new String[]{"即将揭晓", "人气", "最新","价格"};
-//        int[] unSelect = new int[]{0, 0, 0,0};
-//        int[] Select = new int[]{0, 0, 0,0};
-//        CrosheTabView crosheTabView = new CrosheTabView(this, titles, unSelect, Select, getResources().getColor(R.color.red), getResources().getColor(R.color.black), new OnTabSelectListener() {
-//            @Override
-//            public void onTabSelect(int position) {
+        //选项卡固定个数
+        String[] titles = new String[]{"即将揭晓", "人气", "最新","价格"};
+        int[] unSelect = new int[]{0, 0, 0,0};
+        int[] Select = new int[]{0, 0, 0,0};
+        CrosheTabView crosheTabView = new CrosheTabView(getContext(), titles, unSelect, Select, getResources().getColor(R.color.bg_toolbar), getResources().getColor(R.color.black), new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
 //                dealersCapLei = String.valueOf(position);
 //                getWallet(1);
-//            }
-//
-//            @Override
-//            public void onTabReselect(int position) {
-//
-//            }
-//        });
-//        llTabWallet.addView(crosheTabView);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
+        llProduct.addView(crosheTabView);
     }
 
     /**

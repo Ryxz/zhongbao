@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/dray_line">
+    android:background="@color/gainsboro">
     <View
         android:layout_width="match_parent"
         android:background="@color/bg_toolbar"
@@ -18,9 +18,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
             android:layout_centerInParent="true"
             android:text="购物车"/>
 
@@ -34,7 +33,6 @@
                 android:layout_alignParentRight="true"
                 android:id="@+id/edit"
                 android:textSize="14sp"
-                android:textStyle="bold"
                 android:textColor="@android:color/white"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
@@ -52,11 +50,11 @@
             android:id="@+id/car_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="62dp"
+            android:layout_marginBottom="50dp"
             android:dividerHeight="1dp"/>
         <RelativeLayout
             android:layout_alignParentBottom="true"
-            android:background="#FFDFDFD5"
+            android:background="@color/seaShell"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
@@ -82,7 +80,6 @@
 
         <TextView
             android:id="@+id/buy_btn"
-            android:textSize="15sp"
             android:textColor="@android:color/white"
             android:gravity="center"
             android:text="立即购买"
@@ -90,7 +87,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:background="@mipmap/buy_bg"/>
 
             <TextView

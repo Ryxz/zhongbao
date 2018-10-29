@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.zhongbao.zhongbao.R;
 
+import com.zhongbao.zhongbao.dialog.QrcodeDialog;
 import com.zhongbao.zhongbao.login.LoginActivity;
 import com.zhongbao.zhongbao.login.RegisterActivity;
 import com.zhongbao.zhongbao.my.GetGoodsActivity;
@@ -44,6 +45,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private boolean isLogin;
     private LinearLayout mLoginDetail;
     private TextView mShow;
+    private QrcodeDialog qrcodeDialog;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -100,6 +102,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             mLoginDetail.setVisibility(View.GONE);
             mGuest.setVisibility(View.VISIBLE);
         }
+        qrcodeDialog = new QrcodeDialog(getContext());
         initLintener();
     }
 
@@ -153,7 +156,8 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 //登录
                 break;
             case R.id.qrcode_linear:
-                startActivity(new Intent(getActivity(), QrcodeActivity.class));
+                qrcodeDialog.show();
+//                startActivity(new Intent(getActivity(), QrcodeActivity.class));
                 break;
             case R.id.mine_news_iv:
                 startActivity(new Intent(getActivity(), SystemNewsActivity.class));

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dray_line">
+    android:background="@color/dray_line"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,57 +14,59 @@
             android:id="@+id/back_left"
             android:layout_width="100dp"
             android:layout_height="match_parent">
+
             <ImageView
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/arrow_left"/>
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/arrow_left" />
         </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
-            android:text="帮助与反馈"/>
+            android:text="帮助与反馈"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
         <RelativeLayout
             android:id="@+id/mic_relative"
             android:layout_width="100dp"
-            android:layout_alignParentRight="true"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
             <ImageView
-                android:layout_marginRight="10dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@mipmap/phone_iv"/>
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/phone_iv" />
         </RelativeLayout>
 
     </RelativeLayout>
 
     <LinearLayout
-        android:background="@android:color/white"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:orientation="horizontal">
+        android:paddingTop="5dp">
 
         <RelativeLayout
             android:id="@+id/weixin_call"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="#EDEDED">
+            android:background="@color/azure">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -74,30 +75,30 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_gravity="center_vertical"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@mipmap/wechat_help"/>
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/wechat_help" />
 
                 <LinearLayout
-                    android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical">
-                    <TextView
-                        android:textColor="@color/text_dray"
-                        android:layout_width="wrap_content"
-                        android:textSize="11sp"
-                        android:layout_height="wrap_content"
-                        android:text="唯一官方客服微信"/>
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:textColor="@color/text_color"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="11sp"
-                        android:text="4001565654"/>
+                        android:text="唯一官方客服微信"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="4001565654"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -105,20 +106,13 @@
 
         </RelativeLayout>
 
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="match_parent"/>
-
         <RelativeLayout
             android:id="@+id/qq_call"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:background="#F4F4F4">
+            android:background="@color/aliceblue">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -143,15 +137,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="唯一官方客服QQ"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_dray" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="4006859800"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_color" />
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -162,107 +155,110 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_marginTop="5dp"
         android:id="@+id/about_zb"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
-        android:paddingLeft="10dp"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
-            android:textColor="@android:color/black"
-            android:layout_centerVertical="true"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="关于众宝"/>
+            android:layout_centerVertical="true"
+            android:text="关于众宝"
+            android:textColor="@android:color/black" />
+
         <ImageView
             android:id="@+id/about_zb_arraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/arrow"/>
+            android:src="@mipmap/arrow" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:text="众宝相关答疑"
-            android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/about_zb_arraw"/>
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/about_zb_arraw"
+            android:text="众宝相关答疑"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="0.8dp"
         android:id="@+id/account_zb"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
-        android:paddingLeft="10dp"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_marginTop="0.8dp"
+        android:background="@android:color/white"
+        android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
-            android:textColor="@android:color/black"
-            android:layout_centerVertical="true"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="账户与安全"/>
+            android:layout_centerVertical="true"
+            android:text="账户与安全"
+            android:textColor="@android:color/black" />
+
         <ImageView
             android:id="@+id/account_arraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/arrow"/>
+            android:src="@mipmap/arrow" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:text="众宝相关答疑"
-            android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/account_arraw"/>
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/account_arraw"
+            android:text="众宝相关答疑"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="0.8dp"
         android:id="@+id/pay_problem_zb"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
-        android:paddingLeft="10dp"
-        android:layout_height="50dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:textColor="@android:color/black"
-            android:layout_centerVertical="true"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="支付交易问题"/>
-        <ImageView
-            android:id="@+id/pay_problem_arraw"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/arrow"/>
+        android:layout_height="50dp"
+        android:layout_marginTop="0.8dp"
+        android:background="@android:color/white"
+        android:paddingLeft="10dp">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:text="众宝相关答疑"
-            android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/pay_problem_arraw"/>
+            android:layout_centerVertical="true"
+            android:text="支付交易问题"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/pay_problem_arraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/pay_problem_arraw"
+            android:text="众宝相关答疑"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 

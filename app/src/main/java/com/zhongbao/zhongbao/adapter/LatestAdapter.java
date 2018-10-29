@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zhongbao.zhongbao.R;
@@ -56,10 +57,18 @@ public class LatestAdapter extends BaseAdapter {
         TextView mPrice =  view.findViewById(R.id.goods_price);
         TextView mPerson = view.findViewById(R.id.goods_person);
         TextView mTime = view.findViewById(R.id.goods_time);
+        ImageView img_pro = view.findViewById(R.id.img_pro);
         mName.setText(bean.getName());
         mPrice.setText(bean.getPrice());
         mPerson.setText(bean.getPerson());
         mTime.setText(bean.getTime());
+        if (i == 2){
+            img_pro.setImageResource(R.mipmap.ad2);
+        }else if (i == 3){
+            img_pro.setImageResource(R.mipmap.ad3);
+        }else if (i == 4){
+            img_pro.setImageResource(R.mipmap.ad4);
+        }
         return view;
     }
 }

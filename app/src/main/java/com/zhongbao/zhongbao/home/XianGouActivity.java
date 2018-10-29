@@ -29,6 +29,7 @@ public class XianGouActivity extends BaseActivity implements View.OnClickListene
     private XianGouAdapter adapter;
 
     private RelativeLayout mBack;
+
     @Override
     protected int getLayoutID() {
         return R.layout.activity_xiangou;
@@ -47,30 +48,30 @@ public class XianGouActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initData() {
-        adapter = new XianGouAdapter(this,getList());
+        adapter = new XianGouAdapter(this, getList());
         mGrid.setAdapter(adapter);
         mGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(XianGouActivity.this,GoodsDetailActivity.class);
-                intent.putExtra("STATE","2");
+                Intent intent = new Intent(XianGouActivity.this, GoodsDetailActivity.class);
+                intent.putExtra("STATE", "2");
                 startActivity(intent);
             }
         });
     }
 
-    private List<String> getList()
-    {
+    private List<String> getList() {
         nameList.add("香奈儿四件套高级定制");
-        nameList.add("电视机四件套高级定制");
-        nameList.add("电饭锅四件套高级定制");
+        nameList.add("Mac定制");
+        nameList.add("大理石高级定制");
+        nameList.add("大理石高级定制");
+        nameList.add("大理石高级定制");
         return nameList;
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.back_left:
                 finish();
                 break;

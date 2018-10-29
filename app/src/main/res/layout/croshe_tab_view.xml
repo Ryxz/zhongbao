@@ -13,8 +13,8 @@
         android:stretchColumns="1"
         tl:paddingStart="10dp"
         tl:tl_iconVisible="false"
-        tl:tl_indicator_color="@color/red"
-        tl:tl_textSelectColor="@color/red"
+        tl:tl_indicator_color="@color/bg_toolbar"
+        tl:tl_textSelectColor="@color/bg_toolbar"
         tl:tl_textUnselectColor="#ffffff"
         tl:tl_textsize="14sp" />
 </LinearLayout>

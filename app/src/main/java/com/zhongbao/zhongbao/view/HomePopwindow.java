@@ -11,6 +11,7 @@ import android.widget.PopupWindow;
 
 import com.zhongbao.zhongbao.R;
 
+import com.zhongbao.zhongbao.dialog.QrcodeDialog;
 import com.zhongbao.zhongbao.my.HelpActivity;
 import com.zhongbao.zhongbao.my.QrcodeActivity;
 import com.zhongbao.zhongbao.my.ZbRecordActivity;
@@ -19,41 +20,45 @@ import com.zhongbao.zhongbao.my.ZbRecordActivity;
  * Used for
  * Created by tuyz on 2018/10/17.
  */
-    public class HomePopwindow extends PopupWindow {
-        private LinearLayout mRecord,mQr,mHelp;
-        public HomePopwindow(final Context context) {
-            super(context);
-            setOutsideTouchable(true);
-            setFocusable(true);
-            setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            View contentView = LayoutInflater.from(context).inflate(R.layout.pop_home,
-                    null, false);
-            mRecord = contentView.findViewById(R.id.yungou_record);
-            mQr = contentView.findViewById(R.id.qr_share);
-            mHelp = contentView.findViewById(R.id.home_help);
+public class HomePopwindow extends PopupWindow {
+    private LinearLayout mRecord, mQr, mHelp;
+    private QrcodeDialog qrcodeDialog;
 
-            mRecord.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    context.startActivity(new Intent(context, ZbRecordActivity.class));
-                }
-            });
+    public HomePopwindow(final Context context) {
+        super(context);
+        qrcodeDialog = new QrcodeDialog(context);
 
-            mQr.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    context.startActivity(new Intent(context, QrcodeActivity.class));
-                }
-            });
+        setOutsideTouchable(true);
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        View contentView = LayoutInflater.from(context).inflate(R.layout.pop_home,
+                null, false);
+        mRecord = contentView.findViewById(R.id.yungou_record);
+        mQr = contentView.findViewById(R.id.qr_share);
+        mHelp = contentView.findViewById(R.id.home_help);
 
-            mHelp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    context.startActivity(new Intent(context, HelpActivity.class));
-                }
-            });
+        mRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, ZbRecordActivity.class));
+            }
+        });
 
-            setContentView(contentView);
-        }
+        mQr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                qrcodeDialog.show();
+            }
+        });
 
+        mHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, HelpActivity.class));
+            }
+        });
+
+        setContentView(contentView);
     }
+
+}
