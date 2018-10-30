@@ -20,6 +20,7 @@
         android:text="最新揭晓"/>
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/top_lineaer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -128,6 +129,7 @@
     <ListView
         android:id="@+id/latest_list"
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
         android:divider="@color/text_hint_color"
         android:layout_height="match_parent"/>
 </LinearLayout>
