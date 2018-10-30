@@ -19,21 +19,21 @@
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp">
+                android:layout_height="200dp">
 
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"
+                    android:layout_height="200dp"
                     app:delay_time="4000"
-                    app:image_scale_type="center_crop"/>
+                    app:image_scale_type="fit_xy"/>
                     <!--app:indicator_drawable_selected="@drawable/banner_indicator_sel"-->
                     <!--app:indicator_drawable_unselected="@drawable/banner_indicator"-->
                     <!--app:indicator_height="@dimen/dp_4"-->
                     <!--app:indicator_width="@dimen/dp_4"-->
                     <!--tools:background="@color/colorAccent" -->
                 <TextView
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="65dp"
                     android:gravity="center"
                     android:id="@+id/goods_state_tv"
                     android:background="@mipmap/good_state_end"
@@ -70,6 +70,7 @@
                 <TextView
                     android:id="@+id/goods_name"
                     android:textSize="13sp"
+                    android:layout_marginTop="2dp"
                     android:text="少年必读"
                     android:textColor="@color/text_color"
                     android:layout_width="wrap_content"
@@ -541,9 +542,10 @@
     <RelativeLayout
         android:id="@+id/good_title"
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="65dp">
 
         <RelativeLayout
+            android:layout_marginTop="20dp"
             android:id="@+id/back_left"
             android:layout_width="100dp"
             android:layout_height="match_parent">
@@ -558,19 +560,21 @@
         <ImageView
             android:id="@+id/goods_type_iv"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
             android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:padding="2dp"
+            android:layout_height="match_parent"
             android:src="@mipmap/goods_type"/>
 
         <ImageView
             android:id="@+id/goods_home_iv"
             android:layout_toLeftOf="@id/goods_type_iv"
             android:layout_marginRight="13dp"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:padding="2dp"
             android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_height="match_parent"
             android:src="@mipmap/goods_home"/>
     </RelativeLayout>
 

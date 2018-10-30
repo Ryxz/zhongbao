@@ -1,5 +1,6 @@
 package com.zhongbao.zhongbao;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -9,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.zhongbao.zhongbao.utils.StatusBarUtil;
+import com.zhongbao.zhongbao.utils.Util;
 
 /**
  * Used for
@@ -20,6 +22,9 @@ public abstract class BaseActivity extends FragmentActivity{
     protected BaseActivity act;
 
     protected final String TAG=getClass().getSimpleName();
+
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -65,4 +70,23 @@ public abstract class BaseActivity extends FragmentActivity{
     protected void notSetStatusBarColor() {
         StatusBarUtil.setStatusBarTranslucent(this);
     }
+
+    public void showProgress(String log){
+        if (!Util.isEmpty(log)) {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage(log);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.show();
+        }
+    }
+
+    public void hideProgress(){
+        if (null != progressDialog) {
+            progressDialog.dismiss();
+        }
+    }
+
+
+
+
 }

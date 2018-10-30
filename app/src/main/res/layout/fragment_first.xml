@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/bg_toolbar"
+        android:layout_height="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bg_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/search"
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/search"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_centerInParent="true"
+            android:text="众宝"/>
+
+        <TextView
+            android:id="@+id/pop_show"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/home_news_iv"
+            android:layout_marginBottom="5dp"
+            android:gravity="bottom" />
+
+        <ImageView
+            android:id="@+id/home_type"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/mine_type"/>
+
+        <ImageView
+            android:id="@+id/home_news_iv"
+            android:layout_centerVertical="true"
+            android:padding="14dp"
+            android:layout_toLeftOf="@id/home_type"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/mine_news"/>
+        <TextView
+            android:layout_marginRight="11dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/back"
+            android:textSize="8sp"
+            android:layout_toLeftOf="@id/home_type"
+            android:textColorHint="@color/bg_toolbar"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:text="1"/>
+    </RelativeLayout>
+    <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+        android:id="@+id/swipeToLoadLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.zhongbao.zhongbao.base.HeaderRecyclerView
+            android:background="@color/gainsboro"
+            android:id="@+id/recycler_first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.zhongbao.zhongbao.base.HeaderRecyclerView>
+
+    </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+
+</LinearLayout>
