@@ -74,6 +74,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
         recycler_first.setLayoutManager(new GridLayoutManager(getContext(),2));
         firstAdapter = new FirstAdapter(getContext(),list);
         recycler_first.setAdapter(firstAdapter);
+
         headview = LayoutInflater.from(getContext()).inflate(R.layout.item_fragment01_headview, recycler_first, false);
         recycler_first.addHeaderView(headview);
         swipeToLoadLayout = getActivity().findViewById(R.id.swipeToLoadLayout);

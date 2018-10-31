@@ -1,6 +1,7 @@
 package com.zhongbao.zhongbao.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import com.zhongbao.zhongbao.MainActivity;
 import com.zhongbao.zhongbao.R;
 import com.zhongbao.zhongbao.dialog.BuyGoodsDialog;
+import com.zhongbao.zhongbao.goods.GoodsDetailActivity;
+import com.zhongbao.zhongbao.utils.ButtonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +45,16 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
             @Override
             public void onClick(View v) {
                 buyGoodsDialog.show();
+            }
+        });
+        firstView.prograss_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ButtonUtils.isFastClick()) {
+                    Intent intent = new Intent(context, GoodsDetailActivity.class);
+                    intent.putExtra("STATE", "2");
+                    context.startActivity(intent);
+                }
             }
         });
         if (position == 0){
@@ -101,7 +114,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
     }
 
 
-    int type;
+    int type=1;
     public void setAdapterType(int type){
         this.type = type;
         notifyDataSetChanged();
