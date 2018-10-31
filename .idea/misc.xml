@@ -36,6 +36,17 @@
     <option name="id" value="Android" />
   </component>
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/SwipeToLoadLayoutLibrary">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="svn://39.108.79.159/nqkj_android/SwipeToLoadLayoutLibrary" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>
