@@ -1,5 +1,6 @@
 package com.zhongbao.zhongbao.goods;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -34,6 +35,7 @@ import com.zhongbao.zhongbao.fragment.HistoryPersonFragment;
 import com.zhongbao.zhongbao.fragment.JoinRecordFragment;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
 import com.zhongbao.zhongbao.utils.GlideUtils;
+import com.zhongbao.zhongbao.utils.Util;
 import com.zhongbao.zhongbao.view.HomePopwindow;
 
 /**
@@ -93,14 +95,23 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected int getLayoutID() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+//            //设置修改状态栏
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            //设置状态栏的颜色，和你的app主题或者标题栏颜色设置一致就ok了
+//            window.setStatusBarColor(getResources().getColor(R.color.white));
+//            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        }
 
+        // 5.0 以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            //设置修改状态栏
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            //设置状态栏的颜色，和你的app主题或者标题栏颜色设置一致就ok了
-            window.setStatusBarColor(getResources().getColor(R.color.white));
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
         return R.layout.activity_goods_detail;
     }
@@ -120,6 +131,7 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         });
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void initView() {
 
@@ -163,24 +175,20 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         drawable.setAlpha(START_ALPHA);
         layout_top_search.setBackgroundDrawable(drawable);
         layout_top_search.getBackground().mutate().setAlpha(0);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    if (scrollY > fadingHeight) {
-                        scrollY = fadingHeight; // 当滑动到指定位置之后设置颜色为纯色，之前的话要渐变---实现下面的公式即可
-
-                    } else if (scrollY < 0) {
-                        scrollY = 0;
-                    } else {
-                    }
-
-                    drawable.setAlpha(scrollY * (END_ALPHA - START_ALPHA) / fadingHeight
-                            + START_ALPHA);
+        mScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > fadingHeight) {
+                    scrollY = fadingHeight; // 当滑动到指定位置之后设置颜色为纯色，之前的话要渐变---实现下面的公式即可
+                } else if (scrollY < 0) {
+                    scrollY = 0;
+                } else {
 
                 }
-            });
-        }
+                drawable.setAlpha(scrollY * (END_ALPHA - START_ALPHA) / fadingHeight + START_ALPHA);
+
+            }
+        });
     }
 
 

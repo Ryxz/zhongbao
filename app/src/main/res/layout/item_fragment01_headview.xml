@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+        <com.youth.banner.Banner
+            android:id="@+id/f1_banner"
+            android:layout_width="match_parent"
+            android:layout_height="182dp">
+        </com.youth.banner.Banner>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+
+        <com.zhongbao.zhongbao.view.Xcircleindicator
+            android:visibility="gone"
+            android:id="@+id/banner_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="82dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:paddingTop="10dp"
+            android:background="@mipmap/home1"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/home_xinpin"
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/home_new_good" />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="新品"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_xiangou"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/home_purchas" />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="限购"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_shaidan"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/home_bask" />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="晒单"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_xinshou"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/home_novice" />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="新手"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_pay"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/home_pay" />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="充值"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_height="40dp">
+        <View
+            android:background="@mipmap/goods_sanjiao_bg"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+        <LinearLayout
+            android:id="@+id/skip_center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/laba"/>
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/text_color"
+                android:layout_gravity="center_vertical"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:text="恭喜"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimary"
+                android:text="手气不错"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/text_color"
+                android:text="购买了永恒之心的心-专属礼包"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/rb_all"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:textSize="14sp"
+            android:textColor="@color/bg_toolbar"
+            android:layout_height="match_parent"
+            android:text="进度"/>
+
+
+        <TextView
+            android:id="@+id/rb_ing"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:background="@null"
+            android:button="@null"
+            android:textColor="@color/text_dray"
+            android:text="新品"/>
+
+        <RelativeLayout
+            android:id="@+id/rb_price"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:paddingRight="10dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/rb_ed"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:textSize="14sp"
+                android:layout_height="match_parent"
+                android:textColor="@color/text_dray"
+                android:text="价格"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:layout_toRightOf="@id/rb_ed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/img_up"
+                    android:src="@mipmap/go_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/img_down"
+                    android:layout_marginTop="3dp"
+                    android:src="@mipmap/go_bottom_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/lab_one"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/lab"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lab_two"
+            android:visibility="invisible"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/lab"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lab_three"
+            android:visibility="invisible"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_gravity="right"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/lab"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

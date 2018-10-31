@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import com.zhongbao.zhongbao.fragment.FirstFragment;
 import com.zhongbao.zhongbao.fragment.HomeFragment;
 import com.zhongbao.zhongbao.fragment.LatestFragment;
 import com.zhongbao.zhongbao.fragment.MyFragment;
@@ -31,7 +32,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout mHome, mGoods, mLateast, mMine;
     private ImageView mHomeIv, mGoodsIv, mLateastIv, mShopIv, mMineIv;
     private TextView mHomeTv, mGoodsTv, mLateastTv, mShopTv, mMineTv,tv_goods_number;
-    private HomeFragment homeFragment;
+//    private HomeFragment homeFragment;
+    private FirstFragment firstFragment;
     private ProductFragment productFragment;
     private LatestFragment latestFragment;
     private ShopCarFragment shopCarFragment;
@@ -117,12 +119,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         //隐藏所有fragment
         hideFragment(transaction);
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
-        if (homeFragment == null) {
-            homeFragment = new HomeFragment();
-            transaction.add(R.id.main_frame_layout, homeFragment);
+//        if (homeFragment == null) {
+//            homeFragment = new HomeFragment();
+//            transaction.add(R.id.main_frame_layout, homeFragment);
+//        }
+//
+//        transaction.show(homeFragment);
+
+        if (firstFragment == null) {
+            firstFragment = new FirstFragment();
+            transaction.add(R.id.main_frame_layout, firstFragment);
         }
+        transaction.show(firstFragment);
+
         //显示需要显示的fragment
-        transaction.show(homeFragment);
         //提交事务
         transaction.commit();
     }
@@ -243,8 +253,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     private void hideFragment(FragmentTransaction transaction) {
-        if (homeFragment != null) {
-            transaction.hide(homeFragment);
+//        if (homeFragment != null) {
+//            transaction.hide(homeFragment);
+//        }
+        if (firstFragment !=null){
+            transaction.hide(firstFragment);
         }
         if (productFragment != null) {
             transaction.hide(productFragment);
@@ -279,7 +292,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_linear:
-                if (!getVisibleFragment().equals(homeFragment)) {
+                if (!getVisibleFragment().equals(firstFragment)) {
                     initFirstFragment();
                 }
 
