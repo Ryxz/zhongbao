@@ -79,6 +79,19 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
                 case 3:
                     isItem = true;
                     mTotalCheck.setChecked(false);
+                    isItem=false;
+                    a = 0;
+                    b = 0;
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i).getChecked() == 1) {
+                            a = a + 1;
+
+                            int total = Integer.parseInt(list.get(i).getNum());
+                            b = total + b;
+                        }
+                    }
+                    mPrice.setText("合计: " + b + "钻石");
+                    mNum.setText("共" + a + "个商品");
                     break;
 
             }
@@ -247,6 +260,5 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
             mHandler.sendEmptyMessage(1);
             adapter.notifyDataSetChanged();
         }
-        isItem = false;
     }
 }

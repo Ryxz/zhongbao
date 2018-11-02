@@ -33,6 +33,8 @@ public class HomePopwindow extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         View contentView = LayoutInflater.from(context).inflate(R.layout.pop_home,
                 null, false);
+        setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
+        setWidth(LinearLayout.LayoutParams.WRAP_CONTENT);
         mRecord = contentView.findViewById(R.id.yungou_record);
         mQr = contentView.findViewById(R.id.qr_share);
         mHelp = contentView.findViewById(R.id.home_help);

@@ -12,21 +12,22 @@
         android:background="@mipmap/mine_bg"
         android:fitsSystemWindows="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
-            android:gravity="right"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/show_p"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+
+            <ImageView
+                android:id="@+id/mine_type_iv"
+                android:layout_width="50dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="10dp" />
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:padding="15dp"
+                android:src="@mipmap/mine_type" />
 
             <ImageView
                 android:id="@+id/mine_news_iv"
@@ -34,17 +35,32 @@
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center_vertical"
-                android:padding="16.5dp"
+                android:padding="14dp"
+                android:layout_toLeftOf="@id/mine_type_iv"
                 android:src="@mipmap/mine_news" />
+            <TextView
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/back"
+                android:textSize="8sp"
+                android:layout_toLeftOf="@id/mine_type_iv"
+                android:textColorHint="@color/bg_toolbar"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:text="1"/>
 
-            <ImageView
-                android:id="@+id/mine_type_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:padding="15dp"
-                android:src="@mipmap/mine_type" />
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/show_p"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/mine_news_iv"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp" />
+        </RelativeLayout>
 
 
         <LinearLayout
