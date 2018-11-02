@@ -30,8 +30,8 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
     private RadioGroup rg;
     private int[] rbs = {R.id.rb_all, R.id.rb_ing, R.id.rb_ed};
     private List<Fragment> mFragments;
-    private RadioButton mAll,mIng,mEd;
-    private LinearLayout mLabone,mLabtwo,mLabThree;
+    private RadioButton mAll, mIng, mEd;
+    private LinearLayout mLabone, mLabtwo, mLabThree;
     private RelativeLayout mBack;
 
 
@@ -45,8 +45,7 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                for (int i = 0; i < rbs.length; i++)
-                {
+                for (int i = 0; i < rbs.length; i++) {
                     if (rbs[i] != checkedId) continue;
                     //加载滑动
                     vp.setCurrentItem(i);
@@ -55,8 +54,7 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-        vp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener()
-        {
+        vp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 rg.check(rbs[position]);
@@ -85,29 +83,25 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
         mBack.setOnClickListener(this);
     }
 
-    private void setLabState(int id)
-    {
-        if(id == R.id.rb_all)
-        {
-            mAll.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+    private void setLabState(int id) {
+        if (id == R.id.rb_all) {
+            mAll.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
             mEd.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.VISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
             mLabThree.setVisibility(View.INVISIBLE);
-        }else if(id == R.id.rb_ing)
-        {
+        } else if (id == R.id.rb_ing) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
-            mIng.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mIng.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mEd.setTextColor(getResources().getColor(R.color.text_dray));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.VISIBLE);
             mLabThree.setVisibility(View.INVISIBLE);
-        }else if(id == R.id.rb_ed)
-        {
+        } else if (id == R.id.rb_ed) {
             mAll.setTextColor(getResources().getColor(R.color.text_dray));
             mIng.setTextColor(getResources().getColor(R.color.text_dray));
-            mEd.setTextColor(getResources().getColor(R.color.bottom_tab_select));
+            mEd.setTextColor(getResources().getColor(R.color.bg_toolbar));
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
             mLabThree.setVisibility(View.VISIBLE);
@@ -116,24 +110,23 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initData() {
-        mFragments=new ArrayList<>();
-        AllRecordFragment one=new AllRecordFragment();
-        EndRecordFragment two=new EndRecordFragment();
+        mFragments = new ArrayList<>();
+        AllRecordFragment one = new AllRecordFragment();
+        EndRecordFragment two = new EndRecordFragment();
         BaskFragment three = new BaskFragment();
         mFragments.add(one);
         mFragments.add(two);
         mFragments.add(three);
 
         // 设置填充器
-        vp.setAdapter(new PagerMainAdapter(getSupportFragmentManager(),mFragments));
+        vp.setAdapter(new PagerMainAdapter(getSupportFragmentManager(), mFragments));
         // 设置缓存页面数
         vp.setOffscreenPageLimit(2);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.back_left:
                 finish();
                 break;

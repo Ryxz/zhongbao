@@ -31,5 +31,8 @@
         <attr name="circleInterval" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="MyRadioButton">
+        <attr name="drawableTop" format="reference" />
+    </declare-styleable>
 
 </resources>

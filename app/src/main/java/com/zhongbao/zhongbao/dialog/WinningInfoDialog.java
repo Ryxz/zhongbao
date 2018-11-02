@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -19,6 +21,7 @@ import com.zhongbao.zhongbao.R;
 public class WinningInfoDialog extends Dialog {
     private TextView skip;
     private Context context;
+    int million = 3;
 
     public WinningInfoDialog(@NonNull Context context, View.OnClickListener skipListener) {
         super(context, R.style.DialogStyle);
@@ -35,22 +38,8 @@ public class WinningInfoDialog extends Dialog {
         int statusBarHeight = getStatusBarHeight(context);
         int dialogHeight = screenHeight - statusBarHeight;
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, dialogHeight == 0 ? ViewGroup.LayoutParams.MATCH_PARENT : dialogHeight);
+        handler.sendEmptyMessageDelayed(0, 1000);
     }
-
-//    @Override
-//    public void show() {
-//        super.show();
-//        /**
-//         * 设置宽度全屏，要设置在show的后面
-//         */
-//        WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-//        layoutParams.gravity= Gravity.CENTER;
-//        layoutParams.width= WindowManager.LayoutParams.MATCH_PARENT;
-//        layoutParams.height= WindowManager.LayoutParams.MATCH_PARENT;
-//        getWindow().getDecorView().setPadding(0, 0, 0, 0);
-//        getWindow().setAttributes(layoutParams);
-//
-//    }
 
     private static int getScreenHeight(Activity activity) {
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -67,4 +56,18 @@ public class WinningInfoDialog extends Dialog {
         }
         return statusBarHeight;
     }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (million>0){
+                handler.sendEmptyMessageDelayed(0, 1000);
+                skip.setText("跳过("+million+")");
+                million--;
+            }else {
+                dismiss();
+            }
+        }
+    };
 }

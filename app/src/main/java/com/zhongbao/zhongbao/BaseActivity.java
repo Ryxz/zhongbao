@@ -17,19 +17,18 @@ import com.zhongbao.zhongbao.utils.Util;
  * Created by tuyz on 2018/10/9.
  */
 
-public abstract class BaseActivity extends FragmentActivity{
+public abstract class BaseActivity extends FragmentActivity {
 
     protected BaseActivity act;
 
-    protected final String TAG=getClass().getSimpleName();
+    protected final String TAG = getClass().getSimpleName();
 
     private ProgressDialog progressDialog;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        act=this;
+        act = this;
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 //                WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
 //        Window window = act.getWindow();
@@ -50,19 +49,24 @@ public abstract class BaseActivity extends FragmentActivity{
         initData();
         initListener();
     }
+
     @LayoutRes
     protected abstract int getLayoutID();
+
     protected abstract void initListener();
+
     protected abstract void initView();
+
     protected abstract void initData();
+
     @SuppressWarnings("unchecked")
-    protected <E> E f(int id){
-        return (E)findViewById(id);
+    protected <E> E f(int id) {
+        return (E) findViewById(id);
     }
 
     /**
      * 设置不需要设置状态栏的颜色
-     *
+     * <p>
      * 是否设置StatusBar的颜色，绝大部分是要设置的，特殊的不需要设置，例如一个Activity中有多个Fragment的
      * Activity，多个Fragment的状态栏颜色可能不相同，那就只好交给Fragment自己去设置。遇到这样的Activity
      * 需要返回false
@@ -71,7 +75,7 @@ public abstract class BaseActivity extends FragmentActivity{
         StatusBarUtil.setStatusBarTranslucent(this);
     }
 
-    public void showProgress(String log){
+    public void showProgress(String log) {
         if (!Util.isEmpty(log)) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setMessage(log);
@@ -80,13 +84,11 @@ public abstract class BaseActivity extends FragmentActivity{
         }
     }
 
-    public void hideProgress(){
+    public void hideProgress() {
         if (null != progressDialog) {
             progressDialog.dismiss();
         }
     }
-
-
 
 
 }

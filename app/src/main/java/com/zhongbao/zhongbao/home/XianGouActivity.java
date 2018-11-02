@@ -28,7 +28,6 @@ public class XianGouActivity extends BaseActivity implements View.OnClickListene
 
     private XianGouAdapter adapter;
 
-    private RelativeLayout mBack;
 
     @Override
     protected int getLayoutID() {
@@ -37,13 +36,11 @@ public class XianGouActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initListener() {
-        mBack.setOnClickListener(this);
     }
 
     @Override
     protected void initView() {
         mGrid = f(R.id.xiangou_grid);
-        mBack = f(R.id.back_left);
     }
 
     @Override
@@ -72,9 +69,6 @@ public class XianGouActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.back_left:
-                finish();
-                break;
         }
     }
 }

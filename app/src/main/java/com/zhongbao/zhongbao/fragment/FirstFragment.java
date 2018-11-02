@@ -2,15 +2,10 @@ package com.zhongbao.zhongbao.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,25 +13,24 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.aspsine.swipetoloadlayout.OnRefreshListener;
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.youth.banner.Banner;
 import com.zhongbao.zhongbao.R;
 import com.zhongbao.zhongbao.adapter.FirstAdapter;
-import com.zhongbao.zhongbao.adapter.ViewPagerAdapter;
 import com.zhongbao.zhongbao.base.GlideImageLoader;
 import com.zhongbao.zhongbao.base.HeaderRecyclerView;
+import com.zhongbao.zhongbao.dialog.WinningInfoDialog;
 import com.zhongbao.zhongbao.goods.NoviceActivity;
 import com.zhongbao.zhongbao.home.SearchActivity;
 import com.zhongbao.zhongbao.home.XianGouActivity;
-import com.zhongbao.zhongbao.home.XinpinActivity;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
 import com.zhongbao.zhongbao.my.PayActivity;
 import com.zhongbao.zhongbao.my.SystemNewsActivity;
 import com.zhongbao.zhongbao.my.TAcenterActivity;
 import com.zhongbao.zhongbao.view.HomePopwindow;
-import com.zhongbao.zhongbao.view.Xcircleindicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +47,12 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
     private ImageView homeNewsIv,homeType,imgUp,imgDown;
     private LinearLayout mLabone, mLabtwo, mLabThree;
     SwipeToLoadLayout swipeToLoadLayout;
+    private WinningInfoDialog winningInfoDialog;
+    private LinearLayout ll_vertical;
+    private List<String> list1 = new ArrayList<>();
+    private List<String> list2 = new ArrayList<>();
+    private List<String> list3 = new ArrayList<>();
+    private ViewFlipper viewFlipper;
 
     @Nullable
     @Override
@@ -118,6 +118,38 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
         mAll.setOnClickListener(this);
         mIng.setOnClickListener(this);
         rbPrice.setOnClickListener(this);
+        viewFlipper = headview.findViewById(R.id.filpper);
+        list1.add("恭喜");
+        list1.add("恭喜");
+        list1.add("恭喜");
+        list2.add("小麦");
+        list2.add("小米");
+        list2.add("小哥");
+        list3.add("购买了大礼包");
+        list3.add("购买了永恒之星");
+        list3.add("购买了香奈儿");
+
+        winningInfoDialog = new WinningInfoDialog(getContext(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                winningInfoDialog.dismiss();
+            }
+        });
+        winningInfoDialog.show();
+        viewFlipper.getVerticalScrollbarPosition();
+
+
+        for (int i = 0; i < 3; i++) {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_flipper, null);
+            TextView tv1 = view.findViewById(R.id.tv_1);
+            TextView tv2 = view.findViewById(R.id.tv_2);
+            TextView tv3 = view.findViewById(R.id.tv_3); tv1.setText(list1.get(i));
+            tv2.setText(list2.get(i));
+            tv3.setText(list3.get(i));
+            viewFlipper.addView(view);
+        }
+        viewFlipper.startFlipping();
+
         getData();
     }
 
@@ -162,7 +194,8 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
                 break;
 
             case R.id.home_xinpin:
-                startActivity(new Intent(getActivity(), XinpinActivity.class));
+                getContext().sendBroadcast(new Intent("changeNews"));
+//                startActivity(new Intent(getActivity(), XinpinActivity.class));
                 break;
 
             case R.id.home_pay:

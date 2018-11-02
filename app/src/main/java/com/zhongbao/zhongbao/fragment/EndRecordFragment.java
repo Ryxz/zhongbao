@@ -81,14 +81,10 @@ public class EndRecordFragment extends Fragment {
     private ArrayList<ListViewItem> getDatas() {
 
         viewItemsArraylists = new ArrayList<ListViewItem>();
-        viewItemsArraylists.add(new ListViewItem(1, null));
         viewItemsArraylists.add(new ListViewItem(0, null));
-        viewItemsArraylists.add(new ListViewItem(1, null));
-        viewItemsArraylists.add(new ListViewItem(1, null));
-        viewItemsArraylists.add(new ListViewItem(1, null));
         viewItemsArraylists.add(new ListViewItem(0, null));
-        viewItemsArraylists.add(new ListViewItem(1, null));
-        viewItemsArraylists.add(new ListViewItem(1, null));
+        viewItemsArraylists.add(new ListViewItem(0, null));
+        viewItemsArraylists.add(new ListViewItem(0, null));
         return viewItemsArraylists;
     }
 }

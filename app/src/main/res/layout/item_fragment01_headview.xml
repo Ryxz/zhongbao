@@ -162,29 +162,23 @@
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/laba"/>
+            <ViewFlipper
+                android:id="@+id/filpper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autoStart="true"
+                android:flipInterval="2000"
+                android:inAnimation="@anim/anim_come_in"
+                android:outAnimation="@anim/anim_get_out"/>
+            <LinearLayout
+                android:id="@+id/ll_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:textColor="@color/text_color"
-                android:layout_gravity="center_vertical"
-                android:textSize="12sp"
-                android:layout_height="wrap_content"
-                android:text="恭喜"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textSize="12sp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/colorPrimary"
-                android:text="手气不错"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/text_color"
-                android:text="购买了永恒之心的心-专属礼包"/>
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </LinearLayout>

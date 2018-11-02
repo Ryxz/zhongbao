@@ -96,7 +96,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:src="@mipmap/home_add" />
+                android:src="@mipmap/goods_add" />
 
         </LinearLayout>
     </RelativeLayout>

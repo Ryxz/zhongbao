@@ -1,6 +1,9 @@
 package com.zhongbao.zhongbao.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -35,7 +38,7 @@ import com.zhongbao.zhongbao.utils.JsonParseUtils;
 import com.zhongbao.zhongbao.utils.RecycleViewDecoration;
 import com.zhongbao.zhongbao.view.CrosheTabView;
 
-public class ProductFragment extends Fragment implements OnClickListener {
+public class ProductFragment extends Fragment {
 
     /**
      * 数据格式参考README.md中的内容
@@ -260,15 +263,12 @@ public class ProductFragment extends Fragment implements OnClickListener {
 
     private ImageView search;
 
-    private List<WeakReference<View>> mAllNavViews = new ArrayList<>();
 
     private LinearLayout llProduct;
-    private LinearLayout ll_nav;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_product, container, false);
         initView(view);
@@ -276,24 +276,11 @@ public class ProductFragment extends Fragment implements OnClickListener {
         return view;
     }
 
-    private void addAllNavView(View view, int... ids) {
-        for (int id : ids) {
-            View initView = view.findViewById(id);
-            if (id == R.id.tv_announce) {//默认选中"全部"
-                initView.setSelected(true);
-            }
-            initView.setOnClickListener(this);
-            mAllNavViews.add(new WeakReference<View>(initView));
-        }
-    }
-
     private void initView(View view) {
-        addAllNavView(view, R.id.tv_all, R.id.tv_announce, R.id.tv_popularity, R.id.tv_new, R.id.tv_price);
         mRecycleViewCategory = view.findViewById(R.id.rv_category);
         mRecycleViewProduct = view.findViewById(R.id.rv_product);
         search = view.findViewById(R.id.search);
         llProduct = view.findViewById(R.id.ll_product);
-        ll_nav = view.findViewById(R.id.ll_nav);
         mRecycleViewCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleViewProduct.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mRecycleViewProduct.addItemDecoration(new RecycleViewDecoration(view.getContext()));
@@ -330,7 +317,7 @@ public class ProductFragment extends Fragment implements OnClickListener {
         String[] titles = new String[]{"即将揭晓", "人气", "最新","价格"};
         int[] unSelect = new int[]{0, 0, 0,0};
         int[] Select = new int[]{0, 0, 0,0};
-        CrosheTabView crosheTabView = new CrosheTabView(getContext(), titles, unSelect, Select, getResources().getColor(R.color.bg_toolbar), getResources().getColor(R.color.black), new OnTabSelectListener() {
+        crosheTabView = new CrosheTabView(getContext(), titles, unSelect, Select, getResources().getColor(R.color.bg_toolbar), getResources().getColor(R.color.black), new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
 //                dealersCapLei = String.valueOf(position);
@@ -343,7 +330,30 @@ public class ProductFragment extends Fragment implements OnClickListener {
             }
         });
         llProduct.addView(crosheTabView);
+        registerBoradcastReceiver();
     }
+    private CrosheTabView crosheTabView;
+
+    public void registerBoradcastReceiver() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("changeNews");
+
+        getActivity().registerReceiver(myBroadcastReceive, intentFilter);
+    }
+
+    public BroadcastReceiver myBroadcastReceive = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals("changeNews")) {
+                crosheTabView.setTab(2);
+            } else if (action.equals("changeLeft")) {
+                String classId = intent.getStringExtra("classId");
+            }else if (action.equals("refresh")){
+            }
+        }
+    };
+
 
     /**
      * 如果筛选条件是查接口，查回来数据，调用这个方法就可以了
@@ -408,36 +418,4 @@ public class ProductFragment extends Fragment implements OnClickListener {
         });
     }
 
-
-    @Override
-    public void onClick(View v) {
-        //当前点击的view设置选中状态
-        v.setSelected(true);
-        switch (v.getId()) {
-            case R.id.tv_all:
-
-                break;
-            case R.id.tv_popularity:
-
-                break;
-            case R.id.tv_announce:
-
-                break;
-            case R.id.tv_new:
-
-                break;
-            case R.id.tv_price:
-
-                break;
-        }
-        //设置导航栏其他view不是选中状态
-        if (null != mAllNavViews && mAllNavViews.size() > 0) {
-            for (WeakReference<View> reference : mAllNavViews) {
-                View view = reference.get();
-                if (null != view && view.getId() != v.getId()) {
-                    view.setSelected(false);
-                }
-            }
-        }
-    }
 }

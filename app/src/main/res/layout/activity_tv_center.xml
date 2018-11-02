@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="wrap_content"
         android:background="@color/bg_toolbar"
         android:orientation="vertical">
 
@@ -40,36 +40,48 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
             android:background="@color/bg_toolbar"
-            android:orientation="horizontal">
+            android:orientation="vertical">
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
                 app:riv_oval="true"
                 android:src="@mipmap/mine_head"/>
-            <LinearLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:gravity="bottom"
+                    android:id="@+id/tv_name"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="张三"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="(江苏省南京市）"
+                    android:textColor="@android:color/white"
+                    android:textSize="10dp"
+                    android:layout_toRightOf="@+id/tv_name" />
+
+            </RelativeLayout>
+            <TextView
+                android:text="云购大将"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="中奖小能手"
-                    android:textSize="13sp"
-                    android:textColor="@android:color/white"/>
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ID: 1010102"
-                    android:textSize="13sp"
-                    android:textColor="@android:color/white"/>
-            </LinearLayout>
+                android:textSize="12sp"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
 
@@ -84,14 +96,14 @@
 
         <RadioButton
             android:id="@+id/rb_all"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:paddingLeft="10dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="@null"
             android:button="@null"
             android:textSize="13sp"
-            android:textColor="@color/bottom_tab_select"
+            android:textColor="@color/bg_toolbar"
             android:layout_height="match_parent"
             android:text="参与记录"/>
 
@@ -111,8 +123,8 @@
         <RadioButton
             android:id="@+id/rb_ed"
             android:paddingRight="10dp"
-            android:gravity="right|center_vertical"
             android:layout_width="0dp"
+            android:gravity="center"
             android:layout_weight="1"
             android:background="@null"
             android:button="@null"
@@ -129,10 +141,12 @@
             android:id="@+id/lab_one"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="50dp"
+                android:scaleType="fitXY"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/lab"/>
         </LinearLayout>
@@ -147,6 +161,7 @@
             android:layout_gravity="center">
             <ImageView
                 android:layout_width="50dp"
+                android:scaleType="fitXY"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/lab"/>
@@ -155,13 +170,14 @@
         <LinearLayout
             android:id="@+id/lab_three"
             android:visibility="invisible"
+            android:gravity="center"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
+                android:scaleType="fitXY"
                 android:layout_width="50dp"
-                android:layout_gravity="right"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/lab"/>
         </LinearLayout>

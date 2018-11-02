@@ -55,16 +55,13 @@
         android:layout_marginTop="5dp"
         android:background="@android:color/white"
         android:orientation="horizontal"
-        android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp">
+        android:padding="10dp">
 
         <RelativeLayout
             android:id="@+id/weixin_call"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@color/azure">
 
@@ -110,7 +107,7 @@
             android:id="@+id/qq_call"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@color/aliceblue">
 
@@ -262,5 +259,30 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:gravity="bottom|center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_abnormal"
+            android:text="异常反馈"
+            android:gravity="center"
+            style="@style/T14Wrap.Black"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_marginRight="1px"
+            android:layout_height="48dp" />
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            android:text="意见与建议"
+            android:gravity="center"
+            android:background="@color/white"
+            style="@style/T14Wrap.Black"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="48dp" />
+    </LinearLayout>
 
 </LinearLayout>

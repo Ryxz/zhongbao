@@ -88,10 +88,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mMineTv = f(R.id.mine_tv);
 
         tv_goods_number=f(R.id.tv_goods_number);
-        IntentFilter filter=new IntentFilter();
-        filter.addAction(GOODS_NUMBER_ACTION);
-        registerReceiver(receiver,filter);
         initFirstFragment();
+        registerBoradcastReceiver();
     }
 
     //    //获取屏幕的宽度
@@ -100,14 +98,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         getWindowManager().getDefaultDisplay().getSize(point);
         return point.x;
     }
+    public void registerBoradcastReceiver() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("changeNews");
+        intentFilter.addAction(GOODS_NUMBER_ACTION);
+        registerReceiver(receiver, intentFilter);
+    }
 
     private BroadcastReceiver receiver=new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent!=null){
                 String action=intent.getAction();
-                if (GOODS_NUMBER_ACTION.equals(action)){
+                if (action.equals(GOODS_NUMBER_ACTION)){
                     tv_goods_number.setText(intent.getStringExtra("tv_goods_number"));
+                }else if (action.equals("changeNews")){
+                    initSecondFragment();
                 }
             }
         }

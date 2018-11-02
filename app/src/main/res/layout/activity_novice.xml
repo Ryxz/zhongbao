@@ -51,11 +51,11 @@
             android:layout_marginLeft="10dp"
             android:padding="5dp"
             android:lineSpacingExtra="5dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/text_dray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!"/>
+            android:text="欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!"/>
     </LinearLayout>
 
 
@@ -68,6 +68,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:paddingTop="10dp"
             android:paddingLeft="10dp"
             android:textSize="15sp"
             android:textColor="@color/text_color"
@@ -79,11 +80,11 @@
             android:layout_marginLeft="10dp"
             android:padding="5dp"
             android:lineSpacingExtra="5dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/text_dray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!"/>
+            android:text="欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!欢迎加入众宝大家庭!"/>
     </LinearLayout>
 
 </LinearLayout>

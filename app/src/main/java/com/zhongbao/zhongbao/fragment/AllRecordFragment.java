@@ -66,12 +66,9 @@ public class AllRecordFragment extends Fragment {
         viewItemsArraylists.add(new ListViewItem(0, null));
         viewItemsArraylists.add(new ListViewItem(1, null));
         viewItemsArraylists.add(new ListViewItem(2, null));
-        viewItemsArraylists.add(new ListViewItem(2, null));
-        viewItemsArraylists.add(new ListViewItem(2, null));
-        viewItemsArraylists.add(new ListViewItem(0, null));
-        viewItemsArraylists.add(new ListViewItem(2, null));
         viewItemsArraylists.add(new ListViewItem(1, null));
-        viewItemsArraylists.add(new ListViewItem(1, null));
+        viewItemsArraylists.add(new ListViewItem(2, null));
+        viewItemsArraylists.add(new ListViewItem(2, null));
         return viewItemsArraylists;
     }
 

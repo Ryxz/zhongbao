@@ -69,49 +69,6 @@
             </LinearLayout>
 
 
-            <TextView
-                android:visibility="gone"
-                android:id="@+id/tv_announce"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="即将揭晓"
-                android:textColor="@drawable/item_nav_text_selector"
-                android:textSize="12sp" />
-
-            <TextView
-                android:visibility="gone"
-                android:id="@+id/tv_popularity"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="人气"
-                android:textColor="@drawable/item_nav_text_selector"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_new"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="最新"
-                android:textColor="@drawable/item_nav_text_selector"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_price"
-                android:visibility="gone"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="价格"
-                android:textColor="@drawable/item_nav_text_selector"
-                android:textSize="12sp" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView

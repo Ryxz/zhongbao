@@ -9,19 +9,18 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_width="250dp"
-        android:textSize="12sp"
         android:singleLine="true"
         android:textColor="@color/text_color"
         android:ellipsize="end"
         android:layout_height="wrap_content"
-        android:text="香奈儿四件套你值得拥有香奈儿四件套你值得拥有"/>
+        android:text="香奈儿四件套"/>
 
     <TextView
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/qishu"
         android:textColor="@color/text_dray"
-        android:textSize="11sp"
+        android:textSize="12sp"
         android:layout_below="@id/bask_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +37,7 @@
 
         <TextView
             android:id="@+id/time"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textColor="@color/text_dray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,10 +66,10 @@
         android:orientation="vertical"
         android:layout_marginTop="10dp"
         android:layout_height="100dp"
-        android:background="@color/dray_line">
+        android:background="@color/gaingary">
 
         <TextView
-            android:textColor="#FF322D2D"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp"
@@ -85,7 +84,7 @@
             android:layout_marginTop="5dp"
             android:scaleType="centerCrop"
             android:layout_height="60dp"
-            android:src="@mipmap/mine_head"/>
+            android:src="@mipmap/phone"/>
 
     </LinearLayout>
 

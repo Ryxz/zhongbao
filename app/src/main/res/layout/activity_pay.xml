@@ -35,7 +35,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background=" @color/white"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -63,6 +63,8 @@
                 android:textSize="28sp" />
 
             <EditText
+                android:hint="请输入金额"
+                android:textColorHint="@color/lightgrey"
                 android:id="@+id/pay_money_et"
                 android:padding="5dp"
                 android:layout_width="match_parent"
@@ -224,6 +226,7 @@
             android:textSize="15sp" />
 
         <LinearLayout
+            android:id="@+id/ll_ali_pay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
@@ -235,7 +238,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
-                android:background="@mipmap/yuan"
+                android:background="@mipmap/yuan_ok"
                 android:checked="true" />
 
             <ImageView
@@ -256,6 +259,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_wx_pay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"

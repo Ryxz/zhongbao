@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.zhongbao.zhongbao.view.TitleBar
+        android:id="@+id/titlebar"
+        app:title="反馈"
+        style="@style/TitleBar"/>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <RadioGroup
+              android:visibility="gone"
+              android:id="@+id/radio_abnormal1"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:id="@+id/radio1"
+                  android:text="闪退"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="卡顿"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="界面错位"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法刷新"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="网络差"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+          </RadioGroup>
+
+          <RadioGroup
+              android:layout_width="match_parent"
+              android:id="@+id/radio_abnormal2"
+              android:visibility="gone"
+              android:layout_height="wrap_content">
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法登录"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="自动退出登录"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="频繁需要重新登录"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="账号被盗"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法修改设置密码"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法绑定或解绑"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="其他"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+          </RadioGroup>
+          <RadioGroup
+              android:visibility="gone"
+              android:layout_width="match_parent"
+              android:id="@+id/radio_abnormal3"
+              android:layout_height="wrap_content">
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法进去结算页面"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法完成支付"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="交易异常"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="快捷支付异常"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="其他"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+          </RadioGroup>
+          <RadioGroup
+              android:visibility="gone"
+              android:id="@+id/radio_abnormal4"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="无法充值"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="充值未到账"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="余额异常"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="晒单无法提交"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="其他"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+          </RadioGroup>
+
+          <RadioGroup
+              android:visibility="gone"
+              android:id="@+id/radio_abnormal5"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="收货地址，身份证提交问题"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="发货问题"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="商品问题"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+              <com.zhongbao.zhongbao.view.MyRadioButton
+                  android:text="其他"
+                  android:layout_marginBottom="1px"
+                  style="@style/radiobutton_right_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+          </RadioGroup>
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_marginTop="10dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <EditText
+                  android:hint="补充内容"
+                  android:gravity="top"
+                  android:padding="5dp"
+                  style="@style/T14Wrap.Black"
+                  android:background="@null"
+                  android:layout_width="match_parent"
+                  android:layout_height="70dp" />
+              <View
+                  android:background="@color/gainsboro"
+                  android:layout_width="match_parent"
+                  android:layout_height="1px"/>
+              <TextView
+                  android:layout_margin="10dp"
+                  android:text="上传截图"
+                  style="@style/T12Wrap.Black"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+
+              <ImageView
+                  android:src="@mipmap/img_add"
+                  android:scaleType="fitXY"
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginBottom="10dp"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp" />
+          </LinearLayout>
+
+          <EditText
+              android:gravity="center_vertical"
+              android:hint="手机号/邮箱/QQ"
+              android:paddingLeft="10dp"
+              style="@style/T14Wrap.Black"
+              android:layout_marginTop="10dp"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="42dp" />
+          <LinearLayout
+              android:layout_marginTop="10dp"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:padding="10dp"
+                  android:text="设备信息"
+                  style="@style/T12Wrap.Black"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+              <EditText
+                  android:paddingLeft="5dp"
+                  android:lines="1"
+                  android:gravity="center_vertical"
+                  android:background="@color/white"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent" />
+          </LinearLayout>
+          <TextView
+              android:layout_margin="10dp"
+              android:text="提交"
+              style="@style/T14Wrap.White"
+              android:gravity="center"
+              android:background="@drawable/bg_bar_10"
+              android:layout_width="match_parent"
+              android:layout_height="40dp" />
+      </LinearLayout>
+  </ScrollView>
+
+
+</LinearLayout>

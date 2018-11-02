@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.zhongbao.zhongbao.R;
 
@@ -24,7 +25,6 @@ import com.zhongbao.zhongbao.R;
 public class HelpActivity extends Activity implements View.OnClickListener {
 
     private RelativeLayout mAboutZb, mAccount, mPayProblem, mMic, mBack;
-    private RelativeLayout mWexinCall,mQQcall;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,15 +47,15 @@ public class HelpActivity extends Activity implements View.OnClickListener {
         mAccount = findViewById(R.id.account_zb);
         mPayProblem = findViewById(R.id.pay_problem_zb);
         mMic = findViewById(R.id.mic_relative);
-        mWexinCall = findViewById(R.id.weixin_call);
-        mQQcall = findViewById(R.id.qq_call);
+        findViewById(R.id.weixin_call).setOnClickListener(this);
+        findViewById(R.id.qq_call).setOnClickListener(this);
         mBack = findViewById(R.id.back_left);
+        findViewById(R.id.tv_abnormal).setOnClickListener(this);
+        findViewById(R.id.tv_feedback).setOnClickListener(this);
         initListener();
     }
 
     private void initListener() {
-        mWexinCall.setOnClickListener(this);
-        mQQcall.setOnClickListener(this);
         mAboutZb.setOnClickListener(this);
         mAccount.setOnClickListener(this);
         mPayProblem.setOnClickListener(this);
@@ -86,6 +86,12 @@ public class HelpActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.back_left:
                 finish();
+                break;
+            case R.id.tv_abnormal:
+                startActivity(new Intent(this,AbnormalActivity.class));
+                break;
+            case R.id.tv_feedback:
+                startActivity(new Intent(this,FeedBackActivity.class));
                 break;
         }
     }

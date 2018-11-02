@@ -70,7 +70,6 @@ public class XianGouAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 buyGoodsDialog.show();
-//                context.startActivity(new Intent(context, BuyGoodsActivity.class));
             }
         });
         mName.setText(nameList.get(i));

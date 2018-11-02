@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.zhongbao.zhongbao.view.TitleBar
+        style="@style/TitleBar"
+        app:title="意见或建议" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="10dp"
+        android:text="您的反馈，是我们前进的方向和动力！"
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/ll_feed1"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="10dp"
+            android:layout_weight="1"
+            style="@style/T12Wrap.Black"
+            android:text="意见或建议" />
+
+        <TextView
+            android:text="用的不爽，功能意见，都提过来吧！"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/img1"
+            android:padding="11dp"
+            android:src="@drawable/shopcar_noselect"
+            android:layout_width="40dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="1px"
+        android:id="@+id/ll_feed2"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="10dp"
+            android:layout_weight="1"
+            style="@style/T12Wrap.Black"
+            android:text="商品上架意见" />
+
+        <TextView
+            android:text="喜欢什么商品，尽管提！"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:padding="11dp"
+            android:src="@drawable/shopcar_noselect"
+            android:id="@+id/img2"
+            android:layout_width="40dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <EditText
+        android:layout_marginTop="10dp"
+        android:hint="请输入您的意见或建议"
+        android:padding="8dp"
+        android:gravity="top"
+        style="@style/T14Wrap.Black"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="140dp" />
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@mipmap/img_add"
+            android:scaleType="fitXY"
+            android:layout_margin="10dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <TextView
+            android:text="上传截图"
+            style="@style/T12Wrap.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="10dp"
+            android:text="联系方式"
+            style="@style/T12Wrap.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:hint="请填写手机或者邮箱，便于我们联系你"
+            android:paddingLeft="5dp"
+            style="@style/T12Wrap.Black"
+            android:lines="1"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:text="提交"
+        style="@style/T14Wrap.White"
+        android:gravity="center"
+        android:background="@drawable/bg_bar_10"
+        android:layout_width="200dp"
+        android:layout_height="40dp" />
+
+</LinearLayout>

@@ -26,26 +26,25 @@ public class BaskFragment extends Fragment {
     private BaseFraAdapter adapter;
 
     private List<String> nameList = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bask,container,false);
+        View view = inflater.inflate(R.layout.fragment_bask, container, false);
         initView(view);
         return view;
     }
 
-    private void initView(View view)
-    {
+    private void initView(View view) {
         mList = view.findViewById(R.id.list_bask);
-        adapter = new BaseFraAdapter(getActivity(),getList());
+        adapter = new BaseFraAdapter(getActivity(), getList());
         mList.setAdapter(adapter);
     }
 
-    private List<String> getList()
-    {
-        nameList.add("香奈儿四件套你值得拥有");
-        nameList.add("大西瓜四件套你值得拥有");
-        nameList.add("小苹果四件套你值得拥有");
+    private List<String> getList() {
+        nameList.add("香奈儿四件套 ");
+        nameList.add("大西瓜四件套 ");
+        nameList.add("小苹果四件套 ");
         return nameList;
     }
 }

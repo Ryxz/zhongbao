@@ -12,13 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity"/>
 
         <activity android:name=".my.PersonalDataActivity"/>
         <activity android:name=".my.AddAdressActivity"/>
@@ -50,6 +52,12 @@
         <activity android:name=".goods.DuihuanActivity"/>
         <activity android:name=".goods.BuyGoodsActivity"
             android:theme="@style/Theme.Translucent" />
+
+        <activity android:name=".my.AbnormalActivity"/>
+        <activity android:name=".my.AbnormalDetailActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity android:name=".my.FeedBackActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
     </application>
 
 </manifest>

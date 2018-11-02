@@ -59,8 +59,8 @@ public class PayActivity extends Activity implements View.OnClickListener {
         aliPayIv = findViewById(R.id.ali_pay_iv);
         wechatIv = findViewById(R.id.wechat_pay_iv);
 
-        aliPayIv.setOnClickListener(this);
-        wechatIv.setOnClickListener(this);
+        findViewById(R.id.ll_ali_pay).setOnClickListener(this);
+        findViewById(R.id.ll_wx_pay).setOnClickListener(this);
         mOne.setOnClickListener(this);
         mTwo.setOnClickListener(this);
         mThree.setOnClickListener(this);
@@ -77,11 +77,11 @@ public class PayActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ali_pay_iv:
+            case R.id.ll_ali_pay:
                 aliPayIv.setImageResource(R.mipmap.yuan_ok);
                 wechatIv.setImageResource(R.mipmap.yuan);
                 break;
-            case R.id.wechat_pay_iv:
+            case R.id.ll_wx_pay:
                 aliPayIv.setImageResource(R.mipmap.yuan);
                 wechatIv.setImageResource(R.mipmap.yuan_ok);
                 break;
