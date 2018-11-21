@@ -28,7 +28,6 @@ public class MyNumberActivity extends BaseActivity {
         return R.layout.activity_my_number;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +43,6 @@ public class MyNumberActivity extends BaseActivity {
         mBack = f(R.id.back_left);
     }
 
-    @Override
     protected void initData() {
         NumberAdapter adapter = new NumberAdapter(this,getList());
         mGrid.setAdapter(adapter);

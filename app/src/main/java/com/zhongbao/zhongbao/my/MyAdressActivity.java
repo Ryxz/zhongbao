@@ -35,7 +35,6 @@ public class MyAdressActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_myadress;
     }
 
-    @Override
     protected void initListener() {
         mAdd.setOnClickListener(this);
         mBack.setOnClickListener(this);
@@ -50,7 +49,6 @@ public class MyAdressActivity extends BaseActivity implements View.OnClickListen
         mAdressList.setAdapter(adressAdapter);
     }
 
-    @Override
     protected void initData() {
         mAdressList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

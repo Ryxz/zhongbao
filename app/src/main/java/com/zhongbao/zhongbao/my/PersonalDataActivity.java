@@ -2,6 +2,7 @@ package com.zhongbao.zhongbao.my;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +10,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.zhongbao.zhongbao.R;
+import com.zhongbao.zhongbao.utils.PreferenceUtils;
 
 /**
  * Used for
@@ -22,8 +25,9 @@ import com.zhongbao.zhongbao.R;
 public class PersonalDataActivity extends Activity implements View.OnClickListener {
 
     private RoundedImageView mHeadImage;
-    private RelativeLayout mName,mSex,mBirthday,mAdress,mBack;
+    private RelativeLayout mName, mSex, mAdress, mBack;
     private ImageView mHeadArraw;
+    private LinearLayout mBirthday;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,20 +45,20 @@ public class PersonalDataActivity extends Activity implements View.OnClickListen
         initView();
     }
 
-    private void initView()
-    {
-         mHeadImage = findViewById(R.id.head_roundImage);
-         mHeadArraw = findViewById(R.id.head_arraw);
-         mName = findViewById(R.id.name_relative);
-         mSex = findViewById(R.id.sex_relative);
-         mBirthday = findViewById(R.id.birthday_relative);
-         mAdress = findViewById(R.id.adress_relative);
-         mBack = findViewById(R.id.back_left);
-         initLintener();
+    private void initView() {
+        mHeadImage = findViewById(R.id.head_roundImage);
+        mHeadArraw = findViewById(R.id.head_arraw);
+        mName = findViewById(R.id.name_relative);
+        mSex = findViewById(R.id.sex_relative);
+        mBirthday = findViewById(R.id.birthday_relative);
+        mAdress = findViewById(R.id.adress_relative);
+        mBack = findViewById(R.id.back_left);
+        findViewById(R.id.ll_modifyPwd).setOnClickListener(this);
+        findViewById(R.id.tv_login_out).setOnClickListener(this);
+        initLintener();
     }
 
-    private void initLintener()
-    {
+    private void initLintener() {
         mHeadImage.setOnClickListener(this);
         mHeadArraw.setOnClickListener(this);
         mName.setOnClickListener(this);
@@ -66,8 +70,7 @@ public class PersonalDataActivity extends Activity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.head_roundImage:
             case R.id.head_arraw:
                 //头像设置
@@ -83,9 +86,17 @@ public class PersonalDataActivity extends Activity implements View.OnClickListen
                 break;
             case R.id.adress_relative:
                 //地址设置
-                startActivity(new Intent(this,MyAdressActivity.class));
+                startActivity(new Intent(this, MyAdressActivity.class));
                 break;
             case R.id.back_left:
+                finish();
+                break;
+            case R.id.ll_modifyPwd:
+                //修改密码
+                startActivity(new Intent(this, ModifyPwdActivity.class));
+                break;
+            case R.id.tv_login_out:
+                PreferenceUtils.write(this, "ZHONGBAO", "appkey", null);
                 finish();
                 break;
         }

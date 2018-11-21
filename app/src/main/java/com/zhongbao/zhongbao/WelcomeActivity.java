@@ -21,10 +21,6 @@ public class WelcomeActivity extends BaseActivity {
         return R.layout.activity_welcome;
     }
 
-    @Override
-    protected void initListener() {
-
-    }
 
     @Override
     protected void initView() {
@@ -32,10 +28,6 @@ public class WelcomeActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     public void gohome(){
         startActivity(new Intent(this, MainActivity.class));

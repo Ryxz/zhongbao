@@ -14,9 +14,6 @@ public class AbnormalActivity extends BaseActivity implements View.OnClickListen
         return R.layout.layout_abnormal;
     }
 
-    @Override
-    protected void initListener() {
-    }
 
     @Override
     protected void initView() {
@@ -27,10 +24,6 @@ public class AbnormalActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.ll_order_question).setOnClickListener(this);
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     private int detailStyle = 0;
 

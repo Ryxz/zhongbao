@@ -39,7 +39,6 @@ public class ZbRecordActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_zbrecord;
     }
 
-    @Override
     protected void initListener() {
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -107,7 +106,6 @@ public class ZbRecordActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @Override
     protected void initData() {
         mFragments = new ArrayList<>();
         AllRecordFragment one = new AllRecordFragment();

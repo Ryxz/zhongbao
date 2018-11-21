@@ -26,9 +26,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:layout_centerInParent="true"
             android:text="注册"/>
 
@@ -76,8 +75,10 @@
 
         <TextView
             android:id="@+id/get_code"
+            android:onClick="getCode"
             android:padding="10dp"
             android:gravity="center"
+            android:clickable="true"
             android:layout_alignParentRight="true"
             android:textSize="13sp"
             android:textColor="@color/red"

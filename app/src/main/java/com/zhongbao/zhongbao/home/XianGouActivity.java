@@ -34,16 +34,12 @@ public class XianGouActivity extends BaseActivity implements View.OnClickListene
         return R.layout.activity_xiangou;
     }
 
-    @Override
-    protected void initListener() {
-    }
 
     @Override
     protected void initView() {
         mGrid = f(R.id.xiangou_grid);
     }
 
-    @Override
     protected void initData() {
         adapter = new XianGouAdapter(this, getList());
         mGrid.setAdapter(adapter);

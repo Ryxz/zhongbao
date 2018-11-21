@@ -116,7 +116,6 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
         return R.layout.activity_goods_detail;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
         mShaidan.setOnClickListener(this);
@@ -272,7 +271,6 @@ public class GoodsDetailActivity extends BaseActivity implements View.OnClickLis
     }
 
 
-    @Override
     protected void initData() {
 
 

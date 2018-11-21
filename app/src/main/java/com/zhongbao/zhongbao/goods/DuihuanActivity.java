@@ -33,7 +33,6 @@ public class DuihuanActivity extends BaseActivity {
         return R.layout.activity_duihuan;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +51,6 @@ public class DuihuanActivity extends BaseActivity {
         mBack = findViewById(R.id.back_left);
     }
 
-    @Override
     protected void initData() {
         adapter = new DuihuanAdapter(this,getList(),list.size()-1);
         mDuihuanList.setAdapter(adapter);

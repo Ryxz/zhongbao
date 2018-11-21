@@ -33,7 +33,6 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
         return R.layout.activity_system_news;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
         mClear.setOnClickListener(this);
@@ -70,7 +69,6 @@ public class SystemNewsActivity extends BaseActivity implements View.OnClickList
         super.onResume();
     }
 
-    @Override
     protected void initData() {
         adapter = new SystemNewsAdapter(getList(), this);
         mSystemNews.setAdapter(adapter);

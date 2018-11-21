@@ -13,18 +13,10 @@ public class TestScrollActivity extends BaseActivity{
         return 0;
     }
 
-    @Override
-    protected void initListener() {
-
-    }
 
     @Override
     protected void initView() {
 
     }
 
-    @Override
-    protected void initData() {
-
-    }
 }

@@ -33,7 +33,6 @@ public class GetGoodsActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_get_goods;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
     }
@@ -44,7 +43,6 @@ public class GetGoodsActivity extends BaseActivity implements View.OnClickListen
         mBack = f(R.id.back_left);
     }
 
-    @Override
     protected void initData() {
         adapter = new GetGoodsAdapter(this,getList(),shareClickListener);
         mListView.setAdapter(adapter);

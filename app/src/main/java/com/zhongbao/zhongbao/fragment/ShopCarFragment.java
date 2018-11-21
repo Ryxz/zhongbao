@@ -178,7 +178,7 @@ public class ShopCarFragment extends Fragment implements View.OnClickListener, C
         bean1.setChecked(0);
 
         ShopCarBean bean2 = new ShopCarBean();
-        bean2.setName("香奈儿3的");
+        bean2.setName("香奈儿3");
         bean2.setPrice("商品价格:  ¥18");
         bean2.setNum("20");
         bean2.setResId(R.mipmap.ad3);

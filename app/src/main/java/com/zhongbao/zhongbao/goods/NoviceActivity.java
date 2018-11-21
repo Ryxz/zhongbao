@@ -19,7 +19,6 @@ public class NoviceActivity extends BaseActivity implements View.OnClickListener
         return R.layout.activity_novice;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
     }
@@ -27,11 +26,6 @@ public class NoviceActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void initView() {
         mBack = f(R.id.back_left);
-    }
-
-    @Override
-    protected void initData() {
-
     }
 
     @Override

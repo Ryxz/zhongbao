@@ -33,7 +33,6 @@ public class MyBaskActivity extends BaseActivity implements View.OnClickListener
         return R.layout.activity_mybask;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
     }
@@ -44,7 +43,6 @@ public class MyBaskActivity extends BaseActivity implements View.OnClickListener
         mBack = f(R.id.back_left);
     }
 
-    @Override
     protected void initData() {
         baskAdapter = new BaskAdapter(getList(),this);
         mBaskList.setAdapter(baskAdapter);

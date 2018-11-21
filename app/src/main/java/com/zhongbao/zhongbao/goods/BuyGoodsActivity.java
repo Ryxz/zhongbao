@@ -25,7 +25,6 @@ public class BuyGoodsActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_buy_goods;
     }
 
-    @Override
     protected void initListener() {
         reduce.setOnClickListener(this);
         add.setOnClickListener(this);
@@ -49,10 +48,6 @@ public class BuyGoodsActivity extends BaseActivity implements View.OnClickListen
 
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     @Override
     public void onClick(View view) {

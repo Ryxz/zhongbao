@@ -17,10 +17,6 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
         return R.layout.layout_feedback;
     }
 
-    @Override
-    protected void initListener() {
-
-    }
 
     @Override
     protected void initView() {
@@ -30,10 +26,6 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
         img2 = findViewById(R.id.img2);
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     @Override
     public void onClick(View v) {

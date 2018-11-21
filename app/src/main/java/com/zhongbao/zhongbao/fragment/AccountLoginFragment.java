@@ -17,56 +17,50 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhongbao.zhongbao.MainActivity;
 import com.zhongbao.zhongbao.R;
 
+import com.zhongbao.zhongbao.base.BaseFragment;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.bean.BasicModel;
 import com.zhongbao.zhongbao.login.FindPsdActivity;
+import com.zhongbao.zhongbao.login.LoginActivity;
+import com.zhongbao.zhongbao.utils.PreferenceUtils;
 
 /**
  * Used for
  * Created by tuyz on 2018/10/11.
  */
 
-public class AccountLoginFragment extends Fragment implements View.OnClickListener {
+public class AccountLoginFragment extends BaseFragment implements View.OnClickListener {
 
-    private View rootView;
     private EditText mPhone, mPsd;
-    private TextView mService, mYinsi, mLogin;
     private ImageView mEye;
     private boolean isShow = false;
-    private TextView mForget;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_account_login, container, false);
-        initView(rootView);
-        return rootView;
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
     }
 
-    private void initView(View view) {
-        mPhone = view.findViewById(R.id.account_phone_et);
-        mPsd = view.findViewById(R.id.psd_et);
-        mEye = view.findViewById(R.id.eye);
-        mService = view.findViewById(R.id.account_service_tv);
-        mYinsi = view.findViewById(R.id.account_yinsi_tv);
-        mLogin = view.findViewById(R.id.login_btn);
-        mForget = view.findViewById(R.id.forget_psd);
-        initListener();
+    private void initView() {
+        mPhone = findViewById(R.id.account_phone_et);
+        mPsd = findViewById(R.id.psd_et);
+        mEye = findViewById(R.id.eye);
+        findViewById(R.id.login_btn).setOnClickListener(this);
+        findViewById(R.id.forget_psd).setOnClickListener(this);
+        findViewById(R.id.account_service_tv).setOnClickListener(this);
+        findViewById(R.id.account_yinsi_tv).setOnClickListener(this);
         mPsd.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        mEye.setOnClickListener(this);
     }
 
-    private void initListener() {
-        mForget.setOnClickListener(this);
-        mEye.setOnClickListener(this);
-        mService.setOnClickListener(this);
-        mYinsi.setOnClickListener(this);
-        mLogin.setOnClickListener(this);
-    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.forget_psd:
                 startActivity(new Intent(getActivity(), FindPsdActivity.class));
                 break;
@@ -93,19 +87,35 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
                 } else if (mPsd.getText().toString().isEmpty()) {
                     Toast.makeText(getActivity(), "请输入密码", Toast.LENGTH_LONG).show();
                 } else {
-                    SharedPreferences sp = getActivity().getSharedPreferences("com.zhongbao.zhongbao.login", Activity.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.putBoolean("isLogin", true);
-                    Log.e("woyaokk", "sp:" + sp.getBoolean("isLogin", false));
-                    editor.commit();
-                    getActivity().finish();
+                    login();
                 }
                 break;
         }
     }
 
+    /**
+     * 登录
+     */
+    public void login(){
+        String phone = mPhone.getText().toString();
+        getHttpService().login(phone,mPsd.getText().toString().trim())
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel>() {
+                    @Override
+                    protected void onDoNext(BasicModel basicModel) {
+                        if (basicModel.getCode().equals("200")){
+                            getActivity().finish();
+                            startActivity(new Intent(getContext(), MainActivity.class).putExtra("userId",String.valueOf(basicModel.getData())));
+                        }else {
+                            Toast.makeText(getContext(), basicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+
     @Override
-    public void onResume() {
-        super.onResume();
+    protected int getLayoutId() {
+        return R.layout.fragment_account_login;
     }
 }

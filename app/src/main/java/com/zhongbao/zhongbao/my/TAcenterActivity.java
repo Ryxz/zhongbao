@@ -40,7 +40,6 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
         return R.layout.activity_tv_center;
     }
 
-    @Override
     protected void initListener() {
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -108,7 +107,6 @@ public class TAcenterActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @Override
     protected void initData() {
         mFragments = new ArrayList<>();
         AllRecordFragment one = new AllRecordFragment();

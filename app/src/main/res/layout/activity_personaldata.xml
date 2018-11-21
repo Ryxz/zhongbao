@@ -65,7 +65,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.8dp"
+        android:layout_height="1px"
         android:background="@color/dray_line"/>
 
 
@@ -104,7 +104,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.8dp"
+        android:layout_height="1px"
         android:background="@color/dray_line"/>
 
     <RelativeLayout
@@ -142,41 +142,38 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.8dp"
+        android:layout_height="1px"
         android:background="@color/dray_line"/>
 
 
-    <RelativeLayout
+    <LinearLayout
+        android:gravity="center_vertical"
         android:id="@+id/birthday_relative"
         android:layout_width="match_parent"
         android:paddingLeft="10dp"
         android:layout_height="50dp">
         <TextView
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:textColor="@android:color/black"
-            android:layout_centerVertical="true"
             android:layout_height="wrap_content"
             android:textSize="13sp"
             android:text="生日"/>
-        <ImageView
-            android:id="@+id/birthday_arraw"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/arrow"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
             android:text="1995-11-10"
             android:textColor="@android:color/darker_gray"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/birthday_arraw"/>
+            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow"/>
+
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -196,7 +193,6 @@
             android:textSize="13sp"
             android:text="收货地址"/>
         <ImageView
-            android:id="@+id/adress_arraw"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
@@ -205,11 +201,51 @@
             android:src="@mipmap/arrow"/>
 
     </RelativeLayout>
-
     <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="1px"
         android:background="@color/dray_line"/>
 
+    <LinearLayout
+        android:id="@+id/ll_modifyPwd"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:paddingLeft="10dp"
+        android:layout_height="55dp">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="修改密码"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingBottom="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:gravity="bottom"
+        android:background="@color/dray_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_login_out"
+            android:text="退出登录"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/bg_bar_10"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
 
 </LinearLayout>

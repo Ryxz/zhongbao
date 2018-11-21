@@ -20,10 +20,6 @@ public class AbnormalDetailActivity extends BaseActivity{
         return R.layout.layout_abnormal_detail;
     }
 
-    @Override
-    protected void initListener() {
-
-    }
 
     @Override
     protected void initView() {
@@ -53,11 +49,6 @@ public class AbnormalDetailActivity extends BaseActivity{
         }else {
             radio_abnormal5.setVisibility(View.VISIBLE);
         }
-
-    }
-
-    @Override
-    protected void initData() {
 
     }
 }

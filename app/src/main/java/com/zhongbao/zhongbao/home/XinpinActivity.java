@@ -35,7 +35,6 @@ public class XinpinActivity extends BaseActivity {
         return R.layout.activity_xinpin;
     }
 
-    @Override
     protected void initListener() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,10 +63,6 @@ public class XinpinActivity extends BaseActivity {
         listView.setAdapter(recordAdapter);
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     /**
      * 这里我们用三种不同的样式进行测试

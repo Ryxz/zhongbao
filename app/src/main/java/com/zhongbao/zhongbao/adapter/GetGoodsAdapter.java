@@ -17,7 +17,6 @@ import com.zhongbao.zhongbao.bean.GetGoodsBean;
 import com.zhongbao.zhongbao.dialog.ShareDialog;
 import com.zhongbao.zhongbao.my.GetGoodsActivity;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
-import com.zhongbao.zhongbao.my.ShareActivity;
 
 /**
  * Used for

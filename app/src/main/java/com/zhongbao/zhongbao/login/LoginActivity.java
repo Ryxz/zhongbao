@@ -7,16 +7,23 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.zhongbao.zhongbao.BaseActivity;
+import com.zhongbao.zhongbao.MainActivity;
 import com.zhongbao.zhongbao.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.zhongbao.zhongbao.adapter.PagerMainAdapter;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.bean.BasicModel;
 import com.zhongbao.zhongbao.fragment.AccountLoginFragment;
 import com.zhongbao.zhongbao.fragment.PhoneLoginFragment;
+import com.zhongbao.zhongbao.utils.ViewUtil;
+
+import io.reactivex.ObservableTransformer;
 
 /**
  * Used for
@@ -31,8 +38,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private List<Fragment> mFragments;
     private RadioButton mAll, mIng;
     private RelativeLayout mLabone, mLabtwo;
-    private RelativeLayout mBack;
-    private RelativeLayout mRegister;
 
     @Override
     protected int getLayoutID() {
@@ -40,8 +45,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     @Override
-    protected void initListener() {
-        mRegister.setOnClickListener(this);
+    protected void initView() {
+        vp = f(R.id.vp);
+        rg = f(R.id.rg);
+
+        mAll = f(R.id.rb_all);
+        mIng = f(R.id.rb_ing);
+
+        mLabone = f(R.id.lab_one);
+        mLabtwo = f(R.id.lab_two);
+        findViewById(R.id.to_register).setOnClickListener(this);
+        findViewById(R.id.back_left).setOnClickListener(this);
+
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -65,24 +80,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         rg.check(rbs[0]);
     }
 
-    @Override
-    protected void initView() {
-        vp = f(R.id.vp);
-        rg = f(R.id.rg);
-
-        mAll = f(R.id.rb_all);
-        mIng = f(R.id.rb_ing);
-
-        mLabone = f(R.id.lab_one);
-        mLabtwo = f(R.id.lab_two);
-
-        mBack = f(R.id.back_left);
-
-        mRegister = f(R.id.to_register);
-
-        mBack.setOnClickListener(this);
-    }
-
     private void setLabState(int id) {
         if (id == R.id.rb_all) {
             mAll.setTextColor(getResources().getColor(R.color.bottom_tab_select));
@@ -100,9 +97,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             mLabone.setVisibility(View.INVISIBLE);
             mLabtwo.setVisibility(View.INVISIBLE);
         }
+        initData();
     }
 
-    @Override
     protected void initData() {
         mFragments = new ArrayList<>();
         AccountLoginFragment one = new AccountLoginFragment();
@@ -128,4 +125,5 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
         }
     }
+
 }

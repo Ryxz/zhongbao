@@ -13,7 +13,6 @@ import com.zhongbao.zhongbao.R;
 
 import com.zhongbao.zhongbao.dialog.QrcodeDialog;
 import com.zhongbao.zhongbao.my.HelpActivity;
-import com.zhongbao.zhongbao.my.QrcodeActivity;
 import com.zhongbao.zhongbao.my.ZbRecordActivity;
 
 /**

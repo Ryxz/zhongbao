@@ -46,7 +46,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         return R.layout.activity_search;
     }
 
-    @Override
     protected void initListener() {
         mCancel.setOnClickListener(this);
     }
@@ -58,7 +57,6 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         mCancel = f(R.id.search_cancel);
     }
 
-    @Override
     protected void initData() {
         adapter = new SearchHistoryAdapter(getList(), this);
         mListView.setAdapter(adapter);

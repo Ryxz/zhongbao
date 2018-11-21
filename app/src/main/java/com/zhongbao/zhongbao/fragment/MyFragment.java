@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +27,9 @@ import com.zhongbao.zhongbao.my.HelpActivity;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
 import com.zhongbao.zhongbao.my.PayActivity;
 import com.zhongbao.zhongbao.my.PersonalDataActivity;
-import com.zhongbao.zhongbao.my.QrcodeActivity;
 import com.zhongbao.zhongbao.my.SystemNewsActivity;
 import com.zhongbao.zhongbao.my.ZbRecordActivity;
+import com.zhongbao.zhongbao.utils.PreferenceUtils;
 import com.zhongbao.zhongbao.view.HomePopwindow;
 
 /**
@@ -42,29 +43,10 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private ImageView mNews, mType;
     private TextView mPay, register, login;
     private RelativeLayout mGuest;
-    private boolean isLogin;
     private LinearLayout mLoginDetail;
     private TextView mShow;
     private QrcodeDialog qrcodeDialog;
-
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            SharedPreferences sp = getActivity().getSharedPreferences("com.zhongbao.zhongbao.login", Activity.MODE_PRIVATE);
-            isLogin = sp.getBoolean("isLogin", false);
-            if (isLogin) {
-                mCenter.setVisibility(View.VISIBLE);
-                mLoginDetail.setVisibility(View.VISIBLE);
-                mGuest.setVisibility(View.GONE);
-            } else {
-                mCenter.setVisibility(View.GONE);
-                mLoginDetail.setVisibility(View.GONE);
-                mGuest.setVisibility(View.VISIBLE);
-            }
-            rootView.invalidate();
-            super.handleMessage(msg);
-        }
-    };
+    String appKey;
 
     @Nullable
     @Override
@@ -91,9 +73,14 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         mLoginDetail = rootView.findViewById(R.id.login_type);
         mShow = rootView.findViewById(R.id.show_p);
         login = rootView.findViewById(R.id.login);
-        SharedPreferences sp = getActivity().getSharedPreferences("com.zhongbao.zhongbao.login", Activity.MODE_PRIVATE);
-        isLogin = sp.getBoolean("isLogin", false);
-        if (isLogin) {
+        qrcodeDialog = new QrcodeDialog(getContext());
+        visible();
+        initLintener();
+    }
+
+    public void visible(){
+        appKey = PreferenceUtils.readString(getContext(), "ZHONGBAO", "appkey");
+        if (!TextUtils.isEmpty(appKey)) {
             mCenter.setVisibility(View.VISIBLE);
             mLoginDetail.setVisibility(View.VISIBLE);
             mGuest.setVisibility(View.GONE);
@@ -102,8 +89,6 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             mLoginDetail.setVisibility(View.GONE);
             mGuest.setVisibility(View.VISIBLE);
         }
-        qrcodeDialog = new QrcodeDialog(getContext());
-        initLintener();
     }
 
     private void initData() {
@@ -171,7 +156,8 @@ public class MyFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onResume() {
-        mHandler.sendEmptyMessage(0);
+        visible();
+        rootView.invalidate();
         super.onResume();
     }
 }

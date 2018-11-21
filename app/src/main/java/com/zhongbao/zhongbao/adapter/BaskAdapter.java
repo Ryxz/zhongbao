@@ -14,7 +14,6 @@ import java.util.List;
 
 import com.zhongbao.zhongbao.bean.MyBaskBean;
 import com.zhongbao.zhongbao.dialog.ShareDialog;
-import com.zhongbao.zhongbao.my.ShareActivity;
 
 /**
  * Used for

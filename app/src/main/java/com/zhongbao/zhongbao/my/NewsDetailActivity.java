@@ -23,7 +23,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
         return R.layout.activity_news_detail;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
     }
@@ -39,11 +38,6 @@ public class NewsDetailActivity extends BaseActivity implements View.OnClickList
         mContent = f(R.id.news_content);
         mBack = f(R.id.back_left);
 
-
-    }
-
-    @Override
-    protected void initData() {
 
     }
 

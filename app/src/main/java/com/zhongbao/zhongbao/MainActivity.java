@@ -28,8 +28,6 @@ import com.zhongbao.zhongbao.fragment.ShopCarFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private RelativeLayout mShopCar;
-    private LinearLayout mHome, mGoods, mLateast, mMine;
     private ImageView mHomeIv, mGoodsIv, mLateastIv, mShopIv, mMineIv;
     private TextView mHomeTv, mGoodsTv, mLateastTv, mShopTv, mMineTv,tv_goods_number;
 //    private HomeFragment homeFragment;
@@ -57,23 +55,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void initListener() {
-        mHome.setOnClickListener(this);
-        mGoods.setOnClickListener(this);
-        mLateast.setOnClickListener(this);
-        mShopCar.setOnClickListener(this);
-        mMine.setOnClickListener(this);
-    }
-
-    @Override
     protected void initView() {
         width = getScreenWidth();
 
-        mHome = f(R.id.home_linear);
-        mGoods = f(R.id.goods_linear);
-        mLateast = f(R.id.lateast_linear);
-        mShopCar = f(R.id.shopcar_linear);
-        mMine = f(R.id.mine_linear);
+        findViewById(R.id.home_linear).setOnClickListener(this);
+        findViewById(R.id.goods_linear).setOnClickListener(this);
+        findViewById(R.id.lateast_linear).setOnClickListener(this);
+        findViewById(R.id.shopcar_linear).setOnClickListener(this);
+        findViewById(R.id.mine_linear).setOnClickListener(this);
 
         mHomeIv = f(R.id.home_iv);
         mGoodsIv = f(R.id.goods_iv);
@@ -279,10 +268,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    @Override
-    protected void initData() {
 
-    }
 
     public Fragment getVisibleFragment() {
         FragmentManager fragmentManager = MainActivity.this.getSupportFragmentManager();

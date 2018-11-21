@@ -31,7 +31,6 @@ public class FindPsdActivity extends BaseActivity implements View.OnClickListene
         return R.layout.activity_find_psd;
     }
 
-    @Override
     protected void initListener() {
         mBack.setOnClickListener(this);
         mTrue.setOnClickListener(this);
@@ -53,10 +52,6 @@ public class FindPsdActivity extends BaseActivity implements View.OnClickListene
         mTruePsd.setTransformationMethod(PasswordTransformationMethod.getInstance());//隐藏
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     @Override
     public void onClick(View v) {
