@@ -18,6 +18,7 @@ import com.google.gson.JsonSyntaxException;
 import com.zhongbao.zhongbao.BaseActivity;
 import com.zhongbao.zhongbao.MainActivity;
 import com.zhongbao.zhongbao.R;
+import com.zhongbao.zhongbao.ZBApp;
 import com.zhongbao.zhongbao.base.BaseSubscriber;
 import com.zhongbao.zhongbao.base.http.HttpService;
 import com.zhongbao.zhongbao.bean.BasicModel;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.objectbox.Box;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.Observer;
@@ -181,6 +183,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     protected void onDoNext(BasicModel<UserInfoModel> userModel) {
                         if (userModel.getCode().equals("200")){
                             finish();
+                            Box<UserInfoModel> userInfoModelBox = ZBApp.get().getBoxStore().boxFor(UserInfoModel.class);
+                            userInfoModelBox.put(userModel.getData());
+                            ZBApp.get().setUserInfoModel(userModel.getData());
                             startActivity(new Intent(RegisterActivity.this, MainActivity.class).putExtra("userId",userModel.getData().getUid()));
                         }
                     }

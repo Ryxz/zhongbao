@@ -57,8 +57,8 @@ public class JoinRecordAdapter extends BaseAdapter {
         TextView mTime = convertView.findViewById(R.id.join_time);
 
         mName.setText(bean.getName());
-        mIp.setText(bean.getIpId());
-        mTime.setText(bean.getTime());
+        mIp.setText(bean.getId());
+        mTime.setText(bean.getCreate_time());
 
         return convertView;
     }

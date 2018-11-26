@@ -6,6 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zhongbao.zhongbao.BaseActivity;
 import com.zhongbao.zhongbao.R;
@@ -13,8 +14,12 @@ import com.zhongbao.zhongbao.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zhongbao.zhongbao.ZBApp;
 import com.zhongbao.zhongbao.adapter.AdressAdapter;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
 import com.zhongbao.zhongbao.bean.AdressBean;
+import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.UserInfoModel;
 
 /**
  * Used for
@@ -25,77 +30,53 @@ public class MyAdressActivity extends BaseActivity implements View.OnClickListen
 
     private ListView mAdressList;
     private AdressAdapter adressAdapter;
-    private AdressBean adressBean,adressBean1,adressBean2;
-    private TextView mAdd;
-    private RelativeLayout mBack;
 
     private List<AdressBean> list = new ArrayList<>();
+
     @Override
     protected int getLayoutID() {
         return R.layout.activity_myadress;
     }
 
-    protected void initListener() {
-        mAdd.setOnClickListener(this);
-        mBack.setOnClickListener(this);
-    }
 
     @Override
     protected void initView() {
         mAdressList = f(R.id.adress_list);
-        mAdd = f(R.id.add_btn);
-        mBack = f(R.id.back_left);
-        adressAdapter = new AdressAdapter(this,getList());
+        findViewById(R.id.add_btn).setOnClickListener(this);
+        findViewById(R.id.back_left).setOnClickListener(this);
+        adressAdapter = new AdressAdapter(this, list);
         mAdressList.setAdapter(adressAdapter);
+        getAddress();
     }
 
-    protected void initData() {
-        mAdressList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                for(int i = 0;i<list.size();i++)
-                {
-                    list.get(i).setShow(false);
-                }
-                list.get(position).setShow(true);
-                adressAdapter.notifyDataSetChanged();
-            }
-        });
+    public void getAddress() {
+        getHttpService().my_addr(ZBApp.get().getUserId())
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel<List<AdressBean>>>(this) {
+                    @Override
+                    protected void onDoNext(BasicModel<List<AdressBean>> listBasicModel) {
+                        if (listBasicModel.getCode().equals("200")) {
+                            list.clear();
+                            list.addAll(listBasicModel.getData());
+                            adressAdapter.notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(MyAdressActivity.this, listBasicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
-    private List<AdressBean> getList()
-    {
-        adressBean = new AdressBean();
-        adressBean.setName("张三");
-        adressBean.setPhone("18362969772");
-        adressBean.setAdress("江苏省南京市栖霞区文范路9号康桥圣菲");
-        adressBean.setShow(true);
-
-        adressBean1 = new AdressBean();
-        adressBean1.setName("张三");
-        adressBean1.setPhone("18362969772");
-        adressBean1.setAdress("江苏省南京市栖霞区文范路9号康桥圣菲");
-        adressBean1.setShow(false);
-
-        adressBean2 = new AdressBean();
-        adressBean2.setName("张三");
-        adressBean2.setPhone("18362969772");
-        adressBean2.setAdress("江苏省南京市栖霞区文范路9号康桥圣菲");
-        adressBean2.setShow(false);
-
-        list.add(adressBean);
-        list.add(adressBean1);
-        list.add(adressBean2);
-
-        return list;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getAddress();
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.add_btn:
-                startActivity(new Intent(this,AddAdressActivity.class));
+                startActivity(new Intent(this, AddAdressActivity.class));
                 break;
             case R.id.back_left:
                 finish();

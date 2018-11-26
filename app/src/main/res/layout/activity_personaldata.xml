@@ -91,6 +91,7 @@
             android:src="@mipmap/arrow"/>
 
         <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
@@ -129,6 +130,7 @@
             android:src="@mipmap/arrow"/>
 
         <TextView
+            android:id="@+id/tv_sex"
             android:layout_width="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
@@ -160,6 +162,7 @@
             android:textSize="13sp"
             android:text="生日"/>
         <TextView
+            android:id="@+id/tv_birthday"
             android:layout_width="wrap_content"
             android:layout_marginRight="10dp"
             android:text="1995-11-10"

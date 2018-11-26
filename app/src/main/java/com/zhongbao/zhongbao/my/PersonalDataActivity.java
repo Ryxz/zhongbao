@@ -12,9 +12,16 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.zhongbao.zhongbao.BaseActivity;
 import com.zhongbao.zhongbao.R;
+import com.zhongbao.zhongbao.ZBApp;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.UserInfoModel;
 import com.zhongbao.zhongbao.utils.PreferenceUtils;
 
 /**
@@ -22,51 +29,53 @@ import com.zhongbao.zhongbao.utils.PreferenceUtils;
  * Created by tuyz on 2018/10/8.
  */
 
-public class PersonalDataActivity extends Activity implements View.OnClickListener {
+public class PersonalDataActivity extends BaseActivity implements View.OnClickListener {
 
-    private RoundedImageView mHeadImage;
-    private RelativeLayout mName, mSex, mAdress, mBack;
-    private ImageView mHeadArraw;
-    private LinearLayout mBirthday;
+    private TextView tv_name,tv_sex,tv_birthday;
+
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personaldata);
-        Window window = getWindow();
-        //取消设置透明状态栏,使 ContentView 内容不再覆盖状态栏
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        //设置状态栏颜色
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(getResources().getColor(R.color.bg_toolbar));
-        }
-        initView();
+    protected int getLayoutID() {
+        return R.layout.activity_personaldata;
     }
 
-    private void initView() {
-        mHeadImage = findViewById(R.id.head_roundImage);
-        mHeadArraw = findViewById(R.id.head_arraw);
-        mName = findViewById(R.id.name_relative);
-        mSex = findViewById(R.id.sex_relative);
-        mBirthday = findViewById(R.id.birthday_relative);
-        mAdress = findViewById(R.id.adress_relative);
-        mBack = findViewById(R.id.back_left);
+    @Override
+    protected void initView() {
+        findViewById(R.id.head_roundImage).setOnClickListener(this);
+        findViewById(R.id.name_relative).setOnClickListener(this);
+        findViewById(R.id.sex_relative).setOnClickListener(this);
+        findViewById(R.id.birthday_relative).setOnClickListener(this);
+        findViewById(R.id.adress_relative).setOnClickListener(this);
+        findViewById(R.id.back_left).setOnClickListener(this);
         findViewById(R.id.ll_modifyPwd).setOnClickListener(this);
         findViewById(R.id.tv_login_out).setOnClickListener(this);
-        initLintener();
+        tv_name = findViewById(R.id.tv_name);
+        tv_sex = findViewById(R.id.tv_sex);
+        tv_birthday = findViewById(R.id.tv_birthday);
+        getUserInfo();
     }
 
-    private void initLintener() {
-        mHeadImage.setOnClickListener(this);
-        mHeadArraw.setOnClickListener(this);
-        mName.setOnClickListener(this);
-        mSex.setOnClickListener(this);
-        mBirthday.setOnClickListener(this);
-        mAdress.setOnClickListener(this);
-        mBack.setOnClickListener(this);
+
+    public void getUserInfo(){
+        getHttpService().person_info(ZBApp.get().getUserId())
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel<UserInfoModel>>() {
+                    @Override
+                    protected void onDoNext(BasicModel<UserInfoModel> basicModel) {
+                        tv_name.setText(basicModel.getData().getNickname());
+                        if (basicModel.getData().getSex().equals("1")){
+                            tv_sex.setText("男");
+                        }else if (basicModel.getData().getSex().equals("2")){
+                            tv_sex.setText("女");
+                        }
+                        tv_birthday.setText(basicModel.getData().getBirthday());
+                        if (!basicModel.getCode().equals("200")){
+                            Toast.makeText(PersonalDataActivity.this, basicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
+
 
     @Override
     public void onClick(View v) {

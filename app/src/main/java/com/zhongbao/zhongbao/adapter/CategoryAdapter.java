@@ -16,16 +16,17 @@ import com.zhongbao.zhongbao.R;
 import java.util.List;
 
 import com.zhongbao.zhongbao.bean.Category;
+import com.zhongbao.zhongbao.bean.TypeBean;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryHolder> {
 
     private LayoutInflater mInflater;
-    private List<Category> mCategoryList;
+    private List<TypeBean> mCategoryList;
     private String mSelectCategoryID = "";
     private OnItemClickListener mOnItemClickListener;
     private Context context;
 
-    public CategoryAdapter(Context context, List<Category> categories) {
+    public CategoryAdapter(Context context, List<TypeBean> categories) {
         this.context = context;
         mInflater = LayoutInflater.from(context);
         mCategoryList = categories;
@@ -49,16 +50,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryHolder holder, final int i) {
-        Category category = mCategoryList.get(i);
-        holder.mCategoryName.setText(category.getCategoryName());
-        if (category.getCategoryID().equals(mSelectCategoryID)) {
+        TypeBean typebean = mCategoryList.get(i);
+        holder.mCategoryName.setText(typebean.getType_name());
+        if (String.valueOf(typebean.getId()).equals(mSelectCategoryID)) {
             holder.huakuai.setVisibility(View.VISIBLE);
             holder.mCategoryName.setTextColor(context.getResources().getColor(R.color.bg_toolbar));
         } else {
             holder.huakuai.setVisibility(View.GONE);
             holder.mCategoryName.setTextColor(context.getResources().getColor(R.color.bkl));
         }
-//    holder.mCategoryItemView.setSelected(category.getCategoryID().equals(mSelectCategoryID));
         if (null != mOnItemClickListener) {
             holder.mCategoryItemView.setOnClickListener(new OnClickListener() {
                 @Override

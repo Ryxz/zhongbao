@@ -42,9 +42,11 @@ public class ZBApp extends MultiDexApplication {
         mPreferences = getSharedPreferences("Nantang", MODE_PRIVATE);
         mApp = this;
         mBoxStore = MyObjectBox.builder().androidContext(this).build();
-//        ZXingLibrary.initDisplayOpinion(this);
-//
         Box<UserInfoModel> userInfoModelBox = mBoxStore.boxFor(UserInfoModel.class);
+        List<UserInfoModel> users = userInfoModelBox.getAll();
+        if (users != null && users.size() > 0) {
+            setUserInfoModel(users.get(0));
+        }
     }
 
     public String getUserId() {

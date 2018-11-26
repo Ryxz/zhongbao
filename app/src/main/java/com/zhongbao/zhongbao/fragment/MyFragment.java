@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -16,10 +17,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zhongbao.zhongbao.R;
 
+import com.zhongbao.zhongbao.ZBApp;
+import com.zhongbao.zhongbao.base.BaseFragment;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.UserInfoModel;
 import com.zhongbao.zhongbao.dialog.QrcodeDialog;
+import com.zhongbao.zhongbao.login.FindPsdActivity;
 import com.zhongbao.zhongbao.login.LoginActivity;
 import com.zhongbao.zhongbao.login.RegisterActivity;
 import com.zhongbao.zhongbao.my.GetGoodsActivity;
@@ -37,53 +45,51 @@ import com.zhongbao.zhongbao.view.HomePopwindow;
  * Created by tuyz on 2018/10/8.
  */
 
-public class MyFragment extends Fragment implements View.OnClickListener {
-    private View rootView;
-    private RelativeLayout mRecord, mGoods, mCamaro, mHelp, mQrcode, mCenter;
-    private ImageView mNews, mType;
-    private TextView mPay, register, login;
+public class MyFragment extends BaseFragment implements View.OnClickListener {
+    private RelativeLayout mCenter;
+    private ImageView mNews, mType,mine_head;
+    private TextView  register, login,tv_name;
     private RelativeLayout mGuest;
     private LinearLayout mLoginDetail;
     private TextView mShow;
     private QrcodeDialog qrcodeDialog;
-    String appKey;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_my, container, false);
-        initView(rootView);
-        return rootView;
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
     }
 
-    private void initView(View rootView) {
-        mRecord = rootView.findViewById(R.id.record_linear);
-        mGoods = rootView.findViewById(R.id.goods_linear);
-        mCamaro = rootView.findViewById(R.id.camaro_linear);
-        mHelp = rootView.findViewById(R.id.help_linear);
-        mQrcode = rootView.findViewById(R.id.qrcode_linear);
+    private void initView() {
+        findViewById(R.id.record_linear).setOnClickListener(this);
+        findViewById(R.id.goods_linear).setOnClickListener(this);
+        findViewById(R.id.camaro_linear).setOnClickListener(this);
+        findViewById(R.id.help_linear).setOnClickListener(this);
+        findViewById(R.id.qrcode_linear).setOnClickListener(this);
 
-        mCenter = rootView.findViewById(R.id.mine_center);
-        mNews = rootView.findViewById(R.id.mine_news_iv);
-        mType = rootView.findViewById(R.id.mine_type_iv);
+        mCenter = findViewById(R.id.mine_center);
+        mNews = findViewById(R.id.mine_news_iv);
+        mType = findViewById(R.id.mine_type_iv);
 
-        mPay = rootView.findViewById(R.id.mine_go_pay);
-        mGuest = rootView.findViewById(R.id.guest_rela);
-        register = rootView.findViewById(R.id.register);
-        mLoginDetail = rootView.findViewById(R.id.login_type);
-        mShow = rootView.findViewById(R.id.show_p);
-        login = rootView.findViewById(R.id.login);
+        findViewById(R.id.mine_go_pay).setOnClickListener(this);
+        mGuest = findViewById(R.id.guest_rela);
+        register = findViewById(R.id.register);
+        mLoginDetail = findViewById(R.id.login_type);
+        mShow = findViewById(R.id.show_p);
+        login = findViewById(R.id.login);
+        tv_name = findViewById(R.id.tv_name);
+        mine_head = findViewById(R.id.mine_head);
         qrcodeDialog = new QrcodeDialog(getContext());
         visible();
         initLintener();
     }
 
     public void visible(){
-        appKey = PreferenceUtils.readString(getContext(), "ZHONGBAO", "appkey");
-        if (!TextUtils.isEmpty(appKey)) {
+        if (ZBApp.get().getUserInfoModel() != null) {
             mCenter.setVisibility(View.VISIBLE);
             mLoginDetail.setVisibility(View.VISIBLE);
             mGuest.setVisibility(View.GONE);
+            getUserInfo();
         } else {
             mCenter.setVisibility(View.GONE);
             mLoginDetail.setVisibility(View.GONE);
@@ -91,23 +97,28 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void initData() {
-        //此处判断是否首次进入和未登录，如果是首次进入和未登录的时候显示游客状态布局。
-    }
-
 
     private void initLintener() {
-        mRecord.setOnClickListener(this);
-        mGoods.setOnClickListener(this);
-        mCamaro.setOnClickListener(this);
-        mHelp.setOnClickListener(this);
-        mQrcode.setOnClickListener(this);
         mCenter.setOnClickListener(this);
         mNews.setOnClickListener(this);
         mType.setOnClickListener(this);
-        mPay.setOnClickListener(this);
         register.setOnClickListener(this);
         login.setOnClickListener(this);
+    }
+
+
+    public void getUserInfo(){
+        getHttpService().person_info(ZBApp.get().getUserId())
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel<UserInfoModel>>() {
+                    @Override
+                    protected void onDoNext(BasicModel<UserInfoModel> basicModel) {
+                        tv_name.setText(basicModel.getData().getNickname());
+                        if (!basicModel.getCode().equals("200")){
+                            Toast.makeText(getContext(), basicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
 
@@ -157,7 +168,11 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onResume() {
         visible();
-        rootView.invalidate();
         super.onResume();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_my;
     }
 }

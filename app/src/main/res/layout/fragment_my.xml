@@ -73,6 +73,7 @@
             android:visibility="gone">
 
             <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/mine_head"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:src="@mipmap/mine_head"
@@ -86,9 +87,9 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="东海小仙女(101081)"
                     android:textStyle="bold" />
 
                 <LinearLayout

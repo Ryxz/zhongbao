@@ -13,19 +13,21 @@ import android.widget.TextView;
 
 import com.zhongbao.zhongbao.MainActivity;
 import com.zhongbao.zhongbao.R;
+import com.zhongbao.zhongbao.bean.GoodsDetailBean;
 import com.zhongbao.zhongbao.dialog.BuyGoodsDialog;
 import com.zhongbao.zhongbao.goods.GoodsDetailActivity;
 import com.zhongbao.zhongbao.utils.ButtonUtils;
+import com.zhongbao.zhongbao.utils.GlideUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
-    private List<String> list = new ArrayList<>();
+    private List<GoodsDetailBean> list;
     Context context;
     private BuyGoodsDialog buyGoodsDialog;
 
-    public FirstAdapter(Context context,List<String> list){
+    public FirstAdapter(Context context,List<GoodsDetailBean> list){
         this.context = context;
         this.list = list;
         buyGoodsDialog = new BuyGoodsDialog(context);
@@ -57,52 +59,14 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
                 }
             }
         });
-        if (position == 0){
-            if (type == 1){
-                firstView.prograss_img.setImageResource(R.mipmap.ad1);
-                firstView.jinduPr.setProgress(10);
-                firstView.jindu.setText("10%");
-            }else if (type == 2){
-                firstView.prograss_img.setImageResource(R.mipmap.ad2);
-                firstView.jinduPr.setProgress(20);
-                firstView.jindu.setText("20%");
-            }else if (type == 3){
-                firstView.prograss_img.setImageResource(R.mipmap.ad3);
-                firstView.jindu.setText("30%");
-                firstView.jinduPr.setProgress(30);
-            }
-        }
-        if (position == 1){
-            if (type == 1){
-                firstView.prograss_img.setImageResource(R.mipmap.ad2);
-                firstView.jinduPr.setProgress(20);
-                firstView.jindu.setText("20%");
-            }else if (type == 2){
-                firstView.prograss_img.setImageResource(R.mipmap.ad3);
-                firstView.jindu.setText("30%");
-                firstView.jinduPr.setProgress(30);
-            }else if (type == 3){
-                firstView.prograss_img.setImageResource(R.mipmap.ad3);
-                firstView.jindu.setText("30%");
-                firstView.jinduPr.setProgress(30);
-            }
+        firstView.prograss_img.setImageResource(R.mipmap.ad1);
+        int progress = Integer.valueOf(list.get(position).getRate().substring(0,list.get(position).getRate().length()-1));
+        firstView.jinduPr.setProgress(progress);
+        firstView.jindu.setText(list.get(position).getRate());
+        firstView.tvGoodName.setText(list.get(position).getName());
+        firstView.tvTitle.setText(list.get(position).getTitle());
 
-        }
-        if (position == 2){
-            if (type == 1){
-                firstView.prograss_img.setImageResource(R.mipmap.ad4);
-                firstView.jinduPr.setProgress(20);
-                firstView.jindu.setText("20%");
-            }else if (type == 2){
-                firstView.prograss_img.setImageResource(R.mipmap.ad2);
-                firstView.jinduPr.setProgress(20);
-                firstView.jindu.setText("20%");
-            }else if (type == 3){
-                firstView.prograss_img.setImageResource(R.mipmap.ad1);
-                firstView.jinduPr.setProgress(10);
-                firstView.jindu.setText("10%");
-            }
-        }
+        GlideUtils.loadImage(firstView.prograss_img,list.get(position).getImage());
         ViewGroup.LayoutParams lp = firstView.prograss_img.getLayoutParams();
         lp.height = MainActivity.width/2-1;
         firstView.prograss_img.setLayoutParams(lp);
@@ -110,7 +74,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return list.size();
     }
 
 
@@ -122,10 +86,9 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
 
 
     public class FirstView extends RecyclerView.ViewHolder{
-        private ImageView prograss_img;
-        private ImageView add;
+        private ImageView prograss_img,add;
         private ProgressBar jinduPr;
-        private TextView jindu;
+        private TextView jindu,tvGoodName,tvTitle;
 
         public FirstView(@NonNull View itemView) {
             super(itemView);
@@ -133,6 +96,8 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.FirstView> {
             add = itemView.findViewById(R.id.add);
             jinduPr = itemView.findViewById(R.id.jindu_pr);
             jindu = itemView.findViewById(R.id.jindu);
+            tvGoodName = itemView.findViewById(R.id.tv_goodName);
+            tvTitle = itemView.findViewById(R.id.tv_title);
         }
     }
 

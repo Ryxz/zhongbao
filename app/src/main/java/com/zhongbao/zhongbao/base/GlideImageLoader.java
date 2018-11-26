@@ -17,11 +17,6 @@ public class GlideImageLoader extends ImageLoader {
 //        transformation.setExceptCorner(true, true, true, true);
         Glide.with(context.getApplicationContext())
                 .load(path)
-                .asBitmap()
-                .skipMemoryCache(true)
-                .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .transform(transformation)
                 .into(imageView);
 
 //        Glide.with(context.getApplicationContext())

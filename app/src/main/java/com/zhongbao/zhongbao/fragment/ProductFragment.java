@@ -28,8 +28,14 @@ import java.util.List;
 
 import com.zhongbao.zhongbao.adapter.CategoryAdapter;
 import com.zhongbao.zhongbao.adapter.ProductAdapter;
+import com.zhongbao.zhongbao.base.BaseFragment;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.base.GlideImageLoader;
+import com.zhongbao.zhongbao.bean.BasicModel;
 import com.zhongbao.zhongbao.bean.Category;
+import com.zhongbao.zhongbao.bean.HomeBean;
 import com.zhongbao.zhongbao.bean.Product;
+import com.zhongbao.zhongbao.bean.TypeBean;
 import com.zhongbao.zhongbao.custom.ProductRecycleView;
 import com.zhongbao.zhongbao.goods.GoodsDetailActivity;
 import com.zhongbao.zhongbao.home.SearchActivity;
@@ -38,218 +44,9 @@ import com.zhongbao.zhongbao.utils.JsonParseUtils;
 import com.zhongbao.zhongbao.utils.RecycleViewDecoration;
 import com.zhongbao.zhongbao.view.CrosheTabView;
 
-public class ProductFragment extends Fragment {
+public class ProductFragment extends BaseFragment {
 
-    /**
-     * 数据格式参考README.md中的内容
-     */
-    private static final String ALL_PRODUCT_JSON = "[{\n"
-            + "\t\t\"categoryID\": \"1\",\n"
-            + "\t\t\"categoryName\": \"全部\",\n"
-            + "\t\t\"product\": [{\n"
-            + "\t\t\t\t\"productID\": \"1\",\n"
-            + "\t\t\t\t\"productName\": \"香奈儿\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"30\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"2\",\n"
-            + "\t\t\t\t\"productName\": \"香奈儿\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"10\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"3\",\n"
-            + "\t\t\t\t\"productName\": \"香奈儿\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"80\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"4\",\n"
-            + "\t\t\t\t\"productName\": \"香奈儿\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"90\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"5\",\n"
-            + "\t\t\t\t\"productName\": \"香奈儿\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"100\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t}\n"
-            + "\n"
-            + "\t\t]\n"
-            + "\t},\n"
-            + "\t{\n"
-            + "\t\t\"categoryID\": \"2\",\n"
-            + "\t\t\"categoryName\": \"手机数码\",\n"
-            + "\t\t\"product\": [{\n"
-            + "\t\t\t\t\"productID\": \"1\",\n"
-            + "\t\t\t\t\"productName\": \"电脑办公第一条数据\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"0\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"2\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"60\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"3\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"4\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"5\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"6\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"7\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t}\n"
-            + "\t\t]\n"
-            + "\t},\n"
-            + "\t{\n"
-            + "\t\t\"categoryID\": \"3\",\n"
-            + "\t\t\"categoryName\": \"电脑办公\",\n"
-            + "\t\t\"product\": [{\n"
-            + "\t\t\t\t\"productID\": \"1\",\n"
-            + "\t\t\t\t\"productName\": \"电脑办公第一条数据\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"0\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"2\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"60\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"3\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"4\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"5\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"6\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"7\",\n"
-            + "\t\t\t\t\"productName\": \"软键盘\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t}\n"
-            + "\t\t]\n"
-            + "\t},\n"
-            + "\t{\n"
-            + "\t\t\"categoryID\": \"4\",\n"
-            + "\t\t\"categoryName\": \"汽车\",\n"
-            + "\t\t\"product\": [{\n"
-            + "\t\t\t\t\"productID\": \"1\",\n"
-            + "\t\t\t\t\"productName\": \"汽车1\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"20\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"2\",\n"
-            + "\t\t\t\t\"productName\": \"汽车2\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"70\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"3\",\n"
-            + "\t\t\t\t\"productName\": \"汽车3汽车3汽车3汽车3汽车3汽车3汽车3汽车3\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"4\",\n"
-            + "\t\t\t\t\"productName\": \"汽车4\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"80\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"5\",\n"
-            + "\t\t\t\t\"productName\": \"汽车5\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"6\",\n"
-            + "\t\t\t\t\"productName\": \"汽车6\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"5\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t},\n"
-            + "\t\t\t{\n"
-            + "\t\t\t\t\"productID\": \"7\",\n"
-            + "\t\t\t\t\"productName\": \"汽车7\",\n"
-            + "\t\t\t\t\"productPrice\": \"1.00\",\n"
-            + "\t\t\t\t\"surplusNumber\": \"50\",\n"
-            + "\t\t\t\t\"totalNumber\": \"100\"\n"
-            + "\t\t\t}\n"
-            + "\t\t]\n"
-            + "\t}\n"
-            + "\n"
-            + "]";
-
-    private List<Category> mCategoryList;
+    private List<TypeBean> typeList = new ArrayList<>();
 
     private List<Product> mProductList = new ArrayList<>();
 
@@ -262,28 +59,27 @@ public class ProductFragment extends Fragment {
     private ProductAdapter mProductAdapter;
 
     private ImageView search;
-
-
     private LinearLayout llProduct;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_product, container, false);
-        initView(view);
-        initData();
-        return view;
+    protected int getLayoutId() {
+        return R.layout.fragment_product;
     }
 
-    private void initView(View view) {
-        mRecycleViewCategory = view.findViewById(R.id.rv_category);
-        mRecycleViewProduct = view.findViewById(R.id.rv_product);
-        search = view.findViewById(R.id.search);
-        llProduct = view.findViewById(R.id.ll_product);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
+    }
+
+    private void initView() {
+        mRecycleViewCategory = findViewById(R.id.rv_category);
+        mRecycleViewProduct =findViewById(R.id.rv_product);
+        search =findViewById(R.id.search);
+        llProduct =findViewById(R.id.ll_product);
         mRecycleViewCategory.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleViewProduct.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        mRecycleViewProduct.addItemDecoration(new RecycleViewDecoration(view.getContext()));
+        mRecycleViewProduct.addItemDecoration(new RecycleViewDecoration(getContext()));
         search.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -331,6 +127,7 @@ public class ProductFragment extends Fragment {
         });
         llProduct.addView(crosheTabView);
         registerBoradcastReceiver();
+        getLeft();
     }
     private CrosheTabView crosheTabView;
 
@@ -355,27 +152,44 @@ public class ProductFragment extends Fragment {
     };
 
 
+//    /**
+//     * 如果筛选条件是查接口，查回来数据，调用这个方法就可以了
+//     */
+//    private void refreshProductData(String json) {
+//        mProductList.clear();
+//        typeList = JsonParseUtils.jsonToClassList(json, Category.class);
+//        if (null != typeList) {
+//            for (Category category : typeList) {
+//                List<Product> products = category.getProduct();
+//                for (Product product : products) {
+//                    //更新分类ID
+//                    product.setCategoryID(category.getCategoryID());
+//                }
+//                mProductList.addAll(products);
+//            }
+//        }
+//    }
+//
+
     /**
-     * 如果筛选条件是查接口，查回来数据，调用这个方法就可以了
+     * 左边分类
      */
-    private void refreshProductData(String json) {
-        mProductList.clear();
-        mCategoryList = JsonParseUtils.jsonToClassList(json, Category.class);
-        if (null != mCategoryList) {
-            for (Category category : mCategoryList) {
-                List<Product> products = category.getProduct();
-                for (Product product : products) {
-                    //更新分类ID
-                    product.setCategoryID(category.getCategoryID());
-                }
-                mProductList.addAll(products);
-            }
-        }
+    public void getLeft(){
+        getHttpService().goodstype()
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel<List<TypeBean>>>() {
+                    @Override
+                    protected void onDoNext(BasicModel<List<TypeBean>> listBasicModel) {
+                        typeList.clear();
+                        typeList.addAll(listBasicModel.getData());
+                        initData();
+                    }
+                });
     }
 
     private void initData() {
-        refreshProductData(ALL_PRODUCT_JSON);
-        mCategoryAdapter = new CategoryAdapter(getActivity(), mCategoryList);
+//        refreshProductData(ALL_PRODUCT_JSON);
+        mCategoryAdapter = new CategoryAdapter(getActivity(), typeList);
         mProductAdapter = new ProductAdapter(getActivity(), mProductList);
         mRecycleViewCategory.setAdapter(mCategoryAdapter);
         mRecycleViewProduct.setAdapter(mProductAdapter);
@@ -399,21 +213,22 @@ public class ProductFragment extends Fragment {
         mCategoryAdapter.setOnItemClickListener(new CategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                String categoryID = mCategoryList.get(position).getCategoryID();
+                String categoryID = String.valueOf(typeList.get(position).getId());
                 int scrollPosition = 0;
-                if (null == mRecycleViewProduct.getLayoutManager()) return;
-                for (Product product : mProductList) {
-                    if (categoryID.equals(product.getCategoryID())) {
-                        //不抢占落焦状态更新
-                        mRecycleViewProduct.setTouch(false);
-                        //设置落焦状态
-                        mCategoryAdapter.setSelectCategoryID(categoryID);
-                        //列表定位
-                        ((LinearLayoutManager) mRecycleViewProduct.getLayoutManager()).scrollToPositionWithOffset(scrollPosition, 0);
-                        break;
-                    }
-                    ++scrollPosition;
-                }
+                mCategoryAdapter.setSelectCategoryID(String.valueOf(typeList.get(position).getId()));
+//                if (null == mRecycleViewProduct.getLayoutManager()) return;
+//                for (Product product : mProductList) {
+//                    if (categoryID.equals(product.getCategoryID())) {
+//                        //不抢占落焦状态更新
+//                        mRecycleViewProduct.setTouch(false);
+//                        //设置落焦状态
+//
+//                        //列表定位
+//                        ((LinearLayoutManager) mRecycleViewProduct.getLayoutManager()).scrollToPositionWithOffset(scrollPosition, 0);
+//                        break;
+//                    }
+//                    ++scrollPosition;
+//                }
             }
         });
     }

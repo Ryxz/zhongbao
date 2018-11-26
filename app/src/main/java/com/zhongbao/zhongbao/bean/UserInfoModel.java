@@ -24,6 +24,15 @@ public class UserInfoModel {
      */
 
     private String uid;
+    /**
+     * avatar :
+     * sex : 1
+     * birthday : 2000-1-1
+     */
+
+    private String avatar;
+    private String sex;
+    private String birthday;
 
     public long getId() {
         return id;
@@ -72,5 +81,29 @@ public class UserInfoModel {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 }

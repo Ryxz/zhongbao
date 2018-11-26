@@ -65,54 +65,54 @@ public class JoinRecordFragment extends Fragment {
 
     private List<GoodsDetailBean> getList()
     {
-        GoodsDetailBean bean = new GoodsDetailBean();
-        bean.setName("获奖者:东海小仙女");
-        bean.setIpId("IP:172.79.104.14");
-        bean.setTime("参与10次  2018-10-12  13:12:50:123");
-        bean.setUserId("用户ID:1234(用户唯一不变标识)");
-        bean.setJoinNum("68");
-        bean.setGoldNum("100400");
-
-        GoodsDetailBean bean1 = new GoodsDetailBean();
-        bean1.setName("获奖者:北海小王子");
-        bean1.setIpId("IP:117.127.104.14");
-        bean1.setTime("参与10次  2018-08-27  13:12:50:123");
-        bean1.setUserId("用户ID:4321(用户唯一不变标识)");
-        bean1.setJoinNum("68");
-        bean1.setGoldNum("100400");
-
-
-        GoodsDetailBean bean2 = new GoodsDetailBean();
-        bean2.setName("获奖者:东海小仙女");
-        bean2.setIpId("IP:117.127.104.14");
-        bean2.setTime("参与10次  2018-08-27  13:12:50:123");
-        bean2.setUserId("用户ID:1234(用户唯一不变标识)");
-        bean2.setJoinNum("68");
-        bean2.setGoldNum("100400");
-
-        GoodsDetailBean bean4 = new GoodsDetailBean();
-        bean4.setName("获奖者:北海小王子");
-        bean4.setIpId("IP:117.127.104.14");
-        bean4.setTime("参与10次  2018-08-27  13:12:50:123");
-        bean4.setUserId("用户ID:4321(用户唯一不变标识)");
-        bean4.setJoinNum("68");
-        bean4.setGoldNum("100400");
-
-
-        GoodsDetailBean bean3 = new GoodsDetailBean();
-        bean3.setName("获奖者:东海小仙女");
-        bean3.setIpId("IP:117.127.104.14");
-        bean3.setTime("参与10次  2018-08-27  13:12:50:123");
-        bean3.setUserId("用户ID:1234(用户唯一不变标识)");
-        bean3.setJoinNum("68");
-        bean3.setGoldNum("100400");
-
-
-        list.add(bean);
-        list.add(bean1);
-        list.add(bean2);
-        list.add(bean3);
-        list.add(bean4);
+//        GoodsDetailBean bean = new GoodsDetailBean();
+//        bean.setName("获奖者:东海小仙女");
+//        bean.setIpId("IP:172.79.104.14");
+//        bean.setTime("参与10次  2018-10-12  13:12:50:123");
+//        bean.setUserId("用户ID:1234(用户唯一不变标识)");
+//        bean.setJoinNum("68");
+//        bean.setGoldNum("100400");
+//
+//        GoodsDetailBean bean1 = new GoodsDetailBean();
+//        bean1.setName("获奖者:北海小王子");
+//        bean1.setIpId("IP:117.127.104.14");
+//        bean1.setTime("参与10次  2018-08-27  13:12:50:123");
+//        bean1.setUserId("用户ID:4321(用户唯一不变标识)");
+//        bean1.setJoinNum("68");
+//        bean1.setGoldNum("100400");
+//
+//
+//        GoodsDetailBean bean2 = new GoodsDetailBean();
+//        bean2.setName("获奖者:东海小仙女");
+//        bean2.setIpId("IP:117.127.104.14");
+//        bean2.setTime("参与10次  2018-08-27  13:12:50:123");
+//        bean2.setUserId("用户ID:1234(用户唯一不变标识)");
+//        bean2.setJoinNum("68");
+//        bean2.setGoldNum("100400");
+//
+//        GoodsDetailBean bean4 = new GoodsDetailBean();
+//        bean4.setName("获奖者:北海小王子");
+//        bean4.setIpId("IP:117.127.104.14");
+//        bean4.setTime("参与10次  2018-08-27  13:12:50:123");
+//        bean4.setUserId("用户ID:4321(用户唯一不变标识)");
+//        bean4.setJoinNum("68");
+//        bean4.setGoldNum("100400");
+//
+//
+//        GoodsDetailBean bean3 = new GoodsDetailBean();
+//        bean3.setName("获奖者:东海小仙女");
+//        bean3.setIpId("IP:117.127.104.14");
+//        bean3.setTime("参与10次  2018-08-27  13:12:50:123");
+//        bean3.setUserId("用户ID:1234(用户唯一不变标识)");
+//        bean3.setJoinNum("68");
+//        bean3.setGoldNum("100400");
+//
+//
+//        list.add(bean);
+//        list.add(bean1);
+//        list.add(bean2);
+//        list.add(bean3);
+//        list.add(bean4);
 
         return list;
 

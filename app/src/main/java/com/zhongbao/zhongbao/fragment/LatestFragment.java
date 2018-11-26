@@ -17,7 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zhongbao.zhongbao.adapter.LatestAdapter;
+import com.zhongbao.zhongbao.base.BaseFragment;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.GoodsDetailBean;
 import com.zhongbao.zhongbao.bean.LatestBean;
+import com.zhongbao.zhongbao.bean.TypeBean;
 import com.zhongbao.zhongbao.goods.GoodsDetailActivity;
 import com.zhongbao.zhongbao.utils.ButtonUtils;
 
@@ -26,23 +31,25 @@ import com.zhongbao.zhongbao.utils.ButtonUtils;
  * Created by tuyz on 2018/10/8.
  */
 
-public class LatestFragment extends Fragment {
+public class LatestFragment extends BaseFragment {
     private View rootView;
     private ListView mListView;
     private List<LatestBean> list = new ArrayList<>();
     private LinearLayout top;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_lateast, container, false);
-        initView(rootView);
-        return rootView;
+    protected int getLayoutId() {
+        return R.layout.fragment_lateast;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
+    }
 
-    private void initView(View view) {
-        top = view.findViewById(R.id.top_lineaer);
+    private void initView() {
+        top = findViewById(R.id.top_lineaer);
         top.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +60,7 @@ public class LatestFragment extends Fragment {
                 }
             }
         });
-        mListView = view.findViewById(R.id.latest_list);
+        mListView = findViewById(R.id.latest_list);
         initData();
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,7 +76,18 @@ public class LatestFragment extends Fragment {
         });
     }
 
+    private String xiangougoods = "1";
+
     private void initData() {
+        getHttpService().xiangougoods(xiangougoods)
+            .compose(this.apply())
+            .subscribe(new BaseSubscriber<BasicModel<List<GoodsDetailBean>>>() {
+                @Override
+                protected void onDoNext(BasicModel<List<GoodsDetailBean>> listBasicModel) {
+
+                }
+            });
+
         LatestAdapter adapter = new LatestAdapter(getActivity(), getList());
         mListView.setAdapter(adapter);
     }

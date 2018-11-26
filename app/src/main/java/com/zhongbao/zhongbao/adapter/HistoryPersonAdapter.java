@@ -58,9 +58,9 @@ public class HistoryPersonAdapter extends BaseAdapter {
         TextView mPerson = convertView.findViewById(R.id.his_person);
 
         mName.setText(bean.getName());
-        mId.setText(bean.getUserId());
-        mNum.setText(bean.getGoldNum());
-        mPerson.setText(bean.getJoinNum());
+        mId.setText(bean.getId());
+        mNum.setText(bean.getNum());
+        mPerson.setText(bean.getHas_num());
         return convertView;
     }
 }

@@ -17,7 +17,7 @@
         android:scaleType="fitXY"/>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/tv_goodName"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:text="香奈儿四件套高级定制"
@@ -34,6 +34,7 @@
         android:layout_marginTop="5dp">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/text_hint_color"

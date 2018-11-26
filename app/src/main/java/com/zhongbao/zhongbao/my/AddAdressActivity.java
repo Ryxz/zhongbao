@@ -11,82 +11,112 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.zhongbao.zhongbao.BaseActivity;
 import com.zhongbao.zhongbao.R;
+import com.zhongbao.zhongbao.ZBApp;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
+import com.zhongbao.zhongbao.bean.AdressBean;
+import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.listener.OnOptionsSelectResultListener;
+import com.zhongbao.zhongbao.view.CroshePickerView;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Used for
  * Created by tuyz on 2018/10/8.
  */
 
-public class AddAdressActivity extends Activity implements View.OnClickListener {
+public class AddAdressActivity extends BaseActivity implements View.OnClickListener {
 
-    private RelativeLayout mBack;
-    private EditText mNameEt,mAdressEt,mPhoneEt,mAdressDetailEt;
+    private EditText mNameEt, mPhoneEt, mAdressDetailEt;
     private ImageView mRadio;
-    private TextView mTrue;
-    boolean a = true;
+    private TextView tv_address;
+    boolean isChoose = true;
+    private String is_default = "0";
+    private AdressBean addressBean;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_adress);
-        Window window = getWindow();
-        //取消设置透明状态栏,使 ContentView 内容不再覆盖状态栏
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        //设置状态栏颜色
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(getResources().getColor(R.color.bg_toolbar));
-        }
-        initView();
+    protected int getLayoutID() {
+        return R.layout.activity_add_adress;
     }
 
-    private void initView()
-    {
-        mBack = findViewById(R.id.back_left);
+    @Override
+    protected void initView() {
+        addressBean = getIntent().getParcelableExtra("addressBean");
+        findViewById(R.id.back_left).setOnClickListener(this);
         mNameEt = findViewById(R.id.name_et);
-        mAdressEt = findViewById(R.id.adress_et);
+        tv_address = findViewById(R.id.tv_address);
+        tv_address.setOnClickListener(this);
         mPhoneEt = findViewById(R.id.phone_et);
         mAdressDetailEt = findViewById(R.id.adress_detail_et);
         mRadio = findViewById(R.id.moren_radio);
-        mTrue = findViewById(R.id.add_adress_btn);
-        initLintener();
+        findViewById(R.id.add_adress_btn).setOnClickListener(this);
+        findViewById(R.id.add_adress_btn).setOnClickListener(this);
+        mRadio.setOnClickListener(this);
+        if (addressBean!=null){
+            mNameEt.setText(addressBean.getRealname());
+            mPhoneEt.setText(addressBean.getMobile());
+            mAdressDetailEt.setText(addressBean.getAddress());
+        }
     }
 
-    private void initLintener()
-    {
-        mBack.setOnClickListener(this);
-        mTrue.setOnClickListener(this);
-        mRadio.setOnClickListener(this);
-    }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.back_left:
                 finish();
                 break;
             case R.id.add_adress_btn:
-                finish();
+                addAddress();
                 break;
             case R.id.moren_radio:
-
-                if(a)
-                {
-                    mRadio.setBackgroundResource(R.mipmap.login_true);
-                    a = false;
-                }else
-                    {
-                        mRadio.setBackgroundResource(R.mipmap.shopcar_noselect);
-                        a = true;
-                    }
-
-
+                if (isChoose) {
+                    mRadio.setImageResource(R.mipmap.login_true);
+                    is_default = "1";
+                    isChoose = false;
+                } else {
+                    is_default = "0";
+                    mRadio.setImageResource(R.mipmap.shopcar_noselect);
+                    isChoose = true;
+                }
+                break;
+            case R.id.tv_address:
+                CroshePickerView.getInstance()
+                        .showCityPickerView(this, new OnOptionsSelectResultListener() {
+                            @Override
+                            public void cityInfo(String province, String city, String area) {
+                                tv_address.setText(province+city+area+" ");
+                            }
+                        });
                 break;
         }
+    }
+
+
+    public void addAddress(){
+        Map<String,String> map = new HashMap<>();
+        map.put("uid",ZBApp.get().getUserId());
+        map.put("address",getTextStr(R.id.tv_address)+getTextStr(R.id.adress_detail_et));
+        map.put("is_default",is_default);
+        map.put("mobile",getTextStr(R.id.phone_et));
+        map.put("realname",getTextStr(R.id.name_et));
+        getHttpService().add_address(map)
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel>() {
+                    @Override
+                    protected void onDoNext(BasicModel basicModel) {
+                        if (basicModel.getCode().equals("200")){
+                            finish();
+                        }
+                        Toast.makeText(AddAdressActivity.this, basicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 //    @Override

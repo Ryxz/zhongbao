@@ -4,7 +4,11 @@ package com.zhongbao.zhongbao.base.http;
 
 import android.support.annotation.Nullable;
 
+import com.zhongbao.zhongbao.bean.AdressBean;
 import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.GoodsDetailBean;
+import com.zhongbao.zhongbao.bean.HomeBean;
+import com.zhongbao.zhongbao.bean.TypeBean;
 import com.zhongbao.zhongbao.bean.UserInfoModel;
 
 import java.util.HashMap;
@@ -60,4 +64,81 @@ public interface HttpService {
     @FormUrlEncoded
     @POST("api/login/login")
     Observable<BasicModel> login(@Field("username") String username,@Field("password") String password);
+
+    /**
+     * 手机号验证码登录
+     * @param mobile
+     * @param verify
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/api/login/phone_login")
+    Observable<BasicModel> phone_login(@Field("mobile") String mobile,@Field("verify") String verify);
+
+
+    /**
+     * 找回密码
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/api/login/find_password")
+    Observable<BasicModel> find_password(@FieldMap Map<String,String> map);
+
+
+    /**
+     * 个人资料
+     * @param uid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/api/user/person_info/")
+    Observable<BasicModel<UserInfoModel>> person_info(@Field("uid") String uid);
+
+
+
+    /**
+     * 我的收获地址
+     * @param uid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/api/user/my_addr")
+    Observable<BasicModel<List<AdressBean>>> my_addr(@Field("uid") String uid);
+
+
+    /**
+     * 添加收货地址
+     * @param map
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/api/user/add_address")
+    Observable<BasicModel> add_address(@FieldMap Map<String,String> map);
+
+
+    /**
+     * 首页
+     * @param map
+     * @return
+     */
+    @GET("/home/api/index")
+    Observable<BasicModel<HomeBean>> index(@QueryMap Map<String,String> map);
+
+
+    /**
+     * 商品列表
+     * @return
+     */
+    @GET("/home/api/goodstype")
+    Observable<BasicModel<List<TypeBean>>> goodstype();
+
+
+    /**
+     * 商品限购专区
+     * @param is_xiangou
+     * @return
+     */
+    @GET("/home/api/xiangougoods")
+    Observable<BasicModel<List<GoodsDetailBean>>> xiangougoods(@Query("is_xiangou") String is_xiangou);
 }

@@ -20,12 +20,16 @@ import android.widget.Toast;
 import com.zhongbao.zhongbao.MainActivity;
 import com.zhongbao.zhongbao.R;
 
+import com.zhongbao.zhongbao.ZBApp;
 import com.zhongbao.zhongbao.base.BaseFragment;
 import com.zhongbao.zhongbao.base.BaseSubscriber;
 import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.UserInfoModel;
 import com.zhongbao.zhongbao.login.FindPsdActivity;
 import com.zhongbao.zhongbao.login.LoginActivity;
 import com.zhongbao.zhongbao.utils.PreferenceUtils;
+
+import io.objectbox.Box;
 
 /**
  * Used for
@@ -105,10 +109,14 @@ public class AccountLoginFragment extends BaseFragment implements View.OnClickLi
                     protected void onDoNext(BasicModel basicModel) {
                         if (basicModel.getCode().equals("200")){
                             getActivity().finish();
-                            startActivity(new Intent(getContext(), MainActivity.class).putExtra("userId",String.valueOf(basicModel.getData())));
-                        }else {
-                            Toast.makeText(getContext(), basicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                            UserInfoModel userInfoModel = new UserInfoModel();
+                            userInfoModel.setUid(String.valueOf(basicModel.getData()));
+                            Box<UserInfoModel> userInfoModelBox = ZBApp.get().getBoxStore().boxFor(UserInfoModel.class);
+                            userInfoModelBox.put(userInfoModel);
+                            ZBApp.get().setUserInfoModel(userInfoModel);
+                            startActivity(new Intent(getContext(), MainActivity.class));
                         }
+                        Toast.makeText(getContext(), basicModel.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

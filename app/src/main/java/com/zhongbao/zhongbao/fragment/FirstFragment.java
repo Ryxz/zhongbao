@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.aspsine.swipetoloadlayout.OnRefreshListener;
@@ -20,12 +22,18 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout;
 import com.youth.banner.Banner;
 import com.zhongbao.zhongbao.R;
 import com.zhongbao.zhongbao.adapter.FirstAdapter;
+import com.zhongbao.zhongbao.base.BaseFragment;
+import com.zhongbao.zhongbao.base.BaseSubscriber;
 import com.zhongbao.zhongbao.base.GlideImageLoader;
 import com.zhongbao.zhongbao.base.HeaderRecyclerView;
+import com.zhongbao.zhongbao.bean.BasicModel;
+import com.zhongbao.zhongbao.bean.GoodsDetailBean;
+import com.zhongbao.zhongbao.bean.HomeBean;
 import com.zhongbao.zhongbao.dialog.WinningInfoDialog;
 import com.zhongbao.zhongbao.goods.NoviceActivity;
 import com.zhongbao.zhongbao.home.SearchActivity;
 import com.zhongbao.zhongbao.home.XianGouActivity;
+import com.zhongbao.zhongbao.my.AddAdressActivity;
 import com.zhongbao.zhongbao.my.MyBaskActivity;
 import com.zhongbao.zhongbao.my.PayActivity;
 import com.zhongbao.zhongbao.my.SystemNewsActivity;
@@ -33,12 +41,15 @@ import com.zhongbao.zhongbao.my.TAcenterActivity;
 import com.zhongbao.zhongbao.view.HomePopwindow;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class FirstFragment extends Fragment implements View.OnClickListener, OnRefreshListener {
+public class FirstFragment extends BaseFragment implements View.OnClickListener, OnRefreshListener {
     private HeaderRecyclerView recycler_first;
     private FirstAdapter firstAdapter;
-    private List<String> list = new ArrayList<>();
+    private List<GoodsDetailBean> list = new ArrayList<>();
     private View headview;
     private LinearLayout mShaidan, mXinpin, mXiangou, mXinshou, mPay,mSkipCenter;
     private Banner f1_banner;
@@ -53,17 +64,17 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
     private List<String> list2 = new ArrayList<>();
     private List<String> list3 = new ArrayList<>();
     private ViewFlipper viewFlipper;
+    private List<String> imgList = new ArrayList<>();
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_first,null, false);
-        return view;
+    protected int getLayoutId() {
+        return R.layout.fragment_first;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         recycler_first = getActivity().findViewById(R.id.recycler_first);
         mSearch = getActivity().findViewById(R.id.search);
         mShowPop = getActivity().findViewById(R.id.pop_show);
@@ -95,12 +106,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
         mPay.setOnClickListener(this);
 
         f1_banner = headview.findViewById(R.id.f1_banner);
-        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540804165171&di=78ff2a5841113f0bf7d3752f425640fd&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F011f4b57eb26bfa84a0e282bc61d8a.jpg%401280w_1l_2o_100sh.jpg");
-        list.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541399307&di=896baa14d64884f26d9955376ff084f6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01139a59b0a09fa801211d25eaa714.jpg%402o.jpg");
-        f1_banner.setImages(list)
-                .setImageLoader(new GlideImageLoader())
-                .start();
-        f1_banner.start();
+
         mSkipCenter = headview.findViewById(R.id.skip_center);
         mSkipCenter.setOnClickListener(this);
         homeType.setOnClickListener(this);
@@ -120,16 +126,6 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
         mIng.setOnClickListener(this);
         rbPrice.setOnClickListener(this);
         viewFlipper = headview.findViewById(R.id.filpper);
-        list1.add("恭喜");
-        list1.add("恭喜");
-        list1.add("恭喜");
-        list2.add("小麦");
-        list2.add("小米");
-        list2.add("小哥");
-        list3.add("购买了大礼包");
-        list3.add("购买了永恒之星");
-        list3.add("购买了香奈儿");
-
         winningInfoDialog = new WinningInfoDialog(getContext(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,24 +134,60 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
         });
         winningInfoDialog.show();
         viewFlipper.getVerticalScrollbarPosition();
+        getData("","");
+    }
+    Map<String,String> map = new HashMap<>();
 
-
-        for (int i = 0; i < 3; i++) {
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_flipper, null);
-            TextView tv1 = view.findViewById(R.id.tv_1);
-            TextView tv2 = view.findViewById(R.id.tv_2);
-            TextView tv3 = view.findViewById(R.id.tv_3); tv1.setText(list1.get(i));
-            tv2.setText(list2.get(i));
-            tv3.setText(list3.get(i));
-            viewFlipper.addView(view);
+    public void getData(String isnew,String is_price){
+        if (!TextUtils.isEmpty(isnew)){
+            map.put("is_new",isnew);
+        }else if (!TextUtils.isEmpty(is_price)){
+            map.put("is_price",is_price);
         }
-        viewFlipper.startFlipping();
+        getHttpService().index(map)
+                .compose(this.apply())
+                .subscribe(new BaseSubscriber<BasicModel<HomeBean>>(getContext()) {
+                    @Override
+                    protected void onDoNext(BasicModel<HomeBean> basicModel) {
+                        imgList.clear();
+                        String images = basicModel.getData().getLunbo().get(0).getGoods_imgss();
+                        String[] image=images.split(";");
+                        for (int i = 0;i<image.length;i++){
+                            imgList.add("http://39.98.62.92/static/uploads/"+image[i]);
+                        }
+                        f1_banner.setImages(imgList)
+                                .setImageLoader(new GlideImageLoader())
+                                .start();
+                        list.clear();
+                        list.addAll(basicModel.getData().getList());
+                        firstAdapter.notifyDataSetChanged();
+                        list1.clear();
+                        list2.clear();
+                        list3.clear();
+                        for (int i = 0;i<basicModel.getData().getPrise().size();i++){
+                            list1.add("恭喜");
+                            list2.add(basicModel.getData().getPrise().get(i).getUsername());
+                            list3.add("购买了"+basicModel.getData().getPrise().get(i).getName());
+                        }
+                        verText();
+//                        Toast.makeText(getContext(), basicModel.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-        getData();
     }
 
-    public void getData(){
-        firstAdapter.notifyDataSetChanged();
+    public void verText(){
+        for (int i = 0; i < 3; i++) {
+            View view1 = LayoutInflater.from(getContext()).inflate(R.layout.item_flipper, null);
+            TextView tv1 = view1.findViewById(R.id.tv_1);
+            TextView tv2 = view1.findViewById(R.id.tv_2);
+            TextView tv3 = view1.findViewById(R.id.tv_3);
+            tv1.setText(list1.get(i));
+            tv2.setText(list2.get(i));
+            tv3.setText(list3.get(i));
+            viewFlipper.addView(view1);
+        }
+        viewFlipper.startFlipping();
     }
 
     boolean isUp = false;
@@ -164,16 +196,19 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.rb_all:
+                getData("","");
                 setLabState(v.getId());
                 firstAdapter.setAdapterType(1);
                 break;
             case R.id.rb_price:
                 firstAdapter.setAdapterType(2);
                 if (isUp){
+                    getData("","desc");
                     imgUp.setImageResource(R.mipmap.go_top);
                     imgDown.setImageResource(R.mipmap.go_bottom_select);
                     isUp = false;
                 }else {
+                    getData("","asc");
                     imgUp.setImageResource(R.mipmap.go_top_select);
                     imgDown.setImageResource(R.mipmap.go_bottom);
                     isUp = true;
@@ -181,6 +216,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener, OnR
                 setLabState(v.getId());
                 break;
             case R.id.rb_ing:
+                getData("1","");
                 firstAdapter.setAdapterType(3);
                 setLabState(v.getId());
                 break;
